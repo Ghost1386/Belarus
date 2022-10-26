@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus", "Belarus\Belarus.csproj", "{0C0FAB25-259E-44C5-8566-52C782A1CD61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.BusinessLogic", "Belarus.BusinessLogic\Belarus.BusinessLogic.csproj", "{1FCFE9D3-9C32-4192-812C-95444131271B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Common", "Belarus.Common\Belarus.Common.csproj", "{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{0C0FAB25-259E-44C5-8566-52C782A1CD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C0FAB25-259E-44C5-8566-52C782A1CD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C0FAB25-259E-44C5-8566-52C782A1CD61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCFE9D3-9C32-4192-812C-95444131271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCFE9D3-9C32-4192-812C-95444131271B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCFE9D3-9C32-4192-812C-95444131271B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCFE9D3-9C32-4192-812C-95444131271B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

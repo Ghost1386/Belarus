@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Appeal from '../pages/Appeal';
 
 const Header = () => {

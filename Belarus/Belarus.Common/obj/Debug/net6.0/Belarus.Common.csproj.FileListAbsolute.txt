@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\bin\Debug\net6.0\Belarus.Common.deps.json
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\bin\Debug\net6.0\Belarus.Common.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\bin\Debug\net6.0\Belarus.Common.pdb
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.AssemblyInfo.cs
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\refint\Belarus.Common.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\Belarus.Common.pdb
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.Common\obj\Debug\net6.0\ref\Belarus.Common.dll

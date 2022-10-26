@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\bin\Debug\net6.0\Belarus.BusinessLogic.deps.json
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\bin\Debug\net6.0\Belarus.BusinessLogic.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\bin\Debug\net6.0\Belarus.BusinessLogic.pdb
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\bin\Debug\net6.0\Belarus.Common.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\bin\Debug\net6.0\Belarus.Common.pdb
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.AssemblyInfo.cs
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.csproj.CopyComplete
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\refint\Belarus.BusinessLogic.dll
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\Belarus.BusinessLogic.pdb
+C:\Users\user\Desktop\Belarus\Belarus\Belarus.BusinessLogic\obj\Debug\net6.0\ref\Belarus.BusinessLogic.dll
