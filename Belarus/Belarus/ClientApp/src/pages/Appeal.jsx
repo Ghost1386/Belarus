@@ -27,32 +27,32 @@ class Appeal extends React.Component {
     'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-    name: this.state.name,
-    document: this.state.mail,
-    email: this.state.theme,
-    phone: this.state.text
+        name: this.state.name,
+        mail: this.state.mail,
+        theme: this.state.theme,
+        text: this.state.text
     })
     })
     .then(res => res.json())
     .catch(err => console.log(err));
     }
     render() {
-    return <Form onSubmit={this.props.user ? this.submitEdit : this.submitNew}>
+    return <Form onSubmit={this.submitNew}>
     <FormGroup>
     <Label for="name">ФИО:</Label>
     <Input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
     </FormGroup>
     <FormGroup>
     <Label for="document">ПОЧТА:</Label>
-    <Input type="text" name="document" onChange={this.onChange} value={this.state.document === null ? '' : this.state.document} />
+    <Input type="text" name="mail" onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
     </FormGroup>
     <FormGroup>
     <Label for="email">ТЕМА:</Label>
-    <Input type="email" name="email" onChange={this.onChange} value={this.state.email === null ? '' : this.state.email} />
+    <Input type="email" name="theme" onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
     </FormGroup>
     <FormGroup>
     <Label for="phone">ТЕКСТ:</Label>
-    <Input type="text" name="phone" onChange={this.onChange} value={this.state.phone === null ? '' : this.state.phone}
+    <Input type="text" name="text" onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
     />
     </FormGroup>
     <Button>Send</Button>

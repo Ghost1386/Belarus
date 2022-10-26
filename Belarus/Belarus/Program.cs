@@ -1,9 +1,14 @@
+using Belarus.BusinessLogic.Interfaces;
+using Belarus.BusinessLogic.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
+
+builder.Services.AddTransient<IAppealService, AppealService>();
 
 builder.Services.AddCors(options =>
 { 

@@ -11,8 +11,8 @@ public class AppealService : IAppealService
     {
         var emailMessage = new MimeMessage();
  
-        emailMessage.From.Add(new MailboxAddress("Электронное обращение", "egor555.novik@gmail.com"));
-        emailMessage.To.Add(new MailboxAddress("", "egor555.novik@gmail.com"));
+        emailMessage.From.Add(new MailboxAddress("Электронное обращение", "lemif1008@yandex.by"));
+        emailMessage.To.Add(new MailboxAddress("", "lemif1008@yandex.by"));
         emailMessage.Subject = model.Theme;
         emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
         {
@@ -20,8 +20,8 @@ public class AppealService : IAppealService
         };
 
         using var client = new SmtpClient();
-        await client.ConnectAsync("egor555.novik@gmail.com", 25, false);
-        await client.AuthenticateAsync("egor555.novik@gmail.com", "avetul228");
+        await client.ConnectAsync("smtp.yandex.ru", 587, false);
+        await client.AuthenticateAsync("lemif1008@yandex.by", "gppuvgccemqdjtfd");
         await client.SendAsync(emailMessage);
  
         await client.DisconnectAsync(true);
