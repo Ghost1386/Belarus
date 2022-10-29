@@ -1,13 +1,12 @@
 .container {
     padding: 2.5rem 10%;
     padding-top: 0;
-}
+} 
 
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .logo1 {
@@ -40,3 +39,27 @@ padding-right: 2rem;
     height: 2.5rem;
     padding: 1rem;
 }
+
+.nav {
+&__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 3.5rem;
+}
+
+&__item {
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.15rem;
+
+        span {
+            color: #DC2F4A;
+            font-weight: 700;
+        }
+    }
+}
+}
+

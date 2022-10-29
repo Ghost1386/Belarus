@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
+
 const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
 
 class Appeal extends React.Component {
@@ -37,26 +38,25 @@ class Appeal extends React.Component {
     .catch(err => console.log(err));
     }
     render() {
-    return <Form onSubmit={this.submitNew}>
-    <FormGroup>
-    <Label for="name">ФИО:</Label>
-    <Input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
-    </FormGroup>
-    <FormGroup>
-    <Label for="document">ПОЧТА:</Label>
-    <Input type="text" name="mail" onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
-    </FormGroup>
-    <FormGroup>
-    <Label for="email">ТЕМА:</Label>
-    <Input type="email" name="theme" onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
-    </FormGroup>
-    <FormGroup>
-    <Label for="phone">ТЕКСТ:</Label>
-    <Input type="text" name="text" onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
+    return <form onSubmit={this.submitNew}>
+    
+    <label for="name">ФИО:</label>
+    <input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
+    
+    
+    <label for="document">ПОЧТА:</label>
+    <input type="text" name="mail" onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
+    
+    
+    <label for="email">ТЕМА:</label>
+    <input type="email" name="theme" onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    
+    <label for="phone">ТЕКСТ:</label>
+    <input type="text" name="text" onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
     />
-    </FormGroup>
+    
     <Button>Send</Button>
-    </Form>;
+    </form>;
     }
     }
     export default Appeal;

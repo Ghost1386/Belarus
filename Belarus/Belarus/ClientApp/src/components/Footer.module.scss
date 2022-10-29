@@ -1,0 +1,36 @@
+
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+    background-color: #484848;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+}
+
+.list {
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+.title {
+    color: #fff;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    font-size: 3rem;
+}
