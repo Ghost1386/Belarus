@@ -6,10 +6,8 @@ import Footer from '../components/Footer';
 const Main = () => {
     return (
         <div>
-            <Header/>
             <About/>
             <Advertisement/>
-            <Footer/>
         </div>
     );
 };

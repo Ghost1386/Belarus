@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import styles from './Appeal.module.scss';
 
 
 const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
@@ -38,25 +39,27 @@ class Appeal extends React.Component {
     .catch(err => console.log(err));
     }
     render() {
-    return <form onSubmit={this.submitNew}>
+    return  <div className={styles.container}>
+    <form onSubmit={this.submitNew} className={styles.form}>
     
-    <label for="name">ФИО:</label>
-    <input type="text" name="name" onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
-    
-    
-    <label for="document">ПОЧТА:</label>
-    <input type="text" name="mail" onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
+    <label htmlFor="name" className={styles.form__label}>ФИО</label>
+    <input type="text" name="name" className={styles.form__input} onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
     
     
-    <label for="email">ТЕМА:</label>
-    <input type="email" name="theme" onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    <label htmlFor="document" className={styles.form__label}>Адрес элетронной почты (e-mail)</label>
+    <input type="text" name="mail" className={styles.form__input} onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
     
-    <label for="phone">ТЕКСТ:</label>
-    <input type="text" name="text" onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
+    
+    <label htmlFor="email" className={styles.form__label}>Тема обращения</label>
+    <input type="email" name="theme" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    
+    <label htmlFor="phone" className={styles.form__label}>Текст обращения</label>
+    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
     />
     
-    <Button>Send</Button>
-    </form>;
+    <button className={styles.form__button}><a href="/#">Подробнее</a></button>
+    </form>
+    </div>;
     }
     }
     export default Appeal;
