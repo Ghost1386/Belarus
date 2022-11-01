@@ -1,13 +1,15 @@
-import Header from '../components/Header';
+
 import About from '../components/About';
 import Advertisement from '../components/Advertisement';
-import Footer from '../components/Footer';
+import { FileUpload } from '../components/FileUpload';
+
 
 const Main = () => {
     return (
         <div>
             <About/>
             <Advertisement/>
+            <FileUpload/>
         </div>
     );
 };
