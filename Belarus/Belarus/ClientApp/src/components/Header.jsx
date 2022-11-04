@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-import Appeal from '../pages/Appeal';
+
 
 const Header = () => {
     return (
