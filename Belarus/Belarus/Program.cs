@@ -1,5 +1,6 @@
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.BusinessLogic.Services;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IAppealService, AppealService>();
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MemoryBufferThreshold = int.MaxValue;
+});
 
 builder.Services.AddCors(options =>
 { 

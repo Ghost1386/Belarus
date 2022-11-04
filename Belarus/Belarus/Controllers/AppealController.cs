@@ -19,20 +19,21 @@ public class AppealController  : ControllerBase
     
     [Route("post")]
     [HttpPost]
-    public IActionResult Post([FromBody] AppealDto model)
+    public IActionResult Post([FromForm] AppealDto appealDto)
     {
         try
         {
-            _appealService.AppealSend(model);
+            _appealService.AppealSend(appealDto);
         
-            _logger.LogInformation($"Send new appeal");
+            _logger.LogInformation($"Sended new appeal");
             
             return Ok();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogInformation($"{e}");
+
+            return BadRequest();
         }
     }
 }
