@@ -1,52 +1,76 @@
 import React from 'react';
-import { useState } from 'react';
+import styles from './Appeal.module.scss';
 import axios from 'axios';
 
 
-function Appeal() {
+const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
 
-    const [name, setName] = useState('');
-    const [mail, setMail] = useState('');
-
-    const handleNameChange = (value) => {
-        setName(value);
-    };
-    const handleMailChange = (value) => {
-        setMail(value);
-    };
+class Appeal extends React.Component {
+    state = {
+        name: '',
+        mail: '',
+        theme: '',
+        text: '',
+        selectedFile: null
+        }
     
-
-    const handleSave = () => {
-        const data = {
-          Name : name,
-          Email : mail  
-        };
-const url ="http://localhost:7001/api/appeal/post";
-axios.post(url, data).then((result) =>{
-    alert(result.data);
-}).catch((error)=>{
-    alert(error);
-})
-
+        componentDidMount() {
+            if (this.props.user) {
+            const { name, mail, theme, text, selectedFile } = this.props.user
+                this.setState({ name, mail, theme, text, selectedFile });
+            }
+        
     }
+    onFileChange = e => {
+        this.setState({ selectedFile: e.target.files[0] });
+    }
+
+    onChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+    }
+    submitNew = async () => {
+        const formData = new FormData();
+
+        formData.append('formFile', this.state.selectedFile);
+        formData.append('fileName', this.state.selectedFile.name);
+        formData.append('name', this.state.name);
+        formData.append('mail', this.state.mail);
+        formData.append('theme', this.state.theme);
+        formData.append('text', this.state.text);
+
+        try {
+            const res = await axios.post(APPEAL_API_URL, formData);
+            console.log(res);
+        } catch (ex) {
+            console.log(ex);
+        }
+    }
+
+    render() {
+    return  <div className={styles.container}>
+    <form onSubmit={this.submitNew} className={styles.form}>
     
-    return (
-        <div>
-            <form >
-    
-    <label >ФИО</label>
-    <input type="text" onChange={(e)=> handleNameChange(e.target.value)}/>
+    <label htmlFor="name" className={styles.form__label}>ФИО</label>
+    <input type="text" name="name" className={styles.form__input} onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
     
     
-    <label >Адрес элетронной почты (e-mail)</label>
-    <input type="text"  onChange={(e)=> handleMailChange(e.target.value)}/>
+    <label htmlFor="document" className={styles.form__label}>Адрес элетронной почты (e-mail)</label>
+    <input type="text" name="mail" className={styles.form__input} onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
     
     
-    <button onClick={()=> handleSave()}>Подробнее</button>
+    <label htmlFor="email" className={styles.form__label}>Тема обращения</label>
+    <input type="email" name="theme" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    
+    <label htmlFor="phone" className={styles.form__label}>Текст обращения</label>
+    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
+    />
+    
+    <button className={styles.form__button}><a href="/#">Подробнее</a></button>
+    <input type="file" name="selectedFile" onChange={this.onFileChange}/>
     </form>
-        </div>
-    )
-}
+    </div>;
+    }
+    }
     export default Appeal;
 
     

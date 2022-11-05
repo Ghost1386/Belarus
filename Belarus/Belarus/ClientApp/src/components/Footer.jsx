@@ -23,7 +23,7 @@ const Footer = () => {
                         <p>belayaruspinsk@tut.by</p>
                     </li>
                 </ul>
-            <img src="" alt="#" />
+            <img src="../assets/images/footer-img.jpg" alt="#" />
             </div>
         </div>
     )
