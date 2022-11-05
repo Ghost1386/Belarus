@@ -8,7 +8,9 @@
     padding: 5rem;
     
     &__label {
-
+        color:#308F54;
+        font-weight: 700;
+        padding-top: 2rem;
     }
 
     &__input {
@@ -16,6 +18,14 @@
     }
 
     &__button {
-
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #DC2F4A ;
+        border-radius: 10rem;
+        width: 12rem;
+        height: 2.5rem;
+        font-size: 1.15rem;
+        margin-top: 2rem;
+        
     }
 }

@@ -65,7 +65,7 @@ class Appeal extends React.Component {
     <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
     />
     
-    <button className={styles.form__button}><a href="/#">Подробнее</a></button>
+    <button className={styles.form__button}>Подробнее</button>
     <input type="file" name="selectedFile" onChange={this.onFileChange}/>
     </form>
     </div>;
