@@ -1,43 +1,51 @@
 import React from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import styles from './Appeal.module.scss';
+import axios from 'axios';
 
 
 const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
 
 class Appeal extends React.Component {
     state = {
-    name: '',
-    mail: '',
-    theme: '',
-    text: ''
+        name: '',
+        mail: '',
+        theme: '',
+        text: '',
+        selectedFile: null
+        }
+    
+        componentDidMount() {
+            if (this.props.user) {
+            const { name, mail, theme, text, selectedFile } = this.props.user
+                this.setState({ name, mail, theme, text, selectedFile });
+            }
+        
     }
-    componentDidMount() {
-    if (this.props.user) {
-    const { name, mail, theme, text } = this.props.user
-    this.setState({ name, mail, theme, text});
+    onFileChange = e => {
+        this.setState({ selectedFile: e.target.files[0] });
     }
-    }
+
     onChange = e => {
     this.setState({ [e.target.name]: e.target.value })
     }
-    submitNew = e => {
-    e.preventDefault();
-    fetch(`${APPEAL_API_URL}`, {
-    method: 'post',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        name: this.state.name,
-        mail: this.state.mail,
-        theme: this.state.theme,
-        text: this.state.text
-    })
-    })
-    .then(res => res.json())
-    .catch(err => console.log(err));
+    submitNew = async () => {
+        const formData = new FormData();
+
+        formData.append('formFile', this.state.selectedFile);
+        formData.append('fileName', this.state.selectedFile.name);
+        formData.append('name', this.state.name);
+        formData.append('mail', this.state.mail);
+        formData.append('theme', this.state.theme);
+        formData.append('text', this.state.text);
+
+        try {
+            const res = await axios.post(APPEAL_API_URL, formData);
+            console.log(res);
+        } catch (ex) {
+            console.log(ex);
+        }
     }
+
     render() {
     return  <div className={styles.container}>
     <form onSubmit={this.submitNew} className={styles.form}>
@@ -58,6 +66,7 @@ class Appeal extends React.Component {
     />
     
     <button className={styles.form__button}><a href="/#">Подробнее</a></button>
+    <input type="file" name="selectedFile" onChange={this.onFileChange}/>
     </form>
     </div>;
     }
@@ -65,3 +74,5 @@ class Appeal extends React.Component {
     export default Appeal;
 
     
+
+

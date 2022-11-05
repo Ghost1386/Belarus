@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-import Appeal from '../pages/Appeal';
+
 
 const Header = () => {
     return (
@@ -23,7 +23,7 @@ const Header = () => {
                 <Link to="/">Новости</Link>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/">Фотогалерея</Link>
+                <Link to="/gallery">Фотогалерея</Link>
                 </li>
                 <li className={styles.nav__item}>
                 <Link to="/">Документы</Link>
