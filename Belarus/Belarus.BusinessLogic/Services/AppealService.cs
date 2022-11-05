@@ -7,25 +7,34 @@ namespace Belarus.BusinessLogic.Services;
 
 public class AppealService : IAppealService
 {
-    public async void AppealSend(AppealDto model)
+    public async void AppealSend(AppealDto appealDto)
     {
         try
         {
-            var emailMessage = new MimeMessage();
+           var message = new MimeMessage();
  
-            emailMessage.From.Add(new MailboxAddress("Электронное обращение", "lemif1008@yandex.by"));
-            emailMessage.To.Add(new MailboxAddress("", "lemif1008@yandex.by"));
-            emailMessage.Subject = model.Theme;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            message.From.Add(new MailboxAddress("Электронное обращение", "lemif1008@yandex.by"));
+            message.To.Add(new MailboxAddress(appealDto.Name, "lemif1008@yandex.by"));
+            message.Subject = appealDto.Theme;
+
+            var bodyBuilder = new BodyBuilder
             {
-                Text = $"Почта для ответа:{model.Mail}\n" +
-                       $"Текст обращения:{model.Text}"
+                TextBody = $"Почта для ответа:{appealDto.Mail}\n" +
+                           $"{appealDto.Name}\n" + 
+                           $"Текст обращения:\n{appealDto.Text}"
             };
+
+            if (!string.IsNullOrEmpty(appealDto.FileName))
+            {
+                await bodyBuilder.Attachments.AddAsync(appealDto.FileName, appealDto.FormFile.OpenReadStream());
+            }
+
+            message.Body = bodyBuilder.ToMessageBody();
 
             using var client = new SmtpClient();
             await client.ConnectAsync("smtp.yandex.ru", 587, false);
             await client.AuthenticateAsync("lemif1008@yandex.by", "gppuvgccemqdjtfd");
-            await client.SendAsync(emailMessage);
+            await client.SendAsync(message);
  
             await client.DisconnectAsync(true);
         }

@@ -14,4 +14,8 @@
       <PackageReference Include="MailKit" Version="3.4.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Mvc.Core" />
+    </ItemGroup>
+
 </Project>
