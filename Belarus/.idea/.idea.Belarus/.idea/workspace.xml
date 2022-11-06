@@ -6,7 +6,16 @@
     <projectFile profileName="SocialNetwork">Belarus/Belarus.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed34abdf-de9a-446f-9106-b06bd49fc45c" name="Changes" comment="" />
+    <list default="true" id="ed34abdf-de9a-446f-9106-b06bd49fc45c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/Services/AppealService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/Services/AppealService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/ref/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/ref/Belarus.BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/refint/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/refint/Belarus.BusinessLogic.dll" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,6 +119,8 @@
       <workItem from="1667310539928" duration="1301000" />
       <workItem from="1667568899862" duration="4000" />
       <workItem from="1667665124504" duration="9709000" />
+      <workItem from="1667680265310" duration="444000" />
+      <workItem from="1667731273895" duration="823000" />
     </task>
     <task id="LOCAL-00001" summary="add project files">
       <created>1666735248410</created>
@@ -146,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667311794881</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add files to email message">
+      <created>1667680428491</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667680428491</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +189,7 @@
     <MESSAGE value="fix route" />
     <MESSAGE value="add appeal" />
     <MESSAGE value="add back with file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add back with file" />
+    <MESSAGE value="add files to email message" />
+    <option name="LAST_COMMIT_MESSAGE" value="add files to email message" />
   </component>
 </project>

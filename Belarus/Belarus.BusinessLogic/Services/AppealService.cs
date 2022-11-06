@@ -13,13 +13,13 @@ public class AppealService : IAppealService
         {
            var message = new MimeMessage();
  
-            message.From.Add(new MailboxAddress("Электронное обращение", "lemif1008@yandex.by"));
-            message.To.Add(new MailboxAddress(appealDto.Name, "lemif1008@yandex.by"));
+            message.From.Add(new MailboxAddress("Электронное обращение", "PinskBelayaRus@yandex.ru"));
+            message.To.Add(new MailboxAddress(appealDto.Name, "PinskBelayaRus@yandex.ru"));
             message.Subject = appealDto.Theme;
 
             var bodyBuilder = new BodyBuilder
             {
-                TextBody = $"Почта для ответа:{appealDto.Mail}\n" +
+                TextBody = $"Почта для ответа: {appealDto.Mail}\n" +
                            $"{appealDto.Name}\n" + 
                            $"Текст обращения:\n{appealDto.Text}"
             };
@@ -33,7 +33,7 @@ public class AppealService : IAppealService
 
             using var client = new SmtpClient();
             await client.ConnectAsync("smtp.yandex.ru", 587, false);
-            await client.AuthenticateAsync("lemif1008@yandex.by", "gppuvgccemqdjtfd");
+            await client.AuthenticateAsync("PinskBelayaRus@yandex.ru", "bedylpbdtrimrudo");
             await client.SendAsync(message);
  
             await client.DisconnectAsync(true);
