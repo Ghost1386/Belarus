@@ -17,6 +17,10 @@ ul {
     align-items: center;
     flex-wrap: wrap;
     padding-top: 1rem;
+
+    img {
+        border-radius: 1rem;
+    }
 }
 
 .list {

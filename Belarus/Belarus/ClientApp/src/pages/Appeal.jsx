@@ -54,19 +54,20 @@ class Appeal extends React.Component {
     <input type="text" name="name" className={styles.form__input} onChange={this.onChange} value={this.state.name === '' ? '' : this.state.name} />
     
     
-    <label htmlFor="document" className={styles.form__label}>Адрес элетронной почты (e-mail)</label>
-    <input type="text" name="mail" className={styles.form__input} onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
+    <label htmlFor="mail" className={styles.form__label}>Адрес элетронной почты (e-mail)</label>
+    <input type="email" name="mail" className={styles.form__input} onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
     
     
-    <label htmlFor="email" className={styles.form__label}>Тема обращения</label>
-    <input type="email" name="theme" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    <label htmlFor="theme" className={styles.form__label}>Тема обращения</label>
+    <input type="text" name="theme" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
     
-    <label htmlFor="phone" className={styles.form__label}>Текст обращения</label>
-    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}
-    />
+    <label htmlFor="text" className={styles.form__label}>Текст обращения</label>
+    <input type="text" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}/>
     
-    <button className={styles.form__button}>Подробнее</button>
-    <input type="file" name="selectedFile" onChange={this.onFileChange}/>
+    <label htmlFor="file" className={styles.form__label}>Прикрепить файлы</label>
+    <input type="file" name="selectedFile" onChange={this.onFileChange} className={styles.form__inputfile}/>
+    
+    <button className={styles.form__button} onClick={() => {if (this.state.name === '') return alert('введите имя')}}>Отправить</button>
     </form>
     </div>;
     }
@@ -74,5 +75,3 @@ class Appeal extends React.Component {
     export default Appeal;
 
     
-
-
