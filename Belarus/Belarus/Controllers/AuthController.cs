@@ -19,7 +19,7 @@ public class AuthController : ControllerBase
 
     [Route("post")]
     [HttpPost]
-    public IActionResult Post([FromForm] AuthDto authDto) 
+    public IActionResult Post([FromBody] AuthDto authDto) 
     {
         try
         {
@@ -27,12 +27,12 @@ public class AuthController : ControllerBase
             
             if (!string.IsNullOrEmpty(token))
             {
-                _logger.LogInformation("{DateTime.Now}: Admin logged in");
+                _logger.LogInformation($"{DateTime.Now}: Admin logged in");
             
                 return Ok(token);
             }
         
-            _logger.LogWarning("{DateTime.Now}: Failed login attempt");
+            _logger.LogWarning($"{DateTime.Now}: Failed login attempt");
 
             return StatusCode(401);
         }
