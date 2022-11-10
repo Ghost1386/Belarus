@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 const AUTH_API_URL = 'http://localhost:7001/api/auth/post';
-const token = '';
 
 export default function Register () {
     const [register, setRegister] = useState(() => {
@@ -25,7 +24,8 @@ export default function Register () {
     const submitChackin = e => {
 
         e.preventDefault();
-        fetch(`${AUTH_API_URL}`, {
+
+        const token = fetch(`${AUTH_API_URL}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ export default function Register () {
         })
             .then(res => res.json())
 
-        localStorage.setItem('Belarus', token);
+        localStorage.setItem('token', token);
     }
     return (
         <div className="form">
