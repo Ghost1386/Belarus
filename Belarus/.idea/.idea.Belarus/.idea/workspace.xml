@@ -8,13 +8,41 @@
   <component name="ChangeListManager">
     <list default="true" id="ed34abdf-de9a-446f-9106-b06bd49fc45c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/Services/AppealService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/Services/AppealService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/Belarus.BusinessLogic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/Belarus.BusinessLogic.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Belarus.BusinessLogic.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Belarus.BusinessLogic.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Belarus.BusinessLogic.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Belarus.BusinessLogic.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/ref/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/ref/Belarus.BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/refint/Belarus.BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/refint/Belarus.BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.BusinessLogic/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/bin/Debug/net6.0/Belarus.Common.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/bin/Debug/net6.0/Belarus.Common.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/bin/Debug/net6.0/Belarus.Common.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/bin/Debug/net6.0/Belarus.Common.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Belarus.Common.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Belarus.Common.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/Belarus.Common.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/ref/Belarus.Common.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/ref/Belarus.Common.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/refint/Belarus.Common.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/Debug/net6.0/refint/Belarus.Common.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus.Common/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus.Common/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/Belarus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus/Belarus.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/ClientApp/src/pages/Sign.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus/ClientApp/src/pages/Sign.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/Controllers/AppealController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus/Controllers/AppealController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/Controllers/UsersController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/Models/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Belarus/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Belarus/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +52,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="file-upload-test" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6518e12429e640b855e84dbcb556279a6dcdecc0f25132fcbc5510f956f771e7/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b12ad9547e42ca3978b2148023a81a888a7874c1b210dc6def9fc0e7739e19/AsyncVoidMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c1da7b6c7c71a954fe3eb2531c6476711b3e6d93a8d76795386d326bb9dbc/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Belarus.BusinessLogic/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
@@ -120,7 +149,8 @@
       <workItem from="1667568899862" duration="4000" />
       <workItem from="1667665124504" duration="9709000" />
       <workItem from="1667680265310" duration="444000" />
-      <workItem from="1667731273895" duration="823000" />
+      <workItem from="1667731273895" duration="1472000" />
+      <workItem from="1668087300232" duration="7414000" />
     </task>
     <task id="LOCAL-00001" summary="add project files">
       <created>1666735248410</created>
@@ -164,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667680428491</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change email address">
+      <created>1667732308787</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667732308787</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +227,26 @@
     <MESSAGE value="add appeal" />
     <MESSAGE value="add back with file" />
     <MESSAGE value="add files to email message" />
-    <option name="LAST_COMMIT_MESSAGE" value="add files to email message" />
+    <MESSAGE value="change email address" />
+    <option name="LAST_COMMIT_MESSAGE" value="change email address" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Belarus/Controllers/AuthController.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Users\user\Desktop\Belarus\Belarus\Belarus\Controllers\AuthController.cs" initialLine="23" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="598" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1150" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

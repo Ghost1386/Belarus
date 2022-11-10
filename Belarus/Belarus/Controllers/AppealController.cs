@@ -25,13 +25,13 @@ public class AppealController  : ControllerBase
         {
             _appealService.AppealSend(appealDto);
         
-            _logger.LogInformation($"Sended new appeal");
+            _logger.LogInformation($"{DateTime.Now}: Sended new appeal");
             
             return Ok();
         }
         catch (Exception e)
         {
-            _logger.LogInformation($"{e}");
+            _logger.LogError($"{DateTime.Now}: {e}");
 
             return BadRequest();
         }
