@@ -1,11 +1,6 @@
-
-
 import React, { useState } from 'react'
-import axios from 'axios';
-
 
 const AUTH_API_URL = 'http://localhost:7001/api/auth/post';
-const AUTH_SITE_URL = 'https://localhost:44458/sign';
 const token = '';
 
 export default function Register () {
@@ -27,21 +22,22 @@ export default function Register () {
     }
      
      
-    const submitChackin = event => {
-        event.preventDefault();
+    const submitChackin = e => {
 
-        
-            axios.post(AUTH_API_URL, {
-                username: register.login,
-                password: register.password,
-            }).then(res => {
-                if (res.data === true) {
-                    window.location.href = AUTH_SITE_URL;
-                } 
-            }).catch(() => {
-                alert("An error occurred on the server")
+        e.preventDefault();
+        fetch(`${AUTH_API_URL}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                login: register.login,
+                password: register.password
             })
-            localStorage.setItem('token', token);
+        })
+            .then(res => res.json())
+
+        localStorage.setItem('Belarus', token);
     }
     return (
         <div className="form">
