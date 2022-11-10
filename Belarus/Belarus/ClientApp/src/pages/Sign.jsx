@@ -11,7 +11,7 @@ const token = '';
 export default function Register () {
     const [register, setRegister] = useState(() => {
         return {
-            username: "",
+            login: "",
             password: "",
         }
     })
@@ -32,7 +32,7 @@ export default function Register () {
 
         
             axios.post(AUTH_API_URL, {
-                username: register.username,
+                username: register.login,
                 password: register.password,
             }).then(res => {
                 if (res.data === true) {
@@ -47,11 +47,11 @@ export default function Register () {
         <div className="form">
             <h2>Register user:</h2>
             <form onSubmit={submitChackin}>
-                <p>Name: <input 
-                type="username"
-                id="username"
-                name="username"
-                value={register.usernamr}
+                <p>Login: <input 
+                type="login"
+                id="login"
+                name="login"
+                value={register.login}
                 onChange={changeInputRegister}
                 /></p>
                 
