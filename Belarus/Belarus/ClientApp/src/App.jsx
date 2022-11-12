@@ -6,6 +6,7 @@ import Appeal from './pages/Appeal';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './pages/Gallery';
 import Sign from './pages/Sign';
+import Admin from './pages/Admin';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/appeal" element={<Appeal />}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
         <Route path="/sign" element={<Sign />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
     </Routes>
     <Footer />
 </div>
