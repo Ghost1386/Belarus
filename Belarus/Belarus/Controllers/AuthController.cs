@@ -1,6 +1,7 @@
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Belarus.Controllers;
 
@@ -28,8 +29,11 @@ public class AuthController : ControllerBase
             if (!string.IsNullOrEmpty(token))
             {
                 _logger.LogInformation($"{DateTime.Now}: Admin logged in");
-            
-                return Ok(token);
+
+                var jsonToken = JsonSerializer.Serialize(token);
+
+
+                return Ok(jsonToken);
             }
         
             _logger.LogWarning($"{DateTime.Now}: Failed login attempt");

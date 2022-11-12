@@ -14,15 +14,22 @@ public class AuthService : IAuthService
 {
     private readonly string? _requiredLogin;
     private readonly string? _requiredPassword;
-    private readonly IConfiguration _configuration;
+    private readonly string? _jwtSubject;
+    private readonly string? _jwtKey;
+    private readonly string? _jwtIssuer;
+    private readonly string? _jwtAudience;
+
     private readonly IHashService _hashService;
 
     public AuthService(IConfiguration configuration, IHashService hashService)
     {
-        _configuration = configuration;
         _hashService = hashService;
         _requiredLogin = configuration["Authentication:Login"];
         _requiredPassword = configuration["Authentication:Password"];
+        _jwtSubject = configuration["Jwt:Subject"];
+        _jwtKey = configuration["Jwt:Key"];
+        _jwtIssuer = configuration["Jwt:Issuer"];
+        _jwtAudience = configuration["Jwt:Audience"];
     }
 
     public string CheckAuthorization(AuthDto authDto)
@@ -33,18 +40,18 @@ public class AuthService : IAuthService
             hashPassword == _requiredPassword)
         {
             var claims = new[] {
-                new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Sub, _jwtSubject),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString(CultureInfo.CurrentCulture)),
                 new Claim("Login", authDto.Login),
                 new Claim("Password", hashPassword)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtKey));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Audience"],
+                _jwtIssuer,
+                _jwtAudience,
                 claims,
                 expires: DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: signIn);
