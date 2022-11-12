@@ -73,10 +73,11 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+/Belarus/.idea
 /Belarus/.vs
-/Belarus.BusinessLogic/obj
-/Belarus.BusinessLogic/bin
-/Belarus.Common/obj
-/Belarus.Common/bin
-/Belarus/bin
-/Belarus/obj
+/Belarus/Belarus.BusinessLogic/obj
+/Belarus/Belarus.BusinessLogic/bin
+/Belarus/Belarus.Common/obj
+/Belarus/Belarus.Common/bin
+/Belarus/Belarus/bin
+/Belarus/Belarus/obj
