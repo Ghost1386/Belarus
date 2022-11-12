@@ -74,3 +74,9 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 /Belarus/.vs
+/Belarus.BusinessLogic/obj
+/Belarus.BusinessLogic/bin
+/Belarus.Common/obj
+/Belarus.Common/bin
+/Belarus/bin
+/Belarus/obj
