@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]" date="1668252779979" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/12/2022 2:32 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.Common/bin/Debug/net6.0/Belarus.Common.dll" />
+    <option name="AFTER_PATH" value="Belarus.Common/bin/Debug/net6.0/Belarus.Common.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="AFTER_PATH" value="Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.Common/obj/Debug/net6.0/Belarus.Common.dll" />
+    <option name="AFTER_PATH" value="Belarus.Common/obj/Debug/net6.0/Belarus.Common.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.dll" />
+    <option name="AFTER_PATH" value="Belarus.BusinessLogic/bin/Debug/net6.0/Belarus.Common.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common2.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.Common/bin/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="AFTER_PATH" value="Belarus.Common/bin/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Belarus.BusinessLogic/obj/Debug/net6.0/Belarus.BusinessLogic.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.BusinessLogic.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Belarus.Common/obj/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="AFTER_PATH" value="Belarus.Common/obj/Debug/net6.0/Belarus.Common.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Belarus/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_32_PM_[Changes]/Belarus.Common2.pdb" />
+  </binary>
+</changelist>

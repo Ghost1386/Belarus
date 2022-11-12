@@ -31,8 +31,7 @@ public class AuthController : ControllerBase
                 _logger.LogInformation($"{DateTime.Now}: Admin logged in");
 
                 var jsonToken = JsonSerializer.Serialize(token);
-
-
+                
                 return Ok(jsonToken);
             }
         

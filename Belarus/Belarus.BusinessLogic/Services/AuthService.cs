@@ -6,7 +6,6 @@ using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
 namespace Belarus.BusinessLogic.Services;
 
