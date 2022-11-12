@@ -30,7 +30,7 @@ import React from 'react';
 import styles from './Appeal.module.scss';
 import axios from 'axios';
 
-const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
+const ADMIN_API_URL = 'http://localhost:7001/api/admin/post';
 
 
 class Appeal extends React.Component {
@@ -38,20 +38,20 @@ class Appeal extends React.Component {
         date: '',
         title: '',
         text: '',
-        images: '',
+        photos: '',
         videoUrl: '' 
         }
     
         
         componentDidMount() {
             if (this.props.user) {
-            const { date, title, text, images, videoUrl } = this.props.user
-                this.setState({ date, title, text, images, videoUrl });
+            const { date, title, text, photos, videoUrl } = this.props.user
+                this.setState({ date, title, text, photos, videoUrl });
             }
         
     }
     onFileChange = e => {
-        this.setState({ images: e.target.files });
+        this.setState({ photos: e.target.files });
     }
 
     onChange = e => {
@@ -63,14 +63,14 @@ class Appeal extends React.Component {
         formData.append('date', this.state.data);
         formData.append('title', this.state.title);
         formData.append('text', this.state.text);
-        formData.append('images', this.state.images);
+        formData.append('photos', this.state.photos);
         
-        for (let i = 0; i < this.state.images.length; i++) {
-            formData.append('formFile', this.state.images[i]);
+        for (let i = 0; i < this.state.photos.length; i++) {
+            formData.append('formFile', this.state.photos[i]);
         }
 
         try {
-            const res = await axios.post(APPEAL_API_URL, formData);
+            const res = await axios.post(ADMIN_API_URL + '/newsCreate', formData);
             console.log(res);
         } catch (ex) {
             console.log(ex);
@@ -96,7 +96,7 @@ class Appeal extends React.Component {
     <input type="url" name="videoUrl" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
     
     <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
-    <input type="file" multiple name="images" onChange={this.onFileChange} className={styles.form__inputfile}/>
+    <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
     
     <button className={styles.form__button} onClick={() => {if (this.state.name === '') return alert('введите имя')}}>Отправить</button>
     </form>
