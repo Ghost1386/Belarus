@@ -1,36 +1,8 @@
-// import { useState } from "react";
-
-// const Admin = () => {
-
-//     const [isActive, setIsActive] = useState(false);
-    
-
-//     return (  
-//         <div>
-            
-//       <div className="accordion">
-//         <div className="accordion-item">
-//           <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
-//             <div>svsdvsvsdv</div>
-//             <div>{isActive ? '-' : '+'}</div>
-//           </div>
-//           {isActive && <div className="accordion-content">
-            
-//           </div>}
-//         </div>
-//       </div>
-   
-//         </div>
-//      );
-// };
-
-// export default Admin;
-
 import React from 'react';
 import styles from './Appeal.module.scss';
 import axios from 'axios';
 
-const ADMIN_API_URL = 'http://localhost:7001/api/admin/post';
+const ADMIN_API_URL = 'http://localhost:7001/api/admin';
 
 
 class Appeal extends React.Component {

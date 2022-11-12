@@ -1,12 +1,18 @@
 using System.Text;
+using AutoMapper;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.BusinessLogic.Services;
+using Belarus.Mapper;
+using Belarus.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
+
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
@@ -28,7 +34,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddTransient<IAppealService, AppealService>();
 builder.Services.AddTransient<IHashService, HashService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<INewsService, NewsService>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+var mappingConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MapperProfile());
+});
+
+IMapper mapper = mappingConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 builder.Services.Configure<FormOptions>(options =>
 {
