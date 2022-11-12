@@ -4,12 +4,10 @@ namespace Belarus.Common.DTOs;
 
 public class AppealDto
 {
-    public string Name { get; set; }
-    public string Mail { get; set; }
-    public string Theme { get; set; }
-    public string Text { get; set; }
-    
-    public string FileName { get; set; }
-    
-    public IFormFile FormFile { get; set; }
+    public string Name { get; set; } = null!;
+    public string Mail { get; set; } = null!;
+    public string Theme { get; set; } = null!;
+    public string Text { get; set; } = null!;
+
+    public List<IFormFile> FormFile { get; set; }
 }

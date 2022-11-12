@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Appeal.module.scss';
 import axios from 'axios';
 
-
 const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
+
 
 class Appeal extends React.Component {
     state = {
@@ -11,32 +11,35 @@ class Appeal extends React.Component {
         mail: '',
         theme: '',
         text: '',
-        selectedFile: null
+        filesList: []
         }
     
+        
         componentDidMount() {
             if (this.props.user) {
-            const { name, mail, theme, text, selectedFile } = this.props.user
-                this.setState({ name, mail, theme, text, selectedFile });
+            const { name, mail, theme, text, filesList } = this.props.user
+                this.setState({ name, mail, theme, text, filesList });
             }
         
     }
     onFileChange = e => {
-        this.setState({ selectedFile: e.target.files[0] });
+        this.setState({ filesList: e.target.files });
     }
 
     onChange = e => {
     this.setState({ [e.target.name]: e.target.value })
     }
-    submitNew = async () => {
+    submitNew = async (e) => {
         const formData = new FormData();
-
-        formData.append('formFile', this.state.selectedFile);
-        formData.append('fileName', this.state.selectedFile.name);
+        
         formData.append('name', this.state.name);
         formData.append('mail', this.state.mail);
         formData.append('theme', this.state.theme);
         formData.append('text', this.state.text);
+        
+        for (let i = 0; i < this.state.filesList.length; i++) {
+            formData.append('formFile', this.state.filesList[i]);
+        }
 
         try {
             const res = await axios.post(APPEAL_API_URL, formData);
@@ -65,7 +68,7 @@ class Appeal extends React.Component {
     <input type="text" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}/>
     
     <label htmlFor="file" className={styles.form__label}>Прикрепить файлы</label>
-    <input type="file" name="selectedFile" onChange={this.onFileChange} className={styles.form__inputfile}/>
+    <input type="file" multiple name="filesList" onChange={this.onFileChange} className={styles.form__inputfile}/>
     
     <button className={styles.form__button} onClick={() => {if (this.state.name === '') return alert('введите имя')}}>Отправить</button>
     </form>

@@ -1,4 +1,5 @@
-﻿using Belarus.BusinessLogic.Interfaces;
+﻿using System.Text.Json;
+using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,19 +20,19 @@ public class AppealController  : ControllerBase
     
     [Route("post")]
     [HttpPost]
-    public IActionResult Post([FromForm] AppealDto appealDto)
+    public IActionResult Post([FromForm] AppealDto appealDto )
     {
         try
         {
-            _appealService.AppealSend(appealDto);
+            // _appealService.AppealSend(appealDto);
         
-            _logger.LogInformation($"Sended new appeal");
+            _logger.LogInformation($"{DateTime.Now}: Sended new appeal");
             
             return Ok();
         }
         catch (Exception e)
         {
-            _logger.LogInformation($"{e}");
+            _logger.LogError($"{DateTime.Now}: {e}");
 
             return BadRequest();
         }

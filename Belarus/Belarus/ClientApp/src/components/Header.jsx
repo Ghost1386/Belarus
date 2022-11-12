@@ -26,10 +26,10 @@ const Header = () => {
                 <Link to="/gallery">Фотогалерея</Link>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/">Документы</Link>
+                <Link to="/sign">тест</Link>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/">Первичные организация</Link>
+                <Link to="/">лог</Link>
                 </li>
                 <li className={styles.nav__item}>
                 <Link to="/"><span>Вступить в организацию</span></Link>

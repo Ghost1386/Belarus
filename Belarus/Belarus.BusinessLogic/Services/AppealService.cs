@@ -24,10 +24,10 @@ public class AppealService : IAppealService
                            $"Текст обращения:\n{appealDto.Text}"
             };
 
-            if (!string.IsNullOrEmpty(appealDto.FileName))
-            {
-                await bodyBuilder.Attachments.AddAsync(appealDto.FileName, appealDto.FormFile.OpenReadStream());
-            }
+            // if (!string.IsNullOrEmpty(appealDto.FileName))
+            // {
+            //     await bodyBuilder.Attachments.AddAsync(appealDto.FileName, appealDto.FormFile.OpenReadStream());
+            // }
 
             message.Body = bodyBuilder.ToMessageBody();
 
