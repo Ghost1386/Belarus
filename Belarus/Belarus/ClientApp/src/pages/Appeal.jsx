@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Appeal.module.scss';
 import axios from 'axios';
 
-
 const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
+
 
 class Appeal extends React.Component {
     state = {
@@ -14,6 +14,7 @@ class Appeal extends React.Component {
         selectedFile: null
         }
     
+        
         componentDidMount() {
             if (this.props.user) {
             const { name, mail, theme, text, selectedFile } = this.props.user
@@ -23,6 +24,7 @@ class Appeal extends React.Component {
     }
     onFileChange = e => {
         this.setState({ selectedFile: e.target.files[0] });
+        
     }
 
     onChange = e => {
@@ -37,6 +39,7 @@ class Appeal extends React.Component {
         formData.append('mail', this.state.mail);
         formData.append('theme', this.state.theme);
         formData.append('text', this.state.text);
+        
 
         try {
             const res = await axios.post(APPEAL_API_URL, formData);
@@ -65,7 +68,7 @@ class Appeal extends React.Component {
     <input type="text" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}/>
     
     <label htmlFor="file" className={styles.form__label}>Прикрепить файлы</label>
-    <input type="file" name="selectedFile" onChange={this.onFileChange} className={styles.form__inputfile}/>
+    <input type="file" multiple name="selectedFile" onChange={this.onFileChange} className={styles.form__inputfile}/>
     
     <button className={styles.form__button} onClick={() => {if (this.state.name === '') return alert('введите имя')}}>Отправить</button>
     </form>
