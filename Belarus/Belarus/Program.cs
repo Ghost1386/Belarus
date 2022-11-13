@@ -35,6 +35,7 @@ builder.Services.AddTransient<IAppealService, AppealService>();
 builder.Services.AddTransient<IHashService, HashService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<INewsService, NewsService>();
+builder.Services.AddTransient<IPhotoService, PhotoService>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 var mappingConfig = new MapperConfiguration(mc =>
@@ -64,10 +65,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
