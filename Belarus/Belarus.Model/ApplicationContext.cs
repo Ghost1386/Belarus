@@ -7,9 +7,8 @@ public class ApplicationContext : DbContext
 {
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
     {
-        Database.EnsureCreated();
     }
     
-    public DbSet<News> News { get; set; }
-    public DbSet<Photo> Photos { get; set; }
+    public virtual DbSet<News> News { get; set; }
+    public virtual DbSet<Photo> Photos { get; set; }
 }
