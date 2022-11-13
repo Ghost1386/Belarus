@@ -44,7 +44,7 @@ public class NewsService : INewsService
         };
 
         _applicationContext.News.Add(news);
-        _applicationContext.SaveChangesAsync();
+        _applicationContext.SaveChanges();
 
         return true;
     }

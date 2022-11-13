@@ -10,6 +10,6 @@ public class ApplicationContext : DbContext
         Database.EnsureCreated();
     }
     
-    public virtual DbSet<News> News { get; set; }
-    public virtual DbSet<Photo> Photos { get; set; }
+    public DbSet<News> News { get; set; }
+    public DbSet<Photo> Photos { get; set; }
 }
