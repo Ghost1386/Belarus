@@ -2,6 +2,7 @@
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Belarus.Model;
+using Belarus.Model.Enums;
 using Belarus.Model.Models;
 
 namespace Belarus.BusinessLogic.Services;
@@ -10,11 +11,13 @@ public class NewsService : INewsService
 {
     private readonly IMapper _mapper;
     private readonly ApplicationContext _applicationContext;
-    
-    public NewsService(IMapper mapper, ApplicationContext applicationContext)
+    private readonly IPhotoService _photoService;
+
+    public NewsService(IMapper mapper, ApplicationContext applicationContext, IPhotoService photoService)
     {
         _mapper = mapper;
         _applicationContext = applicationContext;
+        _photoService = photoService;
     }
     
     public bool Get()
@@ -29,7 +32,16 @@ public class NewsService : INewsService
 
     public bool Create(NewsDto newsDto)
     {
-        var news = _mapper.Map<NewsDto, News>(newsDto);
+        var photos = _photoService.AddPhotos(newsDto.Photos, TypesEnum.News);
+
+        var news = new News
+        {
+            Title = newsDto.Title,
+            Text = newsDto.Text,
+            Date = newsDto.Date,
+            Photos = photos,
+            VideoUrl = newsDto.VideoUrl
+        };
 
         _applicationContext.News.Add(news);
         _applicationContext.SaveChangesAsync();
