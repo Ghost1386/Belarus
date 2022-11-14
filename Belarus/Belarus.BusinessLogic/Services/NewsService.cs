@@ -27,29 +27,35 @@ public class NewsService : INewsService
         throw new NotImplementedException();
     }
 
-    public bool GetAll()
+    public async bool GetAll()
     {
-        // var news = await _applicationContext.News.ToListAsync();
-        //
-        // var newsDto = new List<NewsDto>();
-        //
-        // foreach (var n in news)
-        // {
-        //     n.Photos = n.Photos.Where(photo => photo.Type == (int) TypesEnum.News).ToList();
-        //     
-        //     var photos = _photoService.
-        //     
-        //     // newsDto.Add(new NewsDto
-        //     // {
-        //     //     Title = n.Title,
-        //     //     Text = n.Text,
-        //     //     Date = n.Date,
-        //     //     Photos = ,
-        //     //     VideoUrl = n.VideoUrl
-        //     // });
-        // }
+        var news = await _applicationContext.News.Select(news => new News
+        {
+            Id = news.Id,
+            Date = news.Date,
+            Text = news.Text,
+            Title = news.Title,
+            VideoUrl = news.VideoUrl,
+            Photos = news.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
+        }).ToListAsync();
 
-        return true;
+        var newsDto = new List<GetNewsDto>();
+
+        foreach (var n in news)
+        {
+            n.Photos = n.Photos.Where(photo => photo.Type == (int)TypesEnum.News).ToList();
+
+              newsDto.Add(new GetNewsDto
+              {
+                  Title = n.Title,
+                  Text = n.Text,
+                  Date = n.Date,
+                  Photos = new byte[],
+                  VideoUrl = n.VideoUrl
+              });
+        }
+
+        return newsDto;
     }
 
     public bool Create(CreateNewsDto newsDto)
