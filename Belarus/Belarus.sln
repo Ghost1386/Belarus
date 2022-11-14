@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.BusinessLogic", "Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Common", "Belarus.Common\Belarus.Common.csproj", "{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Model", "Belarus.Model\Belarus.Model.csproj", "{745387EA-A65B-4C47-99E0-1B21B9EC9267}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Mapper", "Belarus.Mapper\Belarus.Mapper.csproj", "{8D045248-0DD4-4FB3-A0C4-C15B01735565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60138D91-2824-4D2A-A6EF-9B5EEB8EE1C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745387EA-A65B-4C47-99E0-1B21B9EC9267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745387EA-A65B-4C47-99E0-1B21B9EC9267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745387EA-A65B-4C47-99E0-1B21B9EC9267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745387EA-A65B-4C47-99E0-1B21B9EC9267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

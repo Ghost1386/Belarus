@@ -14,8 +14,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -28,6 +30,8 @@
     <ItemGroup>
       <ProjectReference Include="..\Belarus.BusinessLogic\Belarus.BusinessLogic.csproj" />
       <ProjectReference Include="..\Belarus.Common\Belarus.Common.csproj" />
+      <ProjectReference Include="..\Belarus.Mapper\Belarus.Mapper.csproj" />
+      <ProjectReference Include="..\Belarus.Model\Belarus.Model.csproj" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
@@ -55,4 +59,6 @@
             </ResolvedFileToPublish>
         </ItemGroup>
     </Target>
+
+    <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

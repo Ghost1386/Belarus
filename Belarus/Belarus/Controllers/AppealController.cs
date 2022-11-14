@@ -24,7 +24,7 @@ public class AppealController  : ControllerBase
     {
         try
         {
-            // _appealService.AppealSend(appealDto);
+            _appealService.AppealSend(appealDto);
         
             _logger.LogInformation($"{DateTime.Now}: Sended new appeal");
             

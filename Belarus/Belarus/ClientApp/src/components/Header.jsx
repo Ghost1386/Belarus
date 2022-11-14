@@ -29,7 +29,7 @@ const Header = () => {
                 <Link to="/sign">тест</Link>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/">лог</Link>
+                <Link to="/admin">лог</Link>
                 </li>
                 <li className={styles.nav__item}>
                 <Link to="/"><span>Вступить в организацию</span></Link>
