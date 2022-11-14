@@ -1,5 +1,6 @@
 ﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.NewsDto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -19,7 +20,7 @@ public class AdminController : ControllerBase
     
     [Route("newsCreate")]
     [HttpPost]
-    public IActionResult NewsCreate([FromForm] NewsDto newsDto )
+    public IActionResult NewsCreate([FromForm] CreateNewsDto newsDto )
     {
         try
         {

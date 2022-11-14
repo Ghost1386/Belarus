@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
 
-namespace Belarus.Common.DTOs;
+namespace Belarus.Common.DTOs.NewsDto;
 
-public class NewsDto
+public class CreateNewsDto
 {
     public string Title { get; set; }
     
