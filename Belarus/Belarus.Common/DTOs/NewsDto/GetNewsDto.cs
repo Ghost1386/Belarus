@@ -8,7 +8,7 @@ public class GetNewsDto
 
     public DateTime Date { get; set; }
     
-    public List<byte[]> Photos { get; set; }
+    public List<string> Photos { get; set; }
     
     public string VideoUrl { get; set; }
 }

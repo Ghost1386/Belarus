@@ -27,7 +27,7 @@ public class NewsService : INewsService
         throw new NotImplementedException();
     }
 
-    public async bool GetAll()
+    public async Task<List<GetNewsDto>> GetAll()
     {
         var news = await _applicationContext.News.Select(news => new News
         {
@@ -39,21 +39,7 @@ public class NewsService : INewsService
             Photos = news.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
         }).ToListAsync();
 
-        var newsDto = new List<GetNewsDto>();
-
-        foreach (var n in news)
-        {
-            n.Photos = n.Photos.Where(photo => photo.Type == (int)TypesEnum.News).ToList();
-
-              newsDto.Add(new GetNewsDto
-              {
-                  Title = n.Title,
-                  Text = n.Text,
-                  Date = n.Date,
-                  Photos = new byte[],
-                  VideoUrl = n.VideoUrl
-              });
-        }
+        var newsDto = _mapper.Map<List<News>, List<GetNewsDto>>(news);
 
         return newsDto;
     }

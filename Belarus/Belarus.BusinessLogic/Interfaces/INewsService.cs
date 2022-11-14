@@ -7,7 +7,7 @@ public interface INewsService
 {
     bool Get();
 
-    bool GetAll();
+    Task<List<GetNewsDto>> GetAll();
     
     bool Create(CreateNewsDto newsDto);
 

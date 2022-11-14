@@ -39,28 +39,4 @@ public class PhotoService : IPhotoService
         
         return photosInByteString;
     }
-
-    public List<byte[]> GetPhotos(List<Photo> photos)
-    {
-        var photoList = new List<byte[]>();
-        
-        foreach (var photo in photos)
-        {
-            photoList.Append(ConvertFormByteStringToByteArray(photo.PhotoInByteString));
-        }
-        
-        return photoList;
-    }
-    
-    private byte[] ConvertFormByteStringToByteArray(string byteString)
-    {
-        var byteList = new List<byte>();
-
-        foreach (var symbol in byteString)
-        {
-            byteList.Append(Convert.ToByte(symbol));
-        }
-
-        return byteList.ToArray();
-    }
 }
