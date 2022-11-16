@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './pages/Gallery';
 import Sign from './pages/Sign';
 import Admin from './pages/Admin';
-
+import News from './pages/News';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     <Routes>
         <Route exact path="/" element={<Main />}></Route>
         <Route path="/appeal" element={<Appeal />}></Route>
+        <Route path="/news" element={<News/>}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
         <Route path="/sign" element={<Sign />}></Route>
         <Route path="/admin" element={<Admin />}></Route>

@@ -20,7 +20,7 @@ const Header = () => {
                 <Link to="/">Главая</Link>               
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/">Новости</Link>
+                <Link to="/news">Новости</Link>
                 </li>
                 <li className={styles.nav__item}>
                 <Link to="/gallery">Фотогалерея</Link>

@@ -19,12 +19,12 @@ public class NewsController : ControllerBase
     }
     
     [Route("newsGetAll")]
-    [HttpPost]
-    public IActionResult NewsGetAll()
+    [HttpGet]
+    public async Task<IActionResult> NewsGetAll()
     {
         try
         {
-            var news = _newsService.GetAll();
+            var news = await _newsService.GetAll();
 
             var jsonNews = JsonSerializer.Serialize(news);
             

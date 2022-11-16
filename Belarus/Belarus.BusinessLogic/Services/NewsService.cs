@@ -39,7 +39,14 @@ public class NewsService : INewsService
             Photos = news.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
         }).ToListAsync();
 
-        var newsDto = _mapper.Map<List<News>, List<GetNewsDto>>(news);
+        var newsDto = news.Select(news => new GetNewsDto
+        {
+            Date = news.Date,
+            Text = news.Text,
+            Title = news.Title,
+            VideoUrl = news.VideoUrl,
+            Photos = news.Photos.Select(photo => photo.PhotoInByteString).ToList()
+        }).ToList();
 
         return newsDto;
     }
