@@ -5,11 +5,11 @@ namespace Belarus.BusinessLogic.Interfaces;
 
 public interface INewsService
 {
-    bool Get();
+    GetNewsDto Get(SearchDto searchDto);
 
     Task<List<GetNewsDto>> GetAll();
     
     bool Create(CreateNewsDto newsDto);
 
-    bool Delete();
+    bool Delete(SearchDto searchDto);
 }
