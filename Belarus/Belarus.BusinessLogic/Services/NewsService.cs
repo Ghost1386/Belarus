@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Belarus.BusinessLogic.Interfaces;
+﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.NewsDto;
 using Belarus.Model;
@@ -11,20 +10,30 @@ namespace Belarus.BusinessLogic.Services;
 
 public class NewsService : INewsService
 {
-    private readonly IMapper _mapper;
     private readonly ApplicationContext _applicationContext;
     private readonly IPhotoService _photoService;
 
-    public NewsService(IMapper mapper, ApplicationContext applicationContext, IPhotoService photoService)
+    public NewsService(ApplicationContext applicationContext, IPhotoService photoService)
     {
-        _mapper = mapper;
         _applicationContext = applicationContext;
         _photoService = photoService;
     }
     
-    public bool Get()
+    public GetNewsDto Get(SearchDto searchDto)
     {
-        throw new NotImplementedException();
+        var news = _applicationContext.News.FirstOrDefault(news =>
+            news.Title == searchDto.Title && news.Date == searchDto.Date);
+
+        var newsDto = new GetNewsDto
+        {
+            Date = news.Date,
+            Text = news.Text,
+            Title = news.Title,
+            VideoUrl = news.VideoUrl,
+            Photos = news.Photos.Select(photo => photo.PhotoInByteString).ToList()
+        };
+
+        return newsDto;
     }
 
     public async Task<List<GetNewsDto>> GetAll()
@@ -70,8 +79,19 @@ public class NewsService : INewsService
         return true;
     }
 
-    public bool Delete()
+    public bool Delete(SearchDto searchDto)
     {
-        throw new NotImplementedException();
+        var news = _applicationContext.News.FirstOrDefault(news => news.Title == searchDto.Title && 
+                                                                   news.Date == searchDto.Date);
+
+        if (news != null)
+        {
+            _applicationContext.News.Remove(news);
+            _applicationContext.SaveChanges();
+
+            return true;
+        }
+        
+        return false;
     }
 }

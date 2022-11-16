@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
+using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.NewsDto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,26 @@ public class NewsController : ControllerBase
     {
         _newsService = newsService;
         _logger = logger;
+    }
+    
+    [Route("newsGet")]
+    [HttpGet]
+    public IActionResult NewsGet(SearchDto searchDto)
+    {
+        try
+        {
+            var news = _newsService.Get(searchDto);
+
+            var jsonNews = JsonSerializer.Serialize(news);
+
+            return Ok(jsonNews);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError($"{DateTime.Now}: {e}");
+
+            return BadRequest();
+        }
     }
     
     [Route("newsGetAll")]
