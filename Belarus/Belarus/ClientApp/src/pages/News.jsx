@@ -45,9 +45,9 @@ class News extends React.Component {
             {items.map(item => (
                 <div className={styles.wrapper}>
                   <div className={styles.wrapper__item}>
-                  <img src={`data:image/png;base64,${item.Photos[0]}`} /> 
+                  <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
                    <h2>{item.Title}</h2>
-                   <button><Link to="/gallery">Новости</Link></button>
+                   <button><Link to="/details">Фотогалерея</Link></button>
                   </div>
                    
                 </div>

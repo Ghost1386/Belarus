@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-
+import {Dropdown, Button, ButtonGroup} from 'react-bootstrap';
 
 const Header = () => {
     return (
@@ -17,22 +17,32 @@ const Header = () => {
         <nav className={styles.nav}>
             <ul className={styles.nav__list}>
                 <li className={styles.nav__item}>
-                <Link to="/">Главая</Link>               
+                 
+                <Dropdown as={ButtonGroup}>
+                    
+                    <Button variant="none"><Link to="/">Главая</Link></Button>
+                    <Dropdown.Toggle split variant="none"  id="dropdown-custom-2" />
+                    <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Руководство</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Совет Пинской организации</Dropdown.Item>
+                    
+                 </Dropdown.Menu>
+            </Dropdown>            
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/news">Новости</Link>
+                <Button variant="none" className={styles.btn} ><Link to="/news">Новости</Link></Button>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/gallery">Фотогалерея</Link>
+                <Button variant="none"><Link to="/gallery">Фотогалерея</Link></Button>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/sign">тест</Link>
+                <Button variant="none"><Link to="/sign">Тест</Link></Button>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/admin">лог</Link>
+                <Button variant="none"><Link to="/admin">Админ</Link></Button>
                 </li>
                 <li className={styles.nav__item}>
-                <Link to="/"><span>Вступить в организацию</span></Link>
+                <Link to="/introduction"><span>Вступить в организацию</span></Link>
                 </li>
                 <li className={styles.nav__item}>
                 <Link to="/appeal"><span>Электронное обращение</span></Link>
