@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './Appeal.module.scss';
 import axios from 'axios';
 
-const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
+const APPEAL_API_URL = 'http://localhost:7001/api/email/postAppeal';
 
 
 class Appeal extends React.Component {
     state = {
         name: '',
         mail: '',
-        theme: '',
+        subject: '',
         text: '',
         filesList: []
         }
@@ -17,8 +17,8 @@ class Appeal extends React.Component {
         
         componentDidMount() {
             if (this.props.user) {
-            const { name, mail, theme, text, filesList } = this.props.user
-                this.setState({ name, mail, theme, text, filesList });
+            const { name, mail, subject, text, filesList } = this.props.user
+                this.setState({ name, mail, subject, text, filesList });
             }
         
     }
@@ -34,7 +34,7 @@ class Appeal extends React.Component {
         
         formData.append('name', this.state.name);
         formData.append('mail', this.state.mail);
-        formData.append('theme', this.state.theme);
+        formData.append('subject', this.state.subject);
         formData.append('text', this.state.text);
         
         for (let i = 0; i < this.state.filesList.length; i++) {
@@ -61,8 +61,8 @@ class Appeal extends React.Component {
     <input type="email" name="mail" className={styles.form__input} onChange={this.onChange} value={this.state.mail === null ? '' : this.state.mail} />
     
     
-    <label htmlFor="theme" className={styles.form__label}>Тема обращения</label>
-    <input type="text" name="theme" className={styles.form__input} onChange={this.onChange} value={this.state.theme === null ? '' : this.state.theme} />
+    <label htmlFor="subject" className={styles.form__label}>Тема обращения</label>
+    <input type="text" name="subject" className={styles.form__input} onChange={this.onChange} value={this.state.subject === null ? '' : this.state.subject} />
     
     <label htmlFor="text" className={styles.form__label}>Текст обращения</label>
     <input type="text" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}/>

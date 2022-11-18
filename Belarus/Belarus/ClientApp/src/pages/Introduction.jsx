@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Introduction.module.scss';
 import axios from 'axios';
 
-const APPEAL_API_URL = 'http://localhost:7001/api/appeal/post';
+const Introduction_API_URL = 'http://localhost:7001/api/email/postIntroduction';
 
 
 class Introduction extends React.Component {
@@ -30,10 +30,10 @@ class Introduction extends React.Component {
         
         formData.append('name', this.state.name);
         formData.append('mail', this.state.mail);
-        formData.append('phone', this.state.theme);
+        formData.append('phone', this.state.phone);
 
         try {
-            const res = await axios.post(APPEAL_API_URL, formData);
+            const res = await axios.post(Introduction_API_URL, formData);
             console.log(res);
         } catch (ex) {
             console.log(ex);
