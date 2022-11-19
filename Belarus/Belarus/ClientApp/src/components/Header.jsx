@@ -23,7 +23,7 @@ const Header = () => {
                     <Button variant="none"><Link to="/">Главая</Link></Button>
                     <Dropdown.Toggle split variant="none"  id="dropdown-custom-2" />
                     <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Руководство</Dropdown.Item>
+                    <Dropdown.Item href="/management">Руководство</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">Совет Пинской организации</Dropdown.Item>
                     
                  </Dropdown.Menu>
