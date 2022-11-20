@@ -12,6 +12,7 @@ import NewsDetails from './pages/NewsDetails';
 import styles from './App.module.scss';
 import Introduction from './pages/Introduction';
 import Management from './pages/Management';
+import Council from './pages/Council';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/introduction" element={<Introduction />}></Route>
         <Route path="/details" element={<NewsDetails />}></Route>
         <Route path="/management" element={<Management />}></Route>
+        <Route path="/council" element={<Council />}></Route>
     </Routes>
     <Footer />
 </div>

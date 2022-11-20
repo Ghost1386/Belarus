@@ -1,0 +1,39 @@
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+} 
+
+.title {
+    color: #DC2F4A;
+    font-weight: 700;
+    font-size: 3rem;
+    padding-bottom: 3.5rem;
+}
+
+.item {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #E1D7EB;
+border-radius: 1rem;
+margin-top: 1rem;
+
+&__content {
+    padding: 1rem;
+}
+
+&__subcontent {
+    padding: 1rem;
+    border-left: 1px solid #000;
+}
+
+&__content_title {
+font-weight: 700;
+}
+
+&__content_text {
+
+}
+
+}
