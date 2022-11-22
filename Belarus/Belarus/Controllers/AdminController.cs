@@ -1,7 +1,9 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.GalleryDto;
 using Belarus.Common.DTOs.NewsDto;
+using Belarus.Model.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -11,11 +13,13 @@ namespace Belarus.Controllers;
 public class AdminController : ControllerBase
 {
     private readonly INewsService _newsService;
+    private readonly IGalleryService _galleryService;
     private readonly ILogger<AdminController> _logger;
     
-    public AdminController(INewsService newsService, ILogger<AdminController> logger)
+    public AdminController(INewsService newsService, IGalleryService galleryService, ILogger<AdminController> logger)
     {
         _newsService = newsService;
+        _galleryService = galleryService;
         _logger = logger;
     }
     
@@ -47,10 +51,41 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var response = _newsService.Delete(searchDto);
+            var response = false;
             
-            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} news");
+            if (searchDto.Type == TypesEnum.News)
+            {
+                response = _newsService.Delete(searchDto);
+            }
+            else if (searchDto.Type == TypesEnum.Gallery)
+            {
+                response = _galleryService.Delete(searchDto);
+            }
             
+            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");
+            
+            var jsonResponse = JsonSerializer.Serialize(response);
+            
+            return Ok(jsonResponse);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError($"{DateTime.Now}: {e}");
+
+            return BadRequest();
+        }
+    }
+    
+    [Route("galleryCreate")]
+    [HttpPost]
+    public IActionResult GalleryCreate([FromForm] CreateGalleryDto galleryDto)
+    {
+        try
+        {
+            var response = _galleryService.Create(galleryDto);
+        
+            _logger.LogInformation($"{DateTime.Now}: Created new gallery");
+
             var jsonResponse = JsonSerializer.Serialize(response);
             
             return Ok(jsonResponse);
