@@ -51,19 +51,26 @@ class Admin extends React.Component {
         
     }
 
-    state2 = {
-      date: new Date(),
-      title: '',
-      photos: [] 
+    submitGal = async () => {
+      const formData = new FormData();
+
+      formData.append('date', this.state.date);
+      formData.append('title', this.state.title);      
+      
+      for (let i = 0; i < this.state.photos.length; i++) {
+          formData.append('photos', this.state.photos[i]);
       }
-  
-      componentDidMount2() {
-          if (this.props.user) {
-          const { date, title, photos } = this.props.user
-              this.setState({ date, title, photos });
-          }
+
+      try {
+          const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData);
+          console.log(res);
+      } catch (ex) {
+          console.log(ex);
+      }
       
   }
+
+    
 
     render() {
     return  <div className={styles.container}>
@@ -112,18 +119,18 @@ class Admin extends React.Component {
     <Accordion.Item eventKey="2">
       <Accordion.Header>Добавить фото</Accordion.Header>
       <Accordion.Body>
-      <form onSubmit={this.submitNew} className={styles.form}>
+      <form onSubmit={this.submitGal} className={styles.form}>
     
     <label htmlFor="date" className={styles.form__label}>Дата</label>
-    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state2.date === null ? '' : this.state2.date} />
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
 
 
     <label htmlFor="title" className={styles.form__label}>Заголовок</label>
-    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state2.title === null ? '' : this.state2.title} />
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
 
 
-    <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
-    <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+<label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
+<input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
 
     <input type="submit" />
 </form>

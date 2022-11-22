@@ -34,6 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddTransient<IHashService, HashService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<INewsService, NewsService>();
+builder.Services.AddTransient<IGalleryService, GalleryService>();
 builder.Services.AddTransient<IPhotoService, PhotoService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);

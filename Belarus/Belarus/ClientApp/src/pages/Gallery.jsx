@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Gallery.module.scss';
+import { Link } from 'react-router-dom';
 
-const ALL_NEWS_API_URL = 'http://localhost:7001/api/news/newsGetAll';
+const ALL_GALLERY_API_URL = 'http://localhost:7001/api/gallery/galleryGetAll';
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class Gallery extends React.Component {
     }
 
     componentDidMount = async () => {
-        await fetch(ALL_NEWS_API_URL)
+        await fetch(ALL_GALLERY_API_URL)
         .then(res => res.json())
         .then(
           (result) => {
@@ -44,12 +45,10 @@ class Gallery extends React.Component {
             <div className={styles.wrapper}>
             {items.map(item => (
                 
-                  <div className={styles.wrapper__item}>
-                    <div className={styles.wrapper__content}>
-                    <h2>{item.Title}</h2>
-                    <p>{item.Date}</p>
-                    </div>
-                    <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
+                  <div >
+                  <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
+                   <h2>{item.Title}</h2>
+                   
                   </div>
                    
                 
