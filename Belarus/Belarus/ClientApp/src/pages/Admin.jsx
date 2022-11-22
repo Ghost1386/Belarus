@@ -48,7 +48,22 @@ class Admin extends React.Component {
         } catch (ex) {
             console.log(ex);
         }
+        
     }
+
+    state2 = {
+      date: new Date(),
+      title: '',
+      photos: [] 
+      }
+  
+      componentDidMount2() {
+          if (this.props.user) {
+          const { date, title, photos } = this.props.user
+              this.setState({ date, title, photos });
+          }
+      
+  }
 
     render() {
     return  <div className={styles.container}>
@@ -57,7 +72,7 @@ class Admin extends React.Component {
     
     <Accordion defaultActiveKey={['0']} alwaysOpen>
     <Accordion.Item eventKey="0">
-      <Accordion.Header>Accordion Item #1</Accordion.Header>
+      <Accordion.Header>Добавить новость</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitNew} className={styles.form}>
     
@@ -83,7 +98,7 @@ class Admin extends React.Component {
       </Accordion.Body>
     </Accordion.Item>
     <Accordion.Item eventKey="1">
-      <Accordion.Header>Accordion Item #2</Accordion.Header>
+      <Accordion.Header>Удалить новость</Accordion.Header>
       <Accordion.Body>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -92,6 +107,26 @@ class Admin extends React.Component {
         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
         culpa qui officia deserunt mollit anim id est laborum.
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="2">
+      <Accordion.Header>Добавить фото</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.submitNew} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state2.date === null ? '' : this.state2.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state2.title === null ? '' : this.state2.title} />
+
+
+    <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
+    <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
       </Accordion.Body>
     </Accordion.Item>
   </Accordion>
