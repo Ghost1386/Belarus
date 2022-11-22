@@ -59,7 +59,7 @@ public class EmailService : IEmailService
         var bodyBuilder = new BodyBuilder
         {
             TextBody = $"Почта для ответа: {introductionDto.Mail}\n" +
-                       $"{introductionDto.Name}\n" + 
+                       $"{introductionDto.Name}\n " + 
                        $"Номер телефона:\n{introductionDto.Phone}"
         };
 
