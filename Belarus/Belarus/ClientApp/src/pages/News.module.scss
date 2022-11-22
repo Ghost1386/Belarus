@@ -6,9 +6,40 @@
 
 .wrapper {
     
-
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
     &__item {
         background-color: #F8E2E2;
+        border-radius: 1rem;
+        margin-top: 2rem;
         
+        h2 {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        img {
+            padding: 1rem;
+            border-radius: 2rem;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            border: 2px solid #DC2F4A ;
+            border-radius: 10rem;
+            width: 12rem;
+            height: 2.5rem;
+            font-size: 1.15rem; 
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            a {
+                padding: 1rem; 
+                text-decoration: none;
+                color: inherit; 
+            }
+        }
     }
 }

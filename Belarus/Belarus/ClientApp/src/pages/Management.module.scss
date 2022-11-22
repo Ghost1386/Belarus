@@ -1,0 +1,38 @@
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+} 
+
+.title {
+    color: #DC2F4A;
+    font-weight: 700;
+    font-size: 3rem;
+    padding-bottom: 3.5rem;
+}
+
+.item {
+
+display: flex;
+align-items: center;
+gap: 10rem;
+padding-top: 3.5rem;
+
+&__img {
+border-radius: 50%;
+}
+
+&__content {
+
+}
+
+&__content_title {
+font-size: 2rem;
+font-weight: 700;
+padding-bottom: 1.5rem;
+}
+
+&__content_text {
+font-size: 1.5rem;
+}
+
+}
