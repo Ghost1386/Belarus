@@ -8,5 +8,5 @@ public class SearchDto
 
     public DateTime Date { get; set; }
     
-    public TypesEnum Type { get; set; }
+    public string Type { get; set; }
 }

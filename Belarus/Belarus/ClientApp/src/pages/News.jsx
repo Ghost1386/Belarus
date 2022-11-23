@@ -3,6 +3,7 @@ import styles from './News.module.scss';
 import { Link } from 'react-router-dom';
 
 const ALL_NEWS_API_URL = 'http://localhost:7001/api/news/newsGetAll';
+const ALL_DELETE_API_URL = 'http://localhost:7001/api/admin/delete';
 
 class News extends React.Component {
     constructor(props) {

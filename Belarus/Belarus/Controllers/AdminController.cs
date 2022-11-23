@@ -47,17 +47,17 @@ public class AdminController : ControllerBase
     
     [Route("delete")]
     [HttpPost]
-    public IActionResult Delete([FromBody] SearchDto searchDto)
+    public IActionResult Delete([FromForm] SearchDto searchDto)
     {
         try
         {
             var response = false;
             
-            if (searchDto.Type == TypesEnum.News)
+            if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.News)
             {
                 response = _newsService.Delete(searchDto);
             }
-            else if (searchDto.Type == TypesEnum.Gallery)
+            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Gallery)
             {
                 response = _galleryService.Delete(searchDto);
             }

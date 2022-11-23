@@ -5,20 +5,20 @@ import Accordion from 'react-bootstrap/Accordion';
 
 const ADMIN_API_URL = 'http://localhost:7001/api/admin/';
 
-
 class Admin extends React.Component {
     state = {
         date: new Date(),
         title: '',
         text: '',
         photos: [],
-        videoUrl: '' 
+        videoUrl: '',
+        type: '' 
         }
     
         componentDidMount() {
             if (this.props.user) {
-            const { date, title, text, photos, videoUrl } = this.props.user
-                this.setState({ date, title, text, photos, videoUrl });
+            const { date, title, text, photos, videoUrl, type } = this.props.user
+                this.setState({ date, title, text, photos, videoUrl, type });
             }
         
     }
@@ -38,6 +38,7 @@ class Admin extends React.Component {
         formData.append('text', this.state.text);
         formData.append('videoUrl', this.state.videoUrl);
         
+        
         for (let i = 0; i < this.state.photos.length; i++) {
             formData.append('photos', this.state.photos[i]);
         }
@@ -50,6 +51,24 @@ class Admin extends React.Component {
         }
         
     }
+
+
+    deleteNew = async () => {
+      const formData = new FormData();
+
+      formData.append('date', this.state.date);
+      formData.append('title', this.state.title);
+      formData.append('type', this.state.type);
+     
+
+      try {
+          const res = await axios.post(ADMIN_API_URL + 'delete', formData);
+          console.log(res);
+      } catch (ex) {
+          console.log(ex);
+      }
+      
+  }
 
     submitGal = async () => {
       const formData = new FormData();
@@ -107,13 +126,20 @@ class Admin extends React.Component {
     <Accordion.Item eventKey="1">
       <Accordion.Header>Удалить новость</Accordion.Header>
       <Accordion.Body>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
+      <form onSubmit={this.deleteNew} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+    <label htmlFor="title" className={styles.form__label}>Тип</label>
+    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
+
+    <input type="submit" />
+</form>
       </Accordion.Body>
     </Accordion.Item>
     <Accordion.Item eventKey="2">
