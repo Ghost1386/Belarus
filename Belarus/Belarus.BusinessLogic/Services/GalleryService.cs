@@ -80,6 +80,8 @@ public class GalleryService : IGalleryService
         {
             _applicationContext.Galleries.Remove(gallery);
             _applicationContext.SaveChanges();
+            
+            _photoService.Delete(TypesEnum.Gallery, gallery.Id);
 
             return true;
         }

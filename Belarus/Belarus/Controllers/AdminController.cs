@@ -3,6 +3,7 @@ using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.GalleryDto;
 using Belarus.Common.DTOs.NewsDto;
+using Belarus.Common.DTOs.СontestDto;
 using Belarus.Model.Enums;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,15 @@ public class AdminController : ControllerBase
 {
     private readonly INewsService _newsService;
     private readonly IGalleryService _galleryService;
+    private readonly IСontestService _сontestService;
     private readonly ILogger<AdminController> _logger;
     
-    public AdminController(INewsService newsService, IGalleryService galleryService, ILogger<AdminController> logger)
+    public AdminController(INewsService newsService, IGalleryService galleryService, IСontestService сontestService, 
+        ILogger<AdminController> logger)
     {
         _newsService = newsService;
         _galleryService = galleryService;
+        _сontestService = сontestService;
         _logger = logger;
     }
     
@@ -32,6 +36,28 @@ public class AdminController : ControllerBase
             var response = _newsService.Create(newsDto);
         
             _logger.LogInformation($"{DateTime.Now}: Created new news");
+
+            var jsonResponse = JsonSerializer.Serialize(response);
+            
+            return Ok(jsonResponse);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError($"{DateTime.Now}: {e}");
+
+            return BadRequest();
+        }
+    }
+    
+    [Route("contestCreate")]
+    [HttpPost]
+    public IActionResult СontestCreate([FromForm] CreateСontestDto contestDto)
+    {
+        try
+        {
+            var response = _сontestService.Create(contestDto);
+        
+            _logger.LogInformation($"{DateTime.Now}: Created new contest");
 
             var jsonResponse = JsonSerializer.Serialize(response);
             
@@ -60,6 +86,10 @@ public class AdminController : ControllerBase
             else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Gallery)
             {
                 response = _galleryService.Delete(searchDto);
+            }
+            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Сontest)
+            {
+                response = _сontestService.Delete(searchDto);
             }
             
             _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");

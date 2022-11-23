@@ -1,14 +1,20 @@
-﻿using System.Text;
-using Belarus.BusinessLogic.Interfaces;
+﻿using Belarus.BusinessLogic.Interfaces;
+using Belarus.Model;
 using Belarus.Model.Enums;
 using Belarus.Model.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 
 namespace Belarus.BusinessLogic.Services;
 
 public class PhotoService : IPhotoService
 {
+    private readonly ApplicationContext _applicationContext;
+
+    public PhotoService(ApplicationContext applicationContext)
+    {
+        _applicationContext = applicationContext;
+    }
+
     public List<Photo> AddPhotos(List<IFormFile> files, TypesEnum type)
     {
         var photos = new List<Photo>();
@@ -24,7 +30,16 @@ public class PhotoService : IPhotoService
 
         return photos;
     }
-    
+
+    public void Delete(TypesEnum type, int typeId)
+    {
+        var photos = _applicationContext.Photos.Where(photo => photo.Type == type && 
+                                                                photo.TypeId == typeId).ToList();
+
+        _applicationContext.Photos.RemoveRange(photos);
+        _applicationContext.SaveChanges();
+    }
+
     private string ConvertFormPhotoToByteString(IFormFile file)
     {
         var photosInByteString = string.Empty;

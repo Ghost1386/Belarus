@@ -7,4 +7,6 @@ namespace Belarus.BusinessLogic.Interfaces;
 public interface IPhotoService
 {
     List<Photo> AddPhotos(List<IFormFile> files, TypesEnum type);
+
+    void Delete(TypesEnum type, int typeId);
 }

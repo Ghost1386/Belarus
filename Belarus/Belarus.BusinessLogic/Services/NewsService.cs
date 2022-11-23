@@ -88,6 +88,8 @@ public class NewsService : INewsService
         {
             _applicationContext.News.Remove(news);
             _applicationContext.SaveChanges();
+            
+            _photoService.Delete(TypesEnum.News, news.Id);
 
             return true;
         }
