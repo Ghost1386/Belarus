@@ -1,6 +1,6 @@
-﻿namespace Belarus.Common.DTOs.СontestDto;
+﻿namespace Belarus.Common.DTOs.PreviewDto;
 
-public class GetСontestDto
+public class GetPreviewDto
 {
     public string Title { get; set; }
     

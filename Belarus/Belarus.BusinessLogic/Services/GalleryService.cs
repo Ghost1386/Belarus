@@ -51,6 +51,8 @@ public class GalleryService : IGalleryService
             Photos = gallery.Photos.Select(photo => photo.PhotoInByteString).ToList()
         }).ToList();
 
+        galleriesDto.Reverse();
+
         return galleriesDto;
     }
 

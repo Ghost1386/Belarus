@@ -1,7 +1,6 @@
 using System.Text;
 using AutoMapper;
-using Belarus.BusinessLogic.Interfaces;
-using Belarus.BusinessLogic.Services;
+using Belarus.Extensions;
 using Belarus.Mapper;
 using Belarus.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -31,13 +30,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-builder.Services.AddTransient<IHashService, HashService>();
-builder.Services.AddTransient<IAuthService, AuthService>();
-builder.Services.AddTransient<INewsService, NewsService>();
-builder.Services.AddTransient<IGalleryService, GalleryService>();
-builder.Services.AddTransient<IPhotoService, PhotoService>();
-builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+builder.Services.AddIService();
 
 var mappingConfig = new MapperConfiguration(mc =>
 {
@@ -71,6 +66,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.ConfigureExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

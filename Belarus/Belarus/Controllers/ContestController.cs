@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class ContestController : ControllerBase
 {
     private readonly IСontestService _contestService;

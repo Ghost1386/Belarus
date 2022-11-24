@@ -13,5 +13,6 @@ public class ApplicationContext : DbContext
     public DbSet<News> News { get; set; }
     public DbSet<Gallery> Galleries { get; set; }
     public DbSet<Сontest> Сontests { get; set; }
+    public DbSet<Preview> Previews { get; set; }
     public DbSet<Photo> Photos { get; set; }
 }

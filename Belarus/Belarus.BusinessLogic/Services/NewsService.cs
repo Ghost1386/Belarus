@@ -57,6 +57,8 @@ public class NewsService : INewsService
             Photos = news.Photos.Select(photo => photo.PhotoInByteString).ToList()
         }).ToList();
 
+        newsDto.Reverse();
+        
         return newsDto;
     }
 

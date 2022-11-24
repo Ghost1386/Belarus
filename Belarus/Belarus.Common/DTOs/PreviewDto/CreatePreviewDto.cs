@@ -1,6 +1,8 @@
-﻿namespace Belarus.Common.DTOs.СontestDto;
+﻿using Microsoft.AspNetCore.Http;
 
-public class GetСontestDto
+namespace Belarus.Common.DTOs.PreviewDto;
+
+public class CreatePreviewDto
 {
     public string Title { get; set; }
     
@@ -10,5 +12,5 @@ public class GetСontestDto
     
     public DateTime Date { get; set; }
     
-    public List<string> Photos { get; set; }
+    public List<IFormFile> Photos { get; set; }
 }

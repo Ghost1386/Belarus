@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Belarus.Model.Models;
 
-public class Сontest
+public class Preview
 {
     [Key]
     public int Id { get; set; }

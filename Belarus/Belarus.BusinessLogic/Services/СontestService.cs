@@ -27,6 +27,7 @@ public class СontestService : IСontestService
         var contestDto = new GetСontestDto
         {
             Date = contest.Date,
+            MainText = contest.MainText,
             Text = contest.Text,
             Title = contest.Title,
             Photos = contest.Photos.Select(photo => photo.PhotoInByteString).ToList()
@@ -41,6 +42,7 @@ public class СontestService : IСontestService
         {
             Id = contest.Id,
             Date = contest.Date,
+            MainText = contest.MainText,
             Text = contest.Text,
             Title = contest.Title,
             Photos = contest.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
@@ -49,10 +51,13 @@ public class СontestService : IСontestService
         var contestDto = contests.Select(contest => new GetСontestDto
         {
             Date = contest.Date,
+            MainText = contest.MainText,
             Text = contest.Text,
             Title = contest.Title,
             Photos = contest.Photos.Select(photo => photo.PhotoInByteString).ToList()
         }).ToList();
+
+        contestDto.Reverse();
 
         return contestDto;
     }
@@ -64,6 +69,7 @@ public class СontestService : IСontestService
         var contest = new Сontest
         {
             Title = contestDto.Title,
+            MainText = contestDto.MainText,
             Text = contestDto.Text,
             Date = contestDto.Date,
             Photos = photos,

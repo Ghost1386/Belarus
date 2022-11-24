@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Model", "Belarus.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Mapper", "Belarus.Mapper\Belarus.Mapper.csproj", "{8D045248-0DD4-4FB3-A0C4-C15B01735565}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belarus.Extensions", "Belarus.Extensions\Belarus.Extensions.csproj", "{5759D245-4FA2-4E90-95B0-0F6A84560DDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D045248-0DD4-4FB3-A0C4-C15B01735565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5759D245-4FA2-4E90-95B0-0F6A84560DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5759D245-4FA2-4E90-95B0-0F6A84560DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5759D245-4FA2-4E90-95B0-0F6A84560DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5759D245-4FA2-4E90-95B0-0F6A84560DDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -30,6 +30,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Belarus.BusinessLogic\Belarus.BusinessLogic.csproj" />
       <ProjectReference Include="..\Belarus.Common\Belarus.Common.csproj" />
+      <ProjectReference Include="..\Belarus.Extensions\Belarus.Extensions.csproj" />
       <ProjectReference Include="..\Belarus.Mapper\Belarus.Mapper.csproj" />
       <ProjectReference Include="..\Belarus.Model\Belarus.Model.csproj" />
     </ItemGroup>
