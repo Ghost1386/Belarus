@@ -8,12 +8,14 @@
     font-weight: 700;
     font-size: 3rem;
     padding-bottom: 3.5rem;
+    
 }
 
 .item {
 
 display: flex;
 align-items: center;
+flex-wrap: wrap;
 gap: 10rem;
 padding-top: 3.5rem;
 
@@ -21,9 +23,7 @@ padding-top: 3.5rem;
 border-radius: 50%;
 }
 
-&__content {
 
-}
 
 &__content_title {
 font-size: 2rem;
@@ -34,5 +34,25 @@ padding-bottom: 1.5rem;
 &__content_text {
 font-size: 1.5rem;
 }
+
+}
+
+@media (max-width:1257px){
+
+    .title {
+        text-align: center;
+    }
+ 
+	.item {
+        display: block;
+        
+        &__content {
+            text-align: center;
+        } 
+        &__img {
+            margin: 0 auto;
+            display: block;
+        }
+    }
 
 }

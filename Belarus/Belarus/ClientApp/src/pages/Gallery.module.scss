@@ -4,30 +4,38 @@
 } 
 
 .wrapper {
-    display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-   gap: 2rem;
+    
+   display: block;
 
    img {
+    width: 100%;
     border-radius: 1rem;
+    max-width: 24rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
    }
 }
 
 
-.title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    h3 {
-        color: #DC2F4A;
-        font-weight: 700;
-        padding-top: 3.5rem;
-        font-size: 3rem;
-       
-    }
-    
-    p {
+.item {
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-size: 1.5rem;
     }
+
+    &__title {
+        color: #DC2F4A;
+    font-weight: 700;
+    font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    &__img {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;              
+    }
+   
 }

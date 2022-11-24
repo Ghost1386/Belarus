@@ -53,7 +53,7 @@ class Admin extends React.Component {
     }
 
 
-    deleteNew = async () => {
+    delete = async () => {
       const formData = new FormData();
 
       formData.append('date', this.state.date);
@@ -73,21 +73,42 @@ class Admin extends React.Component {
     submitGal = async () => {
       const formData = new FormData();
 
-      formData.append('date', this.state.date);
-      formData.append('title', this.state.title);      
-      
-      for (let i = 0; i < this.state.photos.length; i++) {
-          formData.append('photos', this.state.photos[i]);
-      }
+        formData.append('date', this.state.date);
+        formData.append('title', this.state.title);
+        
+        
+        
+        for (let i = 0; i < this.state.photos.length; i++) {
+            formData.append('photos', this.state.photos[i]);
+        }
 
-      try {
-          const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData);
-          console.log(res);
-      } catch (ex) {
-          console.log(ex);
-      }
+        try {
+            const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData);
+            console.log(res);
+        } catch (ex) {
+            console.log(ex);
+        }
       
   }
+
+  submitCont = async () => {
+    const formData = new FormData();
+
+    formData.append('date', this.state.date);
+    formData.append('title', this.state.title);      
+    
+    for (let i = 0; i < this.state.photos.length; i++) {
+        formData.append('photos', this.state.photos[i]);
+    }
+
+    try {
+        const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData);
+        console.log(res);
+    } catch (ex) {
+        console.log(ex);
+    }
+    
+}
 
     
 
@@ -155,8 +176,69 @@ class Admin extends React.Component {
     <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
 
 
+    <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
+    <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="3">
+      <Accordion.Header>Удалить фото</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.delete} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+    <label htmlFor="title" className={styles.form__label}>Тип</label>
+    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="4">
+      <Accordion.Header>Добавить конкурс</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.submitNew} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+
+    <label htmlFor="text" className={styles.form__label}>Текст</label>
+    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text} />
+
 <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
 <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="5">
+      <Accordion.Header>Удалить конкурс</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.delete} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+    <label htmlFor="title" className={styles.form__label}>Тип</label>
+    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
 
     <input type="submit" />
 </form>

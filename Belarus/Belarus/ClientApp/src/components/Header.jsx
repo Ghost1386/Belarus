@@ -27,60 +27,36 @@ const Header = () => {
           <p>Белая Русь</p>
           Пинская городская организация
         </h1>
-        <form className={styles.form}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="Поиск"
-          ></input>
-        </form>
       </div>
-      {/* <nav className={styles.nav}>
-            <ul className={styles.nav__list}>
-                <li className={styles.nav__item}>
-                 
-                           
-                </li>
-                <li className={styles.nav__item}>
-               
-                </li>
-                <li className={styles.nav__item}>
-                
-                </li>
-                <li className={styles.nav__item}>
-                
-                </li>
-                <li className={styles.nav__item}>
-                
-                </li>
-                <li className={styles.nav__item}>
-                
-                </li>
-                <li className={styles.nav__item}>
-                
-                    
-                </li>
-            </ul>
-        </nav> */}
       <Navbar expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className={styles.nav}>
               <Nav.Link className={styles.nav__item} as={Link} to="/">
                 <Dropdown as={ButtonGroup}>
-                  <Button variant="none">Главная</Button>
+                  <Button variant="none" className={styles.btn}>Главная</Button>
                   <Dropdown.Toggle
                     split
                     variant="none"
                     id="dropdown-custom-2"
                   />
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/management">
-                      Руководство
+                    <Dropdown.Item>
+                    <Nav.Link className={styles.nav__item} as={Link} to="/management">
+                        {" "}
+                        <Button variant="none" className={styles.btn}>
+                          Руководство
+                        </Button>
+                       </Nav.Link>
                     </Dropdown.Item>
                     <Dropdown.Item href="/council">
-                      Совет Пинской организации
+                    <Nav.Link className={styles.nav__item} as={Link} to="/council">
+                        {" "}
+                        <Button variant="none" className={styles.btn}>
+                          Совет пинской организации
+                        </Button>
+                       </Nav.Link>
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

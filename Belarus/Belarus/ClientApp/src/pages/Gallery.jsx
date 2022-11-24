@@ -43,18 +43,31 @@ class Gallery extends React.Component {
         return (
           <div className={styles.container}>
             <div className={styles.wrapper}>
-            {items.map(item => (
-                
-                  <div >
-                  <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
-                   <h2>{item.Title}</h2>
-                   
-                  </div>
-                   
-                
+            {items.map(item => ( 
+                  <div className={styles.item}>
+                    <div className={styles.item__content}>
+                    <h2 className={styles.item__title}>{item.Title}</h2>
+                    <p className={styles.item__date}>{item.Date.getFullYear()}</p>
+                    </div>
+                    
+                      <div className={styles.item__img}>
+                      {item.Photos.map(item => ( 
+                  
+                  <img src={`data:image/png;base64,${item}`} alt='#' />
+             
+                    ))} 
+                      </div>
+                    
+                                                        
+                  </div>               
             ))}
+            <div >
+                      
+            </div>           
             </div>
+            
           </div>
+          
         );
       }
     }
