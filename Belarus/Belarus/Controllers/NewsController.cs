@@ -21,11 +21,11 @@ public class NewsController : ControllerBase
     
     [Route("newsGet")]
     [HttpGet]
-    public IActionResult NewsGet(SearchDto searchDto)
+    public IActionResult NewsGet(int id)
     {
         try
         {
-            var news = _newsService.Get(searchDto);
+            var news = _newsService.Get(id);
 
             var jsonNews = JsonSerializer.Serialize(news);
 

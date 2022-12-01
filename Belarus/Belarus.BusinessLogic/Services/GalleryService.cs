@@ -46,6 +46,7 @@ public class GalleryService : IGalleryService
 
         var galleriesDto = galleries.Select(gallery => new GetGalleryDto
         {
+            Id = gallery.Id,
             Date = gallery.Date,
             Title = gallery.Title,
             Photos = gallery.Photos.Select(photo => photo.PhotoInByteString).ToList()

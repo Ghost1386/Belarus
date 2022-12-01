@@ -19,10 +19,9 @@ public class NewsService : INewsService
         _photoService = photoService;
     }
     
-    public GetNewsDto Get(SearchDto searchDto)
+    public GetNewsDto Get(int id)
     {
-        var news = _applicationContext.News.FirstOrDefault(news =>
-            news.Title == searchDto.Title && news.Date == searchDto.Date);
+        var news = _applicationContext.News.FirstOrDefault(news => news.Id == id);
 
         var newsDto = new GetNewsDto
         {
@@ -50,6 +49,7 @@ public class NewsService : INewsService
 
         var newsDto = news.Select(news => new GetNewsDto
         {
+            Id = news.Id,
             Date = news.Date,
             Text = news.Text,
             Title = news.Title,

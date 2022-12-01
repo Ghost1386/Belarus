@@ -5,7 +5,7 @@ namespace Belarus.BusinessLogic.Interfaces;
 
 public interface INewsService
 {
-    GetNewsDto Get(SearchDto searchDto);
+    GetNewsDto Get(int id);
 
     Task<List<GetNewsDto>> GetAll();
     
