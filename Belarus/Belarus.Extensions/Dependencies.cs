@@ -12,6 +12,7 @@ public static class Dependencies
         services.AddTransient<IAuthService, AuthService>();
         services.AddTransient<INewsService, NewsService>();
         services.AddTransient<IGalleryService, GalleryService>();
+        services.AddTransient<IСontestService, СontestService>();
         services.AddTransient<IPreviewService, PreviewService>();
         services.AddTransient<IPhotoService, PhotoService>();
         services.AddTransient<IEmailService, EmailService>();

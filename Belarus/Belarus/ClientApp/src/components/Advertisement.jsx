@@ -1,35 +1,63 @@
+import React from 'react';
 import styles from './Advertisement.module.scss';
+import { Link } from 'react-router-dom';
 
-const Advertisement = () => {
+const ALL_ADVERTISEMENTS_API_URL = 'http://localhost:7001/api/preview/previewGetAll';
 
-return(
-    <div className={styles.container}>
-        <h2 className={styles.title}>Анонсы мероприятий </h2>
-        <div className={styles.wrapper}>
-            <div className={styles.card}>
-                <h3 className={styles.card__title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                <p className={styles.card__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit aenean a donec natoque praesent amet purus.</p>
-                <button className={styles.card__button}><a href='/#'>Читать</a></button>
-            </div>
-            <div className={styles.card}>
-                <h3 className={styles.card__title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                <p className={styles.card__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit aenean a donec natoque praesent amet purus.</p>
-                <button className={styles.card__button}><a href='/#'>Читать</a></button>
-            </div>
-            <div className={styles.card}>
-                <h3 className={styles.card__title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                <p className={styles.card__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit aenean a donec natoque praesent amet purus.</p>
-                <button className={styles.card__button}><a href='/#'>Читать</a></button>
-            </div>
-            <div className={styles.card}>
-                <h3 className={styles.card__title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                <p className={styles.card__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit aenean a donec natoque praesent amet purus.</p>
-                <button className={styles.card__button}><a href='/#'>Читать</a></button>
-            </div>
-        </div>
-    </div>
-)
 
-}
+class Advertisement extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
+    }
 
-export default Advertisement;
+    componentDidMount = async () => {
+        await fetch(ALL_ADVERTISEMENTS_API_URL)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+                items: result,
+                isLoaded: true
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
+  
+    render() {
+      const { error, isLoaded, items } = this.state;
+      if (error) {
+        return <div>Ошибка: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Загрузка...</div>;
+      } else {
+        return (
+          <div className={styles.container}>
+            <div className={styles.wrapper}>
+            {items.map(item => (
+                
+                  <div className={styles.wrapper__item}>                   
+                   <h2>{item.Title}</h2>
+                   <p>{item.mainText}</p>                  
+                  </div>
+                   
+                
+            ))}
+            </div>
+          </div>
+        );
+      }
+    }
+  }
+
+  export default Advertisement;

@@ -47,7 +47,7 @@ class Gallery extends React.Component {
                   <div className={styles.item}>
                     <div className={styles.item__content}>
                     <h2 className={styles.item__title}>{item.Title}</h2>
-                    <p className={styles.item__date}>{item.Date.getFullYear()}</p>
+                    <p className={styles.item__date}>{item.Date}</p>
                     </div>
                     
                       <div className={styles.item__img}>

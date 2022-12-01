@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './News.module.scss';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Link } from "react-router-dom";
+import { ListItem } from '@mui/material';
 
-const ALL_NEWS_API_URL = 'http://localhost:7001/api/news/newsGetAll';
-const ALL_DELETE_API_URL = 'http://localhost:7001/api/admin/delete';
+const ALL_NEWS_API_URL = 'http://localhost:7001/api/news/newsGetAll'; 
 
 class News extends React.Component {
     constructor(props) {
@@ -30,10 +31,10 @@ class News extends React.Component {
               isLoaded: true,
               error
             });
-          }
+          }     
         )
     }
-  
+
     render() {
       const { error, isLoaded, items } = this.state;
       if (error) {
@@ -44,15 +45,12 @@ class News extends React.Component {
         return (
           <div className={styles.container}>
             <div className={styles.wrapper}>
-            {items.map(item => (
-                
+            {items.map(item => (              
                   <div className={styles.wrapper__item}>
                   <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
                    <h2>{item.Title}</h2>
-                   <button><Link to="/details">Фотогалерея</Link></button>
-                  </div>
-                   
-                
+                   {/* <button><Link to=`/details/${item.Id}`>Фотогалерея</Link></button>               */}
+                  </div>         
             ))}
             </div>
           </div>

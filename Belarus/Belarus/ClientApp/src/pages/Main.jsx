@@ -1,7 +1,7 @@
 
 import About from '../components/About';
 import Advertisement from '../components/Advertisement';
-// import Contests from '../components/Contests';
+import Contests from '../components/Contests';
 
 
 const Main = () => {
@@ -9,7 +9,7 @@ const Main = () => {
         <div>
             <About/>
             <Advertisement/>
-            {/* <Contests/> */}
+            <Contests/>
 
         </div>
     );
