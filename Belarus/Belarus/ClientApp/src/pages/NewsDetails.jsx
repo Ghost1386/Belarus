@@ -19,9 +19,9 @@ class NewsDetails extends React.Component {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             id: 3
-        }
+        })
     })
       .then(res => res.json())
       .then(
@@ -48,22 +48,16 @@ class NewsDetails extends React.Component {
         return <div>Загрузка...</div>;
       } else {
         return (
-            
-          <div >
-            {items.map(item => (
-                <div >
-                  <div >
-                  <img alt='#' src={`data:image/png;base64,${item.Photos[0]}`} /> 
-                   <h2>{item.Title}</h2>
-                   <p>{item.Text}</p>
-                   <button><a href="/#">Подробнее</a></button>
-                   
-                  </div>
-                   
-                </div>
+          <div>
+            <div>
+            {items.map(item => (              
+                  <div>
+                  <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
+                   <h2>{item.Title}</h2> 
+                  </div>         
             ))}
+            </div>
           </div>
-          
         );
       }
     }

@@ -19,15 +19,24 @@ public class NewsController : ControllerBase
         _logger = logger;
     }
 
+    public class Q
+    {
+        public int Id { get; set; }
+    }
+
     [Route("newsGet")]
     [HttpPost]
-    public IActionResult NewsGet(int id)
+    public IActionResult NewsGet([FromBody]Q q)
     {
         try
         {
-            var news = _newsService.Get(id);
+            var news = _newsService.Get(q.Id);
 
-            var jsonNews = JsonSerializer.Serialize(news);
+            var list = new List<GetNewsDto?> ();
+
+            list.Add(news);
+
+            var jsonNews = JsonSerializer.Serialize(list);
 
             return Ok(jsonNews);
         }

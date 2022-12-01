@@ -21,15 +21,23 @@ public class NewsService : INewsService
     
     public GetNewsDto Get(int id)
     {
-        var news = _applicationContext.News.FirstOrDefault(news => news.Id == id);
-
-        var newsDto = new GetNewsDto
+        var news = _applicationContext.News.Where(news => news.Id == id).Select(news => new News
         {
+            Id = news.Id,
             Date = news.Date,
             Text = news.Text,
             Title = news.Title,
             VideoUrl = news.VideoUrl,
-            Photos = news.Photos.Select(photo => photo.PhotoInByteString).ToList()
+            Photos = news.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
+        }).ToList();
+
+        var newsDto = new GetNewsDto
+        {
+            Date = news[0].Date,
+            Text = news[0].Text,
+            Title = news[0].Title,
+            VideoUrl = news[0].VideoUrl,
+            Photos = news[0].Photos.Select(photo => photo.PhotoInByteString).ToList()
         };
 
         return newsDto;
