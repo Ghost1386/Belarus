@@ -1,6 +1,7 @@
 import React from 'react';
+import { useParams } from 'react-router';
 
-const ALL_NEWS_API_URL = 'http://localhost:7001/api/news/newsGetAll';
+const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
 
 class NewsDetails extends React.Component {
     constructor(props) {
@@ -13,22 +14,30 @@ class NewsDetails extends React.Component {
     }
 
     componentDidMount = async () => {
-        await fetch(ALL_NEWS_API_URL)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-                items: result,
-                isLoaded: true
-            });
-          },
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
+      await fetch(`${NEWS_API_URL}`, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
+            id: 3
+        }
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+              items: result,
+              isLoaded: true
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }     
+      )
     }
   
     render() {

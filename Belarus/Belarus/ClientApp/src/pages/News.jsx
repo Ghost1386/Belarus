@@ -15,7 +15,7 @@ class News extends React.Component {
         items: []
       };
     }
-
+    
     componentDidMount = async () => {
         await fetch(ALL_NEWS_API_URL)
         .then(res => res.json())
@@ -49,7 +49,7 @@ class News extends React.Component {
                   <div className={styles.wrapper__item}>
                   <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
                    <h2>{item.Title}</h2>
-                   {/* <button><Link to=`/details/${item.Id}`>Фотогалерея</Link></button>               */}
+                    <button><Link to={`/newsDetails/${item.Id}`}>Фотогалерея</Link></button>         
                   </div>         
             ))}
             </div>

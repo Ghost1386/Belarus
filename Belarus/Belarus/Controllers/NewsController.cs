@@ -18,9 +18,9 @@ public class NewsController : ControllerBase
         _newsService = newsService;
         _logger = logger;
     }
-    
+
     [Route("newsGet")]
-    [HttpGet]
+    [HttpPost]
     public IActionResult NewsGet(int id)
     {
         try
