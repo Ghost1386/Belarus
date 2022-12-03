@@ -28,7 +28,7 @@ const Header = () => {
           Пинская городская организация
         </h1>
       </div>
-      <Navbar expand="lg">
+      <Navbar expand="lg" className={styles.nav}>
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

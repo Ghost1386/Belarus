@@ -7,42 +7,38 @@
 .title {
     color: #DC2F4A;
     font-weight: 700;
-    padding-top: 3.5rem;
+    padding-top: 1.5rem;
     font-size: 3rem;
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-top: 3.5rem;
-  
-}
+    padding-top: 1.5rem;
+    
+            &__item {
+                margin-top: 2rem;
+                
+                h3 {
+                    padding-top: 2rem;
+                    color: #308F54;
+                    font-weight: 600;
+                }
+        
+               
+            }
+        } 
 
-.card {
-    padding-top: 2rem;
-
-    &__text {
-        padding-top: 1.5rem;
-    }
-
-    &__title {
-        color: #308F54;
-        font-weight: 700;
-    }
-
-    &__button {
-        display: block;
+.button {
+    display: block;
     margin: 0 auto;
     border: 2px solid #DC2F4A ;
     border-radius: 10rem;
     width: 12rem;
     height: 2.5rem;
-    font-size: 1.15rem;
-    a {
-        padding: 1rem; 
-        text-decoration: none;
-        color: inherit; 
-    }  
-    }
+    font-size: 1.15rem; 
+    margin: 0 auto;
+            
 }
+
 

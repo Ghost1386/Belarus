@@ -43,17 +43,16 @@ class Advertisement extends React.Component {
       } else {
         return (
           <div className={styles.container}>
-            <div className={styles.wrapper}>
+            <h2 className={styles.title}>Анонсы мероприятий </h2>
+            <div className={styles.wrapper}>             
             {items.map(item => (
-                
                   <div className={styles.wrapper__item}>                   
-                   <h2>{item.Title}</h2>
-                   <p>{item.mainText}</p>                  
-                  </div>
-                   
-                
+                   <h3>{item.Title}</h3>
+                   <p>{item.MainText}</p>                  
+                  </div>  
             ))}
             </div>
+            <button className={styles.button}>Подробнее</button>
           </div>
         );
       }

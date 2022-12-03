@@ -49,7 +49,7 @@ class News extends React.Component {
                   <div className={styles.wrapper__item}>
                   <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
                    <h2>{item.Title}</h2>
-                    <button><Link to={`/newsDetails/${item.Id}`}>Фотогалерея</Link></button>         
+                    <button><Link to={`/newsDetails/${item.Id}`}>Подробнее</Link></button>         
                   </div>         
             ))}
             </div>

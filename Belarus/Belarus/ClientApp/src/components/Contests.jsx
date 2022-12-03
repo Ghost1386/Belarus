@@ -43,11 +43,12 @@ class Contests extends React.Component {
       } else {
         return (
           <div className={styles.container}>
+            <h2 className={styles.title}>Конкурсы </h2>
             <div className={styles.wrapper}>
             {items.map(item => (
                 
                   <div className={styles.wrapper__item}>                   
-                   <h2>{item.Title}</h2>
+                   <h3>{item.Title}</h3>
                    <p>{item.MainText}</p>                  
                   </div>
                    
