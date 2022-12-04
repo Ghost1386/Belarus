@@ -6,7 +6,6 @@ import {
   ButtonGroup,
   Nav,
   Navbar,
-  Container,
 } from "react-bootstrap";
 
 const Header = () => {
@@ -29,10 +28,10 @@ const Header = () => {
         </h1>
       </div>
       <Navbar expand="lg" className={styles.nav}>
-        <Container>
+        
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className={styles.nav}>
+            <Nav >
               <Nav.Link className={styles.nav__item} as={Link} to="/">
                 <Dropdown as={ButtonGroup}>
                   <Button variant="none" className={styles.btn}>Главная</Button>
@@ -76,7 +75,7 @@ const Header = () => {
               <Nav.Link className={styles.nav__item} as={Link} to="/sign">
                 {" "}
                 <Button variant="none" className={styles.btn}>
-                  Тест
+                  Авторизация
                 </Button>
               </Nav.Link>
               <Nav.Link className={styles.nav__item} as={Link} to="/admin">
@@ -103,7 +102,7 @@ const Header = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        
       </Navbar>
     </div>
   );

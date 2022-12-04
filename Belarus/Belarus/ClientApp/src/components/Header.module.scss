@@ -36,11 +36,11 @@ max-height: 10rem;
 
 .nav {
 
+    display:flex;
+    justify-content: space-between;
     
 
 &__item {
-    
-    
     
     span {
             color: #DC2F4A;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './Sign.module.scss';
 
 const AUTH_API_URL = 'http://localhost:7001/api/auth/post';
 
@@ -40,26 +41,29 @@ export default function Register () {
         localStorage.setItem('token', token);
     }
     return (
-        <div className="form">
-            <h2>Register user:</h2>
-            <form onSubmit={submitChackin}>
-                <p>Login: <input 
+        <div className={styles.container}>
+            <form className={styles.form} onSubmit={submitChackin}>
+                <label className={styles.form__label}>Логин</label>
+                <input 
+                className={styles.form__input}
                 type="login"
                 id="login"
                 name="login"
                 value={register.login}
                 onChange={changeInputRegister}
-                /></p>
+                />
                 
-                <p>Password: <input 
+                <label className={styles.form__label}>Пароль</label>
+                <input 
+                className={styles.form__input}
                 type="password"
                 id="password"
                 name="password"
                 value={register.password}
                 onChange={changeInputRegister}
-                /></p>
+                />
                 
-                <input type="submit"/>
+                <input className={styles.form__button} type="submit"/>
             </form>
         </div>
     )

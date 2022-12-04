@@ -1,0 +1,52 @@
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+}
+
+.form {
+
+    text-align:center;
+   
+
+    &__label {
+        color:#308F54;
+        font-weight: 700;
+        padding-top: 2rem;
+        font-size: 1.5rem;
+        padding-right: 2rem;
+        text-align: center;
+    }
+
+    &__input {
+        width: 25%;
+        display: block;
+        margin: 0 auto;
+        height: 3rem;
+        border-color: #DC2F4A;
+        border-radius: 1rem;
+    }
+
+    &__button {
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #DC2F4A ;
+        border-radius: 10rem;
+        width: 12rem;
+        height: 2.5rem;
+        font-size: 1.15rem;
+        margin-top: 2rem;
+        
+    }
+
+    &__button {
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #DC2F4A ;
+        border-radius: 10rem;
+        width: 12rem;
+        height: 2.5rem;
+        font-size: 1.15rem;
+        margin-top: 2rem;
+        
+    }
+}
