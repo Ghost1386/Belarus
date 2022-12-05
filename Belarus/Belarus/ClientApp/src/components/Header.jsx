@@ -27,11 +27,11 @@ const Header = () => {
           Пинская городская организация
         </h1>
       </div>
-      <Navbar expand="lg" className={styles.nav}>
+      <Navbar expand="lg">
         
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav >
+            <Nav className="mx-auto">
               <Nav.Link className={styles.nav__item} as={Link} to="/">
                 <Dropdown as={ButtonGroup}>
                   <Button variant="none" className={styles.btn}>Главная</Button>
