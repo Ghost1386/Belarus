@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import styles from './NewsDetails.module.scss';
 
 const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
 
@@ -20,7 +20,7 @@ class NewsDetails extends React.Component {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            id: 3
+            id: 7
         })
     })
       .then(res => res.json())
@@ -48,15 +48,18 @@ class NewsDetails extends React.Component {
         return <div>Загрузка...</div>;
       } else {
         return (
-          <div>
-            <div>
-            {items.map(item => (              
-                  <div>
+          <div className={styles.container}>
+            
+            {items.map(item => (   
+              <div className={styles.wrapper}>
+                    <p className={styles.wrapper__date}>{item.Date}</p>
+                    <h2 className={styles.wrapper__title}>{item.Title}</h2> 
                   <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
-                   <h2>{item.Title}</h2> 
-                  </div>         
+                    <p className={styles.wrapper__text}>{item.Text}</p>
+                    <a href={item.VideoUrl}>Ссылка на видео</a>
+                    </div>     
             ))}
-            </div>
+            
           </div>
         );
       }

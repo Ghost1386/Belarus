@@ -1,0 +1,28 @@
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+}
+
+.wrapper {
+      
+
+
+&__title {
+    margin-bottom: 2rem;
+}
+
+img {
+    max-width: 73rem;
+    max-height: 30rem;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+&__text {
+    max-width: 73rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+   
+}
