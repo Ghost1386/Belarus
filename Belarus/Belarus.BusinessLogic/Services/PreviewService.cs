@@ -1,5 +1,6 @@
 ﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.NewsDto;
 using Belarus.Common.DTOs.PreviewDto;
 using Belarus.Model;
 using Belarus.Model.Enums;
@@ -21,16 +22,23 @@ public class PreviewService : IPreviewService
     
     public GetPreviewDto Get(int id)
     {
-        var preview = _applicationContext.Previews.FirstOrDefault(preview =>
-            preview.Id == id);
+        var preview = _applicationContext.Previews.Where(preview => preview.Id == id).Select(preview => new Preview
+            {
+                Date = preview.Date,
+                MainText = preview.MainText,
+                Text = preview.Text,
+                Title = preview.Title,
+                Photos = preview.Photos.Where(photo => photo.Type == TypesEnum.Preview).ToList()
+            }).ToList();
+
 
         var previewDto = new GetPreviewDto
         {
-            Date = preview.Date,
-            MainText = preview.MainText,
-            Text = preview.Text,
-            Title = preview.Title,
-            Photos = preview.Photos.Select(photo => photo.PhotoInByteString).ToList()
+            Date = preview[0].Date,
+            MainText = preview[0].MainText,
+            Text = preview[0].Text,
+            Title = preview[0].Title,
+            Photos = preview[0].Photos.Select(photo => photo.PhotoInByteString).ToList()
         };
 
         return previewDto;

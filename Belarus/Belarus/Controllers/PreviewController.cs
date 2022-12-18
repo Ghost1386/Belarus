@@ -21,7 +21,7 @@ public class PreviewController : ControllerBase
     }
     
     [Route("previewGet")]
-    [HttpGet]
+    [HttpPost]
     public IActionResult PreviewGet([FromBody]Identifier identifier)
     {
         try

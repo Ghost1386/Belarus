@@ -23,7 +23,6 @@ public class NewsService : INewsService
     {
         var news = _applicationContext.News.Where(news => news.Id == id).Select(news => new News
         {
-            Id = news.Id,
             Date = news.Date,
             Text = news.Text,
             Title = news.Title,
