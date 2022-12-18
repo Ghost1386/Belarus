@@ -50,6 +50,7 @@ public class СontestService : IСontestService
 
         var contestDto = contests.Select(contest => new GetСontestDto
         {
+            Id = contest.Id,
             Date = contest.Date,
             MainText = contest.MainText,
             Text = contest.Text,

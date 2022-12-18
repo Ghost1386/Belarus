@@ -50,6 +50,7 @@ public class PreviewService : IPreviewService
 
         var previewDto = previews.Select(preview => new GetPreviewDto
         {
+            Id = preview.Id,
             Date = preview.Date,
             MainText = preview.MainText,
             Text = preview.Text,
