@@ -19,10 +19,10 @@ public class GalleryService : IGalleryService
         _photoService = photoService;
     }
 
-    public GetGalleryDto Get(SearchDto searchDto)
+    public GetGalleryDto Get(int id)
     {
-        var gallery = _applicationContext.Galleries.FirstOrDefault(news =>
-            news.Title == searchDto.Title && news.Date == searchDto.Date);
+        var gallery = _applicationContext.Galleries.FirstOrDefault(gallery =>
+            gallery.Id == id);
 
         var galleryDto = new GetGalleryDto
         {

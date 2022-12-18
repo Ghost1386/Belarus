@@ -19,10 +19,10 @@ public class PreviewService : IPreviewService
         _photoService = photoService;
     }
     
-    public GetPreviewDto Get(SearchDto searchDto)
+    public GetPreviewDto Get(int id)
     {
         var preview = _applicationContext.Previews.FirstOrDefault(preview =>
-            preview.Title == searchDto.Title && preview.Date == searchDto.Date);
+            preview.Id == id);
 
         var previewDto = new GetPreviewDto
         {

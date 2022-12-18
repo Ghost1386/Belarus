@@ -5,7 +5,7 @@ namespace Belarus.BusinessLogic.Interfaces;
 
 public interface IGalleryService
 {
-    GetGalleryDto Get(SearchDto searchDto);
+    GetGalleryDto Get(int id);
 
     Task<List<GetGalleryDto>> GetAll();
 

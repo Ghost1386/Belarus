@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.GalleryDto;
+using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -20,13 +22,15 @@ public class GalleryController : ControllerBase
     
     [Route("galleryGet")]
     [HttpGet]
-    public IActionResult GalleryGet(SearchDto searchDto)
+    public IActionResult GalleryGet([FromBody]Identifier identifier)
     {
         try
         {
-            var gallery = _galleryService.Get(searchDto);
+            var gallery = _galleryService.Get(identifier.Id);
 
-            var jsonGallery = JsonSerializer.Serialize(gallery);
+            var listGallery = new List<GetGalleryDto?> {gallery};
+
+            var jsonGallery = JsonSerializer.Serialize(listGallery);
 
             return Ok(jsonGallery);
         }

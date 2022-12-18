@@ -19,10 +19,10 @@ public class СontestService : IСontestService
         _photoService = photoService;
     }
     
-    public GetСontestDto Get(SearchDto searchDto)
+    public GetСontestDto Get(int id)
     {
         var contest = _applicationContext.Сontests.FirstOrDefault(contest =>
-            contest.Title == searchDto.Title && contest.Date == searchDto.Date);
+            contest.Id == id);
 
         var contestDto = new GetСontestDto
         {

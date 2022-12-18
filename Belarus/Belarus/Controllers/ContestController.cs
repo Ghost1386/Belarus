@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.СontestDto;
+using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -20,13 +22,15 @@ public class ContestController : ControllerBase
     
     [Route("contestGet")]
     [HttpGet]
-    public IActionResult СontestGet(SearchDto searchDto)
+    public IActionResult СontestGet([FromBody]Identifier identifier)
     {
         try
         {
-            var contest = _contestService.Get(searchDto);
+            var contest = _contestService.Get(identifier.Id);
 
-            var jsonContest = JsonSerializer.Serialize(contest);
+            var listContest = new List<GetСontestDto?> {contest};
+
+            var jsonContest = JsonSerializer.Serialize(listContest);
 
             return Ok(jsonContest);
         }

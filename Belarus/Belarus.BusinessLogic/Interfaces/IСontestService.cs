@@ -5,7 +5,7 @@ namespace Belarus.BusinessLogic.Interfaces;
 
 public interface IСontestService
 {
-    GetСontestDto Get(SearchDto searchDto);
+    GetСontestDto Get(int id);
 
     Task<List<GetСontestDto>> GetAll();
     

@@ -2,6 +2,7 @@
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.NewsDto;
+using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -19,24 +20,17 @@ public class NewsController : ControllerBase
         _logger = logger;
     }
 
-    public class Q
-    {
-        public int Id { get; set; }
-    }
-
     [Route("newsGet")]
     [HttpPost]
-    public IActionResult NewsGet([FromBody]Q q)
+    public IActionResult NewsGet([FromBody]Identifier identifier)
     {
         try
         {
-            var news = _newsService.Get(q.Id);
+            var news = _newsService.Get(identifier.Id);
 
-            var list = new List<GetNewsDto?> ();
+            var listNews = new List<GetNewsDto?> {news};
 
-            list.Add(news);
-
-            var jsonNews = JsonSerializer.Serialize(list);
+            var jsonNews = JsonSerializer.Serialize(listNews);
 
             return Ok(jsonNews);
         }

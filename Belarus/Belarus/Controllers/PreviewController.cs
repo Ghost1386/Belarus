@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.PreviewDto;
+using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
@@ -20,13 +22,15 @@ public class PreviewController : ControllerBase
     
     [Route("previewGet")]
     [HttpGet]
-    public IActionResult PreviewGet(SearchDto searchDto)
+    public IActionResult PreviewGet([FromBody]Identifier identifier)
     {
         try
         {
-            var preview = _previewService.Get(searchDto);
+            var preview = _previewService.Get(identifier.Id);
 
-            var jsonPreview = JsonSerializer.Serialize(preview);
+            var listPreview = new List<GetPreviewDto?> {preview};
+
+            var jsonPreview = JsonSerializer.Serialize(listPreview);
 
             return Ok(jsonPreview);
         }
