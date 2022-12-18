@@ -3,6 +3,12 @@ import styles from './NewsDetails.module.scss';
 
 const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
 
+
+function Check (){
+  let queryString = document.location.pathname;
+  return queryString.slice(13);
+}
+
 class NewsDetails extends React.Component {
     constructor(props) {
       super(props);
@@ -12,15 +18,15 @@ class NewsDetails extends React.Component {
         items: []
       };
     }
-
     componentDidMount = async () => {
+      const f = Check();
       await fetch(`${NEWS_API_URL}`, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            id: 7
+            id: f
         })
     })
       .then(res => res.json())

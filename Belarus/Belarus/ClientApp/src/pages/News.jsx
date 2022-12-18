@@ -10,12 +10,10 @@ class News extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        error: null,
-        isLoaded: false,
         items: []
       };
     }
-    
+  
     componentDidMount = async () => {
         await fetch(ALL_NEWS_API_URL)
         .then(res => res.json())
@@ -23,25 +21,13 @@ class News extends React.Component {
           (result) => {
             this.setState({
                 items: result,
-                isLoaded: true
             });
-          },
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }     
+          }    
         )
     }
 
     render() {
-      const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Ошибка: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-      } else {
+      const { items } = this.state;
         return (
           <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -49,13 +35,12 @@ class News extends React.Component {
                   <div className={styles.wrapper__item}>
                   <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' /> 
                    <h2>{item.Title}</h2>
-                    <button><Link to={`/newsDetails/${item.Id}`}>Подробнее</Link></button>         
+                    <button><Link to={`/newsDetails/${item.Id}`}>Подробнее</Link></button>      
                   </div>         
             ))}
             </div>
           </div>
         );
-      }
     }
   }
 
