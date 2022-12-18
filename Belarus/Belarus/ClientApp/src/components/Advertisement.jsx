@@ -48,11 +48,12 @@ class Advertisement extends React.Component {
             {items.map(item => (
                   <div className={styles.wrapper__item}>                   
                    <h3>{item.Title}</h3>
-                   <p>{item.MainText}</p>                  
+                   <p>{item.MainText}</p> 
+                   <button><Link to={`/advertisementDetails/${item.Id}`}>Подробнее</Link></button>                 
                   </div>  
             ))}
             </div>
-            <button className={styles.button}>Подробнее</button>
+            
           </div>
         );
       }

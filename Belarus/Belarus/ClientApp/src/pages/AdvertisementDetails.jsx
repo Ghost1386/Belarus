@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './NewsDetails.module.scss';
 
-const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
+const ADVERTISEMENTS_API_URL = 'http://localhost:7001/api/preview/previewGet';
 
 
 function Check (){
   let queryString = document.location.pathname;
-  return queryString.slice(13);
+  return queryString.slice(22);
 }
 
-class NewsDetails extends React.Component {
+class AdvertisementDetails extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -20,7 +20,7 @@ class NewsDetails extends React.Component {
     }
     componentDidMount = async () => {
       const f = Check();
-      await fetch(`${NEWS_API_URL}`, {
+      await fetch(`${ADVERTISEMENTS_API_URL}`, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -76,4 +76,4 @@ class NewsDetails extends React.Component {
     }
   }
 
-  export default NewsDetails;
+  export default AdvertisementDetails;

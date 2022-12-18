@@ -9,10 +9,12 @@ import Sign from './pages/Sign';
 import Admin from './pages/Admin';
 import News from './pages/News';
 import NewsDetails from './pages/NewsDetails';
+import AdvertisementDetails from './pages/AdvertisementDetails';
 import styles from './App.module.scss';
 import Introduction from './pages/Introduction';
 import Management from './pages/Management';
 import Council from './pages/Council';
+import ContestnsDetails from './pages/ContestsDetails';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/introduction" element={<Introduction />}></Route>
         <Route path={`/newsDetails/:id`} element={<NewsDetails />}></Route>
+        <Route path={`/advertisementDetails/:id`} element={<AdvertisementDetails />}></Route>
+        <Route path={`/contestsDetails/:id`} element={<ContestnsDetails/>}></Route>
         <Route path="/management" element={<Management />}></Route>
         <Route path="/council" element={<Council />}></Route>
     </Routes>

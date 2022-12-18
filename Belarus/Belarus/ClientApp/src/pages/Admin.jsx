@@ -281,11 +281,14 @@ submitAdv = async () => {
     <label htmlFor="title" className={styles.form__label}>Заголовок</label>
     <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
 
+
+    <label htmlFor="mainText" className={styles.form__label}> Заглавный текст</label>
+    <input type="text" name="mainText" className={styles.form__input} onChange={this.onChange} value={this.state.mainText === null ? '' : this.state.mainText} />
+
     <label htmlFor="text" className={styles.form__label}>Текст</label>
     <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text} />
 
-    <label htmlFor="mainText" className={styles.form__label}>Текст</label>
-    <input type="text" name="mainText" className={styles.form__input} onChange={this.onChange} value={this.state.mainText === null ? '' : this.state.mainText} />
+    
 
 <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
 <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>

@@ -45,11 +45,16 @@ class Contests extends React.Component {
           <div className={styles.container}>
             <h2 className={styles.title}>Конкурсы </h2>
             <div className={styles.wrapper}>
+              
             {items.map(item => (
                 
-                  <div className={styles.wrapper__item}>                   
-                   <h3>{item.Title}</h3>
-                   <p>{item.MainText}</p>                  
+                  <div className={styles.wrapper__item}>  
+                  <img src="../assets/icons/contests-icon.svg" alt="#" /> 
+                  <div className={styles.item__content}> 
+                  <h3>{item.Title}</h3>
+                   <p>{item.MainText}</p> 
+                    </div>                
+                    <button><Link to={`/contestsDetails/${item.Id}`}>Подробнее</Link></button>          
                   </div>
                    
                 

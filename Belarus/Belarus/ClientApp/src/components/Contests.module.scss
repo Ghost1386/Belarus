@@ -17,13 +17,19 @@
     
             &__item {
                 margin-top: 2rem;
-                
-                h3 {
-                    padding-top: 2rem;
-                    color: #308F54;
-                    font-weight: 600;
-                }
-        
-               
+                display: flex;
+                gap: 2rem;
             }
         } 
+
+.item {
+
+&__content {
+    h3 {
+        padding-top: 2rem;
+        color: #308F54;
+        font-weight: 600;
+    }
+}
+
+}

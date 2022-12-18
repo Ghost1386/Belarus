@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './NewsDetails.module.scss';
+import styles from './ContestsDetails.module.scss';
 
-const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
+const CONTESTS_API_URL = 'http://localhost:7001/api/contest/contestGet';
 
 
 function Check (){
@@ -9,7 +9,7 @@ function Check (){
   return queryString.slice(13);
 }
 
-class NewsDetails extends React.Component {
+class ContestnsDetails extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -20,7 +20,7 @@ class NewsDetails extends React.Component {
     }
     componentDidMount = async () => {
       const f = Check();
-      await fetch(`${NEWS_API_URL}`, {
+      await fetch(`${CONTESTS_API_URL}`, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -76,4 +76,4 @@ class NewsDetails extends React.Component {
     }
   }
 
-  export default NewsDetails;
+  export default ContestnsDetails;
