@@ -138,6 +138,10 @@ public class AdminController : ControllerBase
             {
                 response = _сontestService.Delete(searchDto);
             }
+            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Preview)
+            {
+                response = _previewService.Delete(searchDto);
+            }
             
             _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");
             
