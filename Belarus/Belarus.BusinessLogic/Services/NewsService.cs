@@ -28,15 +28,15 @@ public class NewsService : INewsService
             Title = news.Title,
             VideoUrl = news.VideoUrl,
             Photos = news.Photos.Where(photo => photo.Type == TypesEnum.News).ToList()
-        }).ToList();
+        }).ToList()[0];
 
         var newsDto = new GetNewsDto
         {
-            Date = news[0].Date,
-            Text = news[0].Text,
-            Title = news[0].Title,
-            VideoUrl = news[0].VideoUrl,
-            Photos = news[0].Photos.Select(photo => photo.PhotoInByteString).ToList()
+            Date = news.Date,
+            Text = news.Text,
+            Title = news.Title,
+            VideoUrl = news.VideoUrl,
+            Photos = news.Photos.Select(photo => photo.PhotoInByteString).ToList()
         };
 
         return newsDto;
@@ -90,7 +90,9 @@ public class NewsService : INewsService
 
     public bool Delete(SearchDto searchDto)
     {
-        var news = _applicationContext.News.FirstOrDefault(news => news.Title == searchDto.Title && 
+        searchDto.Title = searchDto.Title.ToLower();
+        
+        var news = _applicationContext.News.FirstOrDefault(news => news.Title.ToLower() == searchDto.Title && 
                                                                    news.Date == searchDto.Date);
 
         if (news != null)

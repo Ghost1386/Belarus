@@ -23,22 +23,21 @@ public class PreviewService : IPreviewService
     public GetPreviewDto Get(int id)
     {
         var preview = _applicationContext.Previews.Where(preview => preview.Id == id).Select(preview => new Preview
-            {
-                Date = preview.Date,
-                MainText = preview.MainText,
-                Text = preview.Text,
-                Title = preview.Title,
-                Photos = preview.Photos.Where(photo => photo.Type == TypesEnum.Preview).ToList()
-            }).ToList();
-
-
+        {
+            Date = preview.Date,
+            MainText = preview.MainText,
+            Text = preview.Text,
+            Title = preview.Title,
+            Photos = preview.Photos.Where(photo => photo.Type == TypesEnum.Preview).ToList()
+        }).ToList()[0];
+        
         var previewDto = new GetPreviewDto
         {
-            Date = preview[0].Date,
-            MainText = preview[0].MainText,
-            Text = preview[0].Text,
-            Title = preview[0].Title,
-            Photos = preview[0].Photos.Select(photo => photo.PhotoInByteString).ToList()
+            Date = preview.Date,
+            MainText = preview.MainText,
+            Text = preview.Text,
+            Title = preview.Title,
+            Photos = preview.Photos.Select(photo => photo.PhotoInByteString).ToList()
         };
 
         return previewDto;

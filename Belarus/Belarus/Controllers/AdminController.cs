@@ -126,7 +126,7 @@ public class AdminController : ControllerBase
         {
             var response = false;
             
-            if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.News)
+            if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.News)
             {
                 response = _newsService.Delete(searchDto);
             }

@@ -21,8 +21,13 @@ public class GalleryService : IGalleryService
 
     public GetGalleryDto Get(int id)
     {
-        var gallery = _applicationContext.Galleries.FirstOrDefault(gallery =>
-            gallery.Id == id);
+        var gallery = _applicationContext.Galleries.Where(gallery => gallery.Id == id).
+            Select(gallery => new Gallery
+            {
+                Date = gallery.Date,
+                Title = gallery.Title,
+                Photos = gallery.Photos.Where(photo => photo.Type == TypesEnum.Gallery).ToList()
+            }).ToList()[0];
 
         var galleryDto = new GetGalleryDto
         {

@@ -21,8 +21,14 @@ public class СontestService : IСontestService
     
     public GetСontestDto Get(int id)
     {
-        var contest = _applicationContext.Сontests.FirstOrDefault(contest =>
-            contest.Id == id);
+        var contest = _applicationContext.Сontests.Where(contest => contest.Id == id).Select(contest => new Сontest
+        {
+            Date = contest.Date,
+            MainText = contest.MainText,
+            Text = contest.Text,
+            Title = contest.Title,
+            Photos = contest.Photos.Where(photo => photo.Type == TypesEnum.Сontest).ToList()
+        }).ToList()[0];
 
         var contestDto = new GetСontestDto
         {
