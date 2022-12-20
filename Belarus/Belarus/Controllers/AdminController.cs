@@ -6,6 +6,7 @@ using Belarus.Common.DTOs.NewsDto;
 using Belarus.Common.DTOs.PreviewDto;
 using Belarus.Common.DTOs.СontestDto;
 using Belarus.Model.Enums;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,8 +32,8 @@ public class AdminController : ControllerBase
         _logger = logger;
     }
     
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("newsCreate")]
-    [Authorize]
     [HttpPost]
     public IActionResult NewsCreate([FromForm] CreateNewsDto newsDto )
     {
@@ -44,7 +45,7 @@ public class AdminController : ControllerBase
 
             var jsonResponse = JsonSerializer.Serialize(response);
             
-            return Ok(jsonResponse);
+            return Ok();
         }
         catch (Exception e)
         {
@@ -54,6 +55,7 @@ public class AdminController : ControllerBase
         }
     }
     
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("contestCreate")]
     [HttpPost]
     public IActionResult СontestCreate([FromForm] CreateСontestDto contestDto)
@@ -75,7 +77,8 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-
+    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("galleryCreate")]
     [HttpPost]
     public IActionResult GalleryCreate([FromForm] CreateGalleryDto galleryDto)
@@ -98,6 +101,7 @@ public class AdminController : ControllerBase
         }
     }
     
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("previewCreate")]
     [HttpPost]
     public IActionResult PreviewCreate([FromForm] CreatePreviewDto previewDto)
@@ -120,6 +124,7 @@ public class AdminController : ControllerBase
         }
     }
     
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("delete")]
     [HttpPost]
     public IActionResult Delete([FromForm] SearchDto searchDto)
@@ -149,7 +154,7 @@ public class AdminController : ControllerBase
             
             var jsonResponse = JsonSerializer.Serialize(response);
             
-            return Ok(jsonResponse);
+            return Ok();
         }
         catch (Exception e)
         {

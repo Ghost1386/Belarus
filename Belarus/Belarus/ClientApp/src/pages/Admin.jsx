@@ -32,7 +32,7 @@ class Admin extends React.Component {
     }
 
     submitNew = async () => {
-      const fff = {
+      const authorizationHeaders= {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     };
         const formData = new FormData();
@@ -54,7 +54,7 @@ class Admin extends React.Component {
         }
 
         try {
-            const res = await axios.post(ADMIN_API_URL + 'newsCreate', formData, fff);
+            const res = await axios.post(ADMIN_API_URL + 'newsCreate', formData, authorizationHeaders);
             console.log(res);
         } catch (ex) {
             console.log(ex);
@@ -64,6 +64,10 @@ class Admin extends React.Component {
 
 
     delete = async () => {
+        const authorizationHeaders= {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        };
+        
       const formData = new FormData();
 
       formData.append('date', this.state.date);
@@ -72,7 +76,7 @@ class Admin extends React.Component {
      
 
       try {
-          const res = await axios.post(ADMIN_API_URL + 'delete', formData);
+          const res = await axios.post(ADMIN_API_URL + 'delete', formData, authorizationHeaders);
           console.log(res);
       } catch (ex) {
           console.log(ex);
@@ -81,6 +85,10 @@ class Admin extends React.Component {
   }
 
     submitGal = async () => {
+        const authorizationHeaders= {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        };
+        
       const formData = new FormData();
 
         formData.append('date', this.state.date);
@@ -93,7 +101,7 @@ class Admin extends React.Component {
         }
 
         try {
-            const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData);
+            const res = await axios.post(ADMIN_API_URL + 'galleryCreate', formData, authorizationHeaders);
             console.log(res);
         } catch (ex) {
             console.log(ex);
@@ -102,6 +110,10 @@ class Admin extends React.Component {
   }
 
   submitCont = async () => {
+      const authorizationHeaders= {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      };
+      
     const formData = new FormData();
 
     formData.append('date', this.state.date);
@@ -114,7 +126,7 @@ class Admin extends React.Component {
     }
 
     try {
-        const res = await axios.post(ADMIN_API_URL + 'contestCreate', formData);
+        const res = await axios.post(ADMIN_API_URL + 'contestCreate', formData, authorizationHeaders);
         console.log(res);
     } catch (ex) {
         console.log(ex);
@@ -124,6 +136,10 @@ class Admin extends React.Component {
 
 
 submitAdv = async () => {
+    const authorizationHeaders= {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
+    
   const formData = new FormData();
 
   formData.append('date', this.state.date);
@@ -136,7 +152,7 @@ submitAdv = async () => {
   }
 
   try {
-      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData);
+      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData, authorizationHeaders);
       console.log(res);
   } catch (ex) {
       console.log(ex);
@@ -180,10 +196,10 @@ submitAdv = async () => {
     <Accordion.Item eventKey="1">
       <Accordion.Header>Удалить новость</Accordion.Header>
       <Accordion.Body>
-      <form onSubmit={this.deleteNew} className={styles.form}>
+      <form onSubmit={this.delete} className={styles.form}>
     
     <label htmlFor="date" className={styles.form__label}>Дата</label>
-    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? new Date() : this.state.date} />
 
 
     <label htmlFor="title" className={styles.form__label}>Заголовок</label>
