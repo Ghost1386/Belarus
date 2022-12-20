@@ -45,7 +45,7 @@ class NewsDetails extends React.Component {
               if (item.VideoUrl !== '0') {
                 return (
                 <div className={styles.wrapper}>
-                    
+                    <p className={styles.wrapper__text}>{item.Date}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
                     {item.Photos.map(item => (   
@@ -60,7 +60,7 @@ class NewsDetails extends React.Component {
               {
                 return (
                 <div className={styles.wrapper}>
-                    
+                    <p className={styles.wrapper__text}>{item.Date}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
                     {item.Photos.map(item => (   
