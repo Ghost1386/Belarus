@@ -20,9 +20,9 @@ class Admin extends React.Component {
             if (this.props.user) {
             const { date, title, mainText, text, photos, videoUrl, type } = this.props.user
                 this.setState({ date, title, mainText, text, photos, videoUrl, type });
-            }
-        
+            }    
     }
+
     onFileChange = e => {
         this.setState({ photos: e.target.files });
     }
@@ -32,6 +32,9 @@ class Admin extends React.Component {
     }
 
     submitNew = async () => {
+      const fff = {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
         const formData = new FormData();
 
         formData.append('date', this.state.date);
@@ -51,7 +54,7 @@ class Admin extends React.Component {
         }
 
         try {
-            const res = await axios.post(ADMIN_API_URL + 'newsCreate', formData);
+            const res = await axios.post(ADMIN_API_URL + 'newsCreate', formData, fff);
             console.log(res);
         } catch (ex) {
             console.log(ex);

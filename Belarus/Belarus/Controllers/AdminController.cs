@@ -13,7 +13,6 @@ namespace Belarus.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
 public class AdminController : ControllerBase
 {
     private readonly INewsService _newsService;
@@ -33,6 +32,7 @@ public class AdminController : ControllerBase
     }
     
     [Route("newsCreate")]
+    [Authorize]
     [HttpPost]
     public IActionResult NewsCreate([FromForm] CreateNewsDto newsDto )
     {

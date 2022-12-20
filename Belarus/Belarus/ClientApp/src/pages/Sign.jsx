@@ -24,6 +24,7 @@ export default function Register () {
     const goHome = () => {
         if(token !== '')
         {
+            localStorage.setItem('token', token);
             navigate("/admin");    
         } 
       };
@@ -58,8 +59,6 @@ export default function Register () {
         {
             setToken(result)
         })
-
-        localStorage.setItem('token', token)
     }
         
     return (
@@ -86,7 +85,6 @@ export default function Register () {
                 />
                 
                 <input className={styles.form__button} type="submit"  onSubmit={goHome()}/>
-
             </form>
         </div>
     )
