@@ -19,6 +19,20 @@
                 margin-top: 2rem;
                 display: flex;
                 gap: 2rem;
+                align-items: center;
+            }
+            &__button {
+                display: block;
+                border: 2px solid #DC2F4A ;
+                border-radius: 10rem;
+                width: 12rem;
+                height: 2.5rem;
+                font-size: 1.15rem; 
+                a {
+                    padding: 1rem; 
+                    text-decoration: none;
+                    color: inherit; 
+                }     
             }
         } 
 

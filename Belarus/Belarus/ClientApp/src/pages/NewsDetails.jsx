@@ -13,8 +13,6 @@ class NewsDetails extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        error: null,
-        isLoaded: false,
         items: []
       };
     }
@@ -34,31 +32,20 @@ class NewsDetails extends React.Component {
         (result) => {
           this.setState({
               items: result,
-              isLoaded: true
           });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }     
+        }  
       )
     }
   
     render() {
-      const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Ошибка: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-      } else {
-        return (
+      const { items } = this.state;
+        return(
           <div className={styles.container}>
-            
-            {items.map(item => (   
-              <div className={styles.wrapper}>
-                    <p className={styles.wrapper__date}>{item.Date}</p>
+            {items.map(item => {  
+              if (item.VideoUrl !== '0') {
+                return (
+                <div className={styles.wrapper}>
+                    
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
                     {item.Photos.map(item => (   
@@ -67,13 +54,27 @@ class NewsDetails extends React.Component {
                     
         ))}
                     <a href={item.VideoUrl}>Ссылка на видео</a>
-                    </div>     
-            ))}
-            
+                    </div>   
+            )}
+              else
+              {
+                return (
+                <div className={styles.wrapper}>
+                    
+                    <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
+                    <p className={styles.wrapper__text}>{item.Text}</p>
+                    {item.Photos.map(item => (   
+              
+              <img src={`data:image/png;base64,${item}`} alt='#' /> 
+                    
+        ))}
+                    </div>   
+            )}
+                
+    })}
           </div>
         );
       }
     }
-  }
 
   export default NewsDetails;

@@ -54,7 +54,7 @@ class Contests extends React.Component {
                   <h3>{item.Title}</h3>
                    <p>{item.MainText}</p> 
                     </div>                
-                    <button><Link to={`/contestsDetails/${item.Id}`}>Подробнее</Link></button>          
+                    <button className={styles.wrapper__button}><Link to={`/contestsDetails/${item.Id}`}>Подробнее</Link></button>          
                   </div>
                    
                 

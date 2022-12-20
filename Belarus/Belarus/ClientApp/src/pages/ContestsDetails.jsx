@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './ContestsDetails.module.scss';
+import styles from './NewsDetails.module.scss';
 
 const CONTESTS_API_URL = 'http://localhost:7001/api/contest/contestGet';
 
 
 function Check (){
   let queryString = document.location.pathname;
-  return queryString.slice(13);
+  return queryString.slice(17);
 }
 
 class ContestnsDetails extends React.Component {
@@ -54,19 +54,19 @@ class ContestnsDetails extends React.Component {
         return <div>Загрузка...</div>;
       } else {
         return (
+          
           <div className={styles.container}>
             
             {items.map(item => (   
               <div className={styles.wrapper}>
-                    <p className={styles.wrapper__date}>{item.Date}</p>
+                    <p className={styles.wrapper__date}>{item.Date.slice(0, 10)}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
                     {item.Photos.map(item => (   
               
               <img src={`data:image/png;base64,${item}`} alt='#' /> 
                     
-        ))}
-                    <a href={item.VideoUrl}>Ссылка на видео</a>
+        ))}           
                     </div>     
             ))}
             

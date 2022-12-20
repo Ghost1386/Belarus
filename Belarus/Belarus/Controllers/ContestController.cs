@@ -21,7 +21,7 @@ public class ContestController : ControllerBase
     }
     
     [Route("contestGet")]
-    [HttpGet]
+    [HttpPost]
     public IActionResult СontestGet([FromBody]Identifier identifier)
     {
         try

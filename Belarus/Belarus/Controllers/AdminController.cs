@@ -6,12 +6,14 @@ using Belarus.Common.DTOs.NewsDto;
 using Belarus.Common.DTOs.PreviewDto;
 using Belarus.Common.DTOs.СontestDto;
 using Belarus.Model.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belarus.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class AdminController : ControllerBase
 {
     private readonly INewsService _newsService;

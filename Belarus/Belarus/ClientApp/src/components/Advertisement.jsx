@@ -49,7 +49,7 @@ class Advertisement extends React.Component {
                   <div className={styles.wrapper__item}>                   
                    <h3>{item.Title}</h3>
                    <p>{item.MainText}</p> 
-                   <button><Link to={`/advertisementDetails/${item.Id}`}>Подробнее</Link></button>                 
+                   <button className={styles.wrapper__button}><Link to={`/advertisementDetails/${item.Id}`}>Подробнее</Link></button>                 
                   </div>  
             ))}
             </div>

@@ -21,7 +21,7 @@ public class GalleryController : ControllerBase
     }
     
     [Route("galleryGet")]
-    [HttpGet]
+    [HttpPost]
     public IActionResult GalleryGet([FromBody]Identifier identifier)
     {
         try

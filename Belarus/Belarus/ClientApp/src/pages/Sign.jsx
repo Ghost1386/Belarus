@@ -1,16 +1,33 @@
 import React, { useState } from 'react'
+import AdvertisementDetails from './AdvertisementDetails';
 import styles from './Sign.module.scss';
+import { Navigate, redirect } from "react-router-dom";
+import { render } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 
 const AUTH_API_URL = 'http://localhost:7001/api/auth/post';
 
+
 export default function Register () {
+
     const [register, setRegister] = useState(() => {
         return {
             login: "",
             password: "",
         }
     })
-     
+
+    const [token, setToken] = useState("");
+
+    const navigate = useNavigate();
+
+    const goHome = () => {
+        if(token !== '')
+        {
+            navigate("/admin");    
+        } 
+      };
+
     const changeInputRegister = event => {
         event.persist()
         setRegister(prev => {
@@ -22,11 +39,11 @@ export default function Register () {
     }
      
      
-    const submitChackin = e => {
+    const submitChackin = async e => {
 
         e.preventDefault();
 
-        const token = fetch(`${AUTH_API_URL}`, {
+        await fetch(`${AUTH_API_URL}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,10 +53,15 @@ export default function Register () {
                 password: register.password
             })
         })
-            .then(res => res.json())
+        .then(res => res.json())
+        .then((result) => 
+        {
+            setToken(result)
+        })
 
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', token)
     }
+        
     return (
         <div className={styles.container}>
             <form className={styles.form} onSubmit={submitChackin}>
@@ -63,8 +85,10 @@ export default function Register () {
                 onChange={changeInputRegister}
                 />
                 
-                <input className={styles.form__button} type="submit"/>
+                <input className={styles.form__button} type="submit"  onSubmit={goHome()}/>
+
             </form>
         </div>
     )
 }
+

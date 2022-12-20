@@ -37,9 +37,15 @@ class Admin extends React.Component {
         formData.append('date', this.state.date);
         formData.append('title', this.state.title);
         formData.append('text', this.state.text);
-        formData.append('videoUrl', this.state.videoUrl);
         
         
+        if (this.state.videoUrl !== '') {
+            formData.append('videoUrl', this.state.videoUrl)
+        }
+        else {
+            formData.append('videoUrl', "0")
+        }
+
         for (let i = 0; i < this.state.photos.length; i++) {
             formData.append('photos', this.state.photos[i]);
         }
@@ -155,7 +161,8 @@ submitAdv = async () => {
 
 
     <label htmlFor="text" className={styles.form__label}>Текст</label>
-    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text} />
+    <textarea rows="10" cols="45" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}></textarea>
+    
 
     <label htmlFor="videoUrl" className={styles.form__label}>Прикрепить ссылку на видео</label>
     <input type="url" name="videoUrl" className={styles.form__input} onChange={this.onChange} value={this.state.videoUrl === null ? '' : this.state.videoUrl} />
@@ -237,11 +244,11 @@ submitAdv = async () => {
     <label htmlFor="title" className={styles.form__label}>Заголовок</label>
     <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
 
-    <label htmlFor="mainText" className={styles.form__label}>Текст</label>
+    <label htmlFor="mainText" className={styles.form__label}>Заглавный текст</label>
     <input type="text" name="mainText" className={styles.form__input} onChange={this.onChange} value={this.state.mainText === null ? '' : this.state.mainText} />
 
     <label htmlFor="text" className={styles.form__label}>Текст</label>
-    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text} />
+    <textarea rows="10" cols="45" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}></textarea>
 
 <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
 <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
@@ -286,7 +293,7 @@ submitAdv = async () => {
     <input type="text" name="mainText" className={styles.form__input} onChange={this.onChange} value={this.state.mainText === null ? '' : this.state.mainText} />
 
     <label htmlFor="text" className={styles.form__label}>Текст</label>
-    <input type="text" name="text" className={styles.form__input} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text} />
+    <textarea rows="10" cols="45" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}></textarea>
 
     
 

@@ -37,13 +37,17 @@ public class AuthController : ControllerBase
         
             _logger.LogWarning($"{DateTime.Now}: Failed login attempt");
 
-            return StatusCode(401);
+            var jsonToken1 = JsonSerializer.Serialize(string.Empty);
+
+            return Unauthorized(jsonToken1);
         }
         catch (Exception e)
         {
             _logger.LogError($"{DateTime.Now}: {e}");
 
-            return BadRequest();
+            var jsonToken2 = JsonSerializer.Serialize(string.Empty);
+
+            return BadRequest(jsonToken2);
         }
     }
 }

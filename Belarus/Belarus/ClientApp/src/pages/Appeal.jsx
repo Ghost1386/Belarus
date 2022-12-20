@@ -65,7 +65,8 @@ class Appeal extends React.Component {
     <input type="text" name="subject" className={styles.form__input} onChange={this.onChange} value={this.state.subject === null ? '' : this.state.subject} />
     
     <label htmlFor="text" className={styles.form__label}>Текст обращения</label>
-    <input type="text" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}/>
+    <textarea rows="10" cols="45" name="text" className={styles.form__inputtext} onChange={this.onChange} value={this.state.text === null ? '' : this.state.text}></textarea>
+    
     
     <label htmlFor="file" className={styles.form__label}>Прикрепить файлы</label>
     <input type="file" multiple name="filesList" onChange={this.onFileChange} className={styles.form__inputfile}/>

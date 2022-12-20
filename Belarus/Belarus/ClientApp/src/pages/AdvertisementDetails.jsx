@@ -66,7 +66,6 @@ class AdvertisementDetails extends React.Component {
               <img src={`data:image/png;base64,${item}`} alt='#' /> 
                     
         ))}
-                    <a href={item.VideoUrl}>Ссылка на видео</a>
                     </div>     
             ))}
             
