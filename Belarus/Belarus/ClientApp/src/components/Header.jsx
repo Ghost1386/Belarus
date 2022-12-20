@@ -32,6 +32,12 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
+            <Nav.Link className={styles.nav__item} as={Link} to="/sign">
+                {" "}
+                <Button variant="none" tabindex="0" className={styles.btn}>
+                &nbsp;
+                </Button>
+              </Nav.Link>
               <Nav.Link className={styles.nav__item} as={Link} to="/">
                 <Dropdown as={ButtonGroup}>
                   <Button variant="none" className={styles.btn}>Главная</Button>
@@ -72,18 +78,13 @@ const Header = () => {
                   Фотогалерея
                 </Button>
               </Nav.Link>
-              <Nav.Link className={styles.nav__item} as={Link} to="/sign">
-                {" "}
-                <Button variant="none" className={styles.btn}>
-                  Авторизация
-                </Button>
-              </Nav.Link>
-              <Nav.Link className={styles.nav__item} as={Link} to="/admin">
+              
+              {/* <Nav.Link className={styles.nav__item} as={Link} to="/admin">
                 {" "}
                 <Button variant="none" className={styles.btn}>
                   Админ
                 </Button>
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link
                 className={styles.nav__item}
                 as={Link}
@@ -100,6 +101,7 @@ const Header = () => {
                   <span>Электронное обращение</span>
                 </Button>
               </Nav.Link>
+              
             </Nav>
           </Navbar.Collapse>
         
