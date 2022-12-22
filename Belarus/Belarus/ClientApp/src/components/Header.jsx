@@ -59,7 +59,7 @@ const Header = () => {
                     <Nav.Link className={styles.nav__item} as={Link} to="/council">
                         {" "}
                         <Button variant="none" className={styles.btn}>
-                          Совет пинской организации
+                        Совет Пинской городской организации
                         </Button>
                        </Nav.Link>
                     </Dropdown.Item>

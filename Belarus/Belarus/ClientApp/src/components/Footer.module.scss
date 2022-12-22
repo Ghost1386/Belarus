@@ -19,8 +19,8 @@ ul {
     padding-top: 1rem;
 
     img {
-        border-radius: 1rem;
-        max-width:100%;
+        
+        object-fit: cover;
     }
 }
 
@@ -38,4 +38,11 @@ ul {
     font-weight: 700;
     padding-top: 1.5rem;
     font-size: 3rem;
+}
+
+.carousel {
+display: flex;
+width: 40rem;
+height: 14rem;
+
 }

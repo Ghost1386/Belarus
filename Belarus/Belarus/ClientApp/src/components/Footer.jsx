@@ -1,4 +1,5 @@
 import styles from './Footer.module.scss';
+import Carousel from 'react-bootstrap/Carousel';
 
 const Footer = () => {
     return (
@@ -23,7 +24,35 @@ const Footer = () => {
                         <p>belayaruspinsk@tut.by</p>
                     </li>
                 </ul>
-            <img src="../assets/images/footer-img.jpg" alt="#" />
+                <Carousel controls={false} className={styles.carousel}>
+       <Carousel.Item  className={styles.carousel__item} >
+        <img className="d-flex w-100"  alt='#' src="../assets/images/footer-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item  >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer1-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer2-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer3-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer4-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer5-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer6-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer7-img.jpg" />   
+      </Carousel.Item>
+      <Carousel.Item >
+        <img className="d-flex w-100" alt='#' src="../assets/images/footer8-img.jpg" />   
+      </Carousel.Item>
+    </Carousel>
             </div>
         </div>
     )
