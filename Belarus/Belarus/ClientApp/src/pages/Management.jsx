@@ -12,7 +12,7 @@ return (
             <div className={styles.item__content}>
                 <h3 className={styles.item__content_title}>Романов Олег Александрович</h3>
                 <p className={styles.item__content_subtitle}>Республиканское общественное объединение “Белая Русь”</p>
-                <p className={styles.item__content_text}>Председатель Совета</p>
+                <p className={styles.item__content_text}>Председатель Республиканского Совета</p>
                 <p className={styles.item__content_text}>тел.8-017-324-18-57</p>
             </div>
        </div>
