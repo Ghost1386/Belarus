@@ -71,7 +71,7 @@ public class СontestService : IСontestService
 
     public bool Create(CreateСontestDto contestDto)
     {
-        var photos = _photoService.AddPhotos(contestDto.Photos, TypesEnum.News);
+        var photos = _photoService.AddPhotos(contestDto.Photos, TypesEnum.Сontest);
 
         var contest = new Сontest
         {
