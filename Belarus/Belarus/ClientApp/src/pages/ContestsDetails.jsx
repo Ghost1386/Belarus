@@ -47,19 +47,15 @@ class ContestnsDetails extends React.Component {
     }
   
     render() {
-      const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Ошибка: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-      } else {
+      const { items } = this.state;
+
         return (
           
           <div className={styles.container}>
             
             {items.map(item => (   
               <div className={styles.wrapper}>
-                    <p className={styles.wrapper__date}>{item.Date.slice(0, 10)}</p>
+                    <p className={styles.wrapper__date}>{new Date(item.Date).toLocaleDateString()}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
                     {item.Photos.map(item => (   
@@ -74,6 +70,6 @@ class ContestnsDetails extends React.Component {
         );
       }
     }
-  }
+  
 
   export default ContestnsDetails;

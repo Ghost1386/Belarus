@@ -35,12 +35,8 @@ class Advertisement extends React.Component {
     }
   
     render() {
-      const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Ошибка: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-      } else {
+      const {items } = this.state;
+
         return (
           <div className={styles.container}>
             <h2 className={styles.title}>Анонсы мероприятий </h2>
@@ -58,6 +54,6 @@ class Advertisement extends React.Component {
         );
       }
     }
-  }
+  
 
   export default Advertisement;

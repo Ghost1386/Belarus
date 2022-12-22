@@ -45,14 +45,16 @@ class NewsDetails extends React.Component {
               if (item.VideoUrl !== '0') {
                 return (
                 <div className={styles.wrapper}>
-                    <p className={styles.wrapper__text}>{item.Date}</p>
+                    <p className={styles.wrapper__text}>{new Date(item.Date).toLocaleDateString()}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
+                    <div className={styles.wrapper__img}>
                     {item.Photos.map(item => (   
               
               <img src={`data:image/png;base64,${item}`} alt='#' /> 
                     
         ))}
+        </div>
                     <a href={item.VideoUrl}>Ссылка на видео</a>
                     </div>   
             )}
@@ -60,14 +62,17 @@ class NewsDetails extends React.Component {
               {
                 return (
                 <div className={styles.wrapper}>
-                    <p className={styles.wrapper__text}>{item.Date}</p>
+                    <p className={styles.wrapper__text}>{new Date(item.Date).toLocaleDateString()}</p>
                     <h2 className={styles.wrapper__title}>{item.Title}</h2>                   
                     <p className={styles.wrapper__text}>{item.Text}</p>
+                    <div className={styles.wrapper__img}>
                     {item.Photos.map(item => (   
               
               <img src={`data:image/png;base64,${item}`} alt='#' /> 
                     
         ))}
+                    </div>
+                    
                     </div>   
             )}
                 

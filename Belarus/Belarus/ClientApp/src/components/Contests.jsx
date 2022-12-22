@@ -36,11 +36,7 @@ class Contests extends React.Component {
   
     render() {
       const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Ошибка: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-      } else {
+
         return (
           <div className={styles.container}>
             <h2 className={styles.title}>Конкурсы </h2>
@@ -64,6 +60,6 @@ class Contests extends React.Component {
         );
       }
     }
-  }
+  
 
   export default Contests;
