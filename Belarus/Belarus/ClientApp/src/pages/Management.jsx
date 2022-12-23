@@ -11,8 +11,8 @@ return (
             <img src="../assets/images/management1.jpg" alt="#" className={styles.item__img}/>
             <div className={styles.item__content}>
                 <h3 className={styles.item__content_title}>Романов Олег Александрович</h3>
-                <p className={styles.item__content_text}>Председатель Республиканского общественного объединения РОО “Белая Русь”</p>
-                <p className={styles.item__content_text}>тел.8-017-324-18-57</p>
+                <p className={styles.item__content_text}>Председатель Республиканского общественного объединения “Белая Русь”</p>
+                <p className={styles.item__content_text}>тел. 8-017-324-18-57</p>
             </div>
        </div>
        <div className={styles.item}>
