@@ -5,7 +5,7 @@ const Docs = () => {
 return (
     <div className={styles.container}>
        <h2 className={styles.title}>
-       Руководство
+       Документы
        </h2>
        <div className={styles.item}>
         <p className={styles.item__text}>План работы на 2022 год</p>
