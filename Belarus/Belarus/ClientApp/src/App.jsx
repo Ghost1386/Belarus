@@ -16,6 +16,7 @@ import Management from './pages/Management';
 import Council from './pages/Council';
 import ContestnsDetails from './pages/ContestsDetails';
 import { Navigate } from 'react-router-dom';
+import Docs from './pages/Docs';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/management" element={<Management />}></Route>
         <Route path="/council" element={<Council />}></Route>
         <Route path="/admin" element={<Navigate to="/admin" />}></Route>
+        <Route path="/documents" element={<Docs />}></Route>
     </Routes>
     <Footer />
 </div>

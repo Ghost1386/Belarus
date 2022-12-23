@@ -10,8 +10,10 @@ import {
 
 const Header = () => {
   return (
+    
     <div className={styles.container}>
       <div className={styles.wrapper}>
+      
         <img
           className={styles.logo1}
           src="../assets/icons/header-logo1.png"
@@ -32,13 +34,14 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
+            
             <Nav.Link className={styles.nav__item} as={Link} to="/sign">
                 {" "}
                 <Button variant="none" tabindex="0" className={styles.btn}>
                 &nbsp;
                 </Button>
               </Nav.Link>
-              <Nav.Link className={styles.nav__item} as={Link} to="/">
+              <Nav.Link className={styles.nav__item} as={Link} to="/" >
                 <Dropdown as={ButtonGroup}>
                   <Button variant="none" className={styles.btn}>Главная</Button>
                   <Dropdown.Toggle
@@ -78,13 +81,12 @@ const Header = () => {
                   Фотогалерея
                 </Button>
               </Nav.Link>
-              
-              {/* <Nav.Link className={styles.nav__item} as={Link} to="/admin">
+              <Nav.Link className={styles.nav__item} as={Link} to="/documents">
                 {" "}
                 <Button variant="none" className={styles.btn}>
-                  Админ
+                  Документы
                 </Button>
-              </Nav.Link> */}
+              </Nav.Link>
               <Nav.Link
                 className={styles.nav__item}
                 as={Link}

@@ -48,3 +48,41 @@ flex-wrap: wrap;
         }
     }
 }
+
+@media (max-width:1017px){
+ 
+	.wrapper {
+    
+        
+            &__item {
+               
+              display: block;
+              margin: 0 auto;
+              margin-bottom: 1rem;
+        
+                img {
+                    width: 100%;
+                }
+        
+               
+            }
+        }
+}
+
+@media (max-width:800px){
+ 
+	.wrapper {
+    
+        
+            &__item {
+               
+              
+        
+                img {
+                    width: 100%;
+                }
+        
+               
+            }
+        }
+}

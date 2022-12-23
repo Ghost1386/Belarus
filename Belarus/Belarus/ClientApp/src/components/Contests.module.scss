@@ -47,3 +47,20 @@
 }
 
 }
+
+@media (max-width:800px){
+ 
+	.wrapper {
+   
+    
+        &__item {
+            display: block;
+        }
+        &__icon {
+            display: none;
+        }
+        &__button {
+                
+        }
+    } 
+}

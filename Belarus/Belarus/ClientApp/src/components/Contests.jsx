@@ -45,7 +45,7 @@ class Contests extends React.Component {
             {items.map(item => (
                 
                   <div className={styles.wrapper__item}>  
-                  <img src="../assets/icons/contests-icon.svg" alt="#" /> 
+                  <img src="../assets/icons/contests-icon.svg" alt="#" className={styles.wrapper__icon}/> 
                   <div className={styles.item__content}> 
                   <h3>{item.Title}</h3>
                    <p>{item.MainText}</p> 

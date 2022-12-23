@@ -1,0 +1,53 @@
+.container {
+    padding: 2.5rem 10%;
+    padding-top: 0;
+} 
+
+.title {
+    color: #DC2F4A;
+    font-weight: 700;
+    font-size: 3rem;
+    padding-bottom: 3.5rem;
+    
+}
+
+.item {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+    &__text {
+font-size: 2.5rem;
+font-weight: 700;
+    }
+
+    &__button {
+        display: block;
+                border: 2px solid #DC2F4A ;
+                border-radius: 10rem;
+                width: 12rem;
+                height: 2.5rem;
+                font-size: 1.15rem; 
+                a {
+                    padding: 1rem; 
+                    text-decoration: none;
+                    color: inherit; 
+                } 
+    }
+}
+
+@media (max-width:1050px){
+ 
+	.item {
+
+        display: block;
+            &__text {
+      text-align: center;
+            }
+        
+            &__button {
+                margin: 0 auto;
+            }
+        }
+}
