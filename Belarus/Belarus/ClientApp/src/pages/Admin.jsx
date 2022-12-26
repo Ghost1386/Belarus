@@ -3,6 +3,7 @@ import styles from './Admin.module.scss';
 import axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion';
 
+
 const ADMIN_API_URL = 'http://localhost:7001/api/admin/';
 
 class Admin extends React.Component {
@@ -13,7 +14,7 @@ class Admin extends React.Component {
         text: '',
         photos: [],
         videoUrl: '',
-        type: '' 
+        type: '0' 
         }
     
         componentDidMount() {
@@ -165,7 +166,7 @@ submitAdv = async () => {
     
     
     
-    <Accordion defaultActiveKey={['0']} alwaysOpen>
+    <Accordion defaultActiveKey={['4']} >
     <Accordion.Item eventKey="0">
       <Accordion.Header>Добавить новость</Accordion.Header>
       <Accordion.Body>
@@ -193,26 +194,8 @@ submitAdv = async () => {
 </form>
       </Accordion.Body>
     </Accordion.Item>
-    <Accordion.Item eventKey="1">
-      <Accordion.Header>Удалить новость</Accordion.Header>
-      <Accordion.Body>
-      <form onSubmit={this.delete} className={styles.form}>
     
-    <label htmlFor="date" className={styles.form__label}>Дата</label>
-    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? new Date() : this.state.date} />
-
-
-    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
-    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
-
-    <label htmlFor="title" className={styles.form__label}>Тип</label>
-    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
-
-    <input type="submit" />
-</form>
-      </Accordion.Body>
-    </Accordion.Item>
-    <Accordion.Item eventKey="2">
+    <Accordion.Item eventKey="1">
       <Accordion.Header>Добавить фото</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitGal} className={styles.form}>
@@ -232,26 +215,8 @@ submitAdv = async () => {
 </form>
       </Accordion.Body>
     </Accordion.Item>
-    <Accordion.Item eventKey="3">
-      <Accordion.Header>Удалить фото</Accordion.Header>
-      <Accordion.Body>
-      <form onSubmit={this.delete} className={styles.form}>
     
-    <label htmlFor="date" className={styles.form__label}>Дата</label>
-    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
-
-
-    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
-    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
-
-    <label htmlFor="title" className={styles.form__label}>Тип</label>
-    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
-
-    <input type="submit" />
-</form>
-      </Accordion.Body>
-    </Accordion.Item>
-    <Accordion.Item eventKey="4">
+    <Accordion.Item eventKey="2">
       <Accordion.Header>Добавить конкурс</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitCont} className={styles.form}>
@@ -276,26 +241,8 @@ submitAdv = async () => {
 </form>
       </Accordion.Body>
     </Accordion.Item>
-    <Accordion.Item eventKey="5">
-      <Accordion.Header>Удалить конкурс</Accordion.Header>
-      <Accordion.Body>
-      <form onSubmit={this.delete} className={styles.form}>
     
-    <label htmlFor="date" className={styles.form__label}>Дата</label>
-    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? '' : this.state.date} />
-
-
-    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
-    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
-
-    <label htmlFor="title" className={styles.form__label}>Тип</label>
-    <input type="text" name="type" className={styles.form__input} onChange={this.onChange} value={this.state.type === null ? '' : this.state.type} />
-
-    <input type="submit" />
-</form>
-      </Accordion.Body>
-    </Accordion.Item>
-    <Accordion.Item eventKey="6">
+    <Accordion.Item eventKey="3">
       <Accordion.Header>Добавить анонс</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitAdv} className={styles.form}>
@@ -318,6 +265,29 @@ submitAdv = async () => {
 
 <label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
 <input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="4" >
+      <Accordion.Header>Удалить новость</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.delete} className={styles.form}>
+    
+    <label htmlFor="date" className={styles.form__label}>Дата</label>
+    <input type="date" name="date" className={styles.form__input} onChange={this.onChange} value={this.state.date === null ? new Date() : this.state.date} />
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+                <select name="type" onChange={this.onChange} value={this.state.type === null ? '' : this.value}> 
+                    <option value="0" >Новости</option>
+                    <option value="1" >Галлерея</option>
+                    <option value="2" >Конкурсы</option>
+                    <option value="3" >Анонсы</option>
+                </select>
 
     <input type="submit" />
 </form>

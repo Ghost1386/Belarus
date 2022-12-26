@@ -25,7 +25,7 @@ const Footer = () => {
                     </li>
                 </ul>
                 <Carousel controls={false} className={styles.carousel}>
-       <Carousel.Item  className={styles.carousel__item} >
+       <Carousel.Item   >
         <img className="d-flex w-100"  alt='#' src="../assets/images/footer-img.jpg" />   
       </Carousel.Item>
       <Carousel.Item  >
@@ -42,15 +42,6 @@ const Footer = () => {
       </Carousel.Item>
       <Carousel.Item >
         <img className="d-flex w-100" alt='#' src="../assets/images/footer5-img.jpg" />   
-      </Carousel.Item>
-      <Carousel.Item >
-        <img className="d-flex w-100" alt='#' src="../assets/images/footer6-img.jpg" />   
-      </Carousel.Item>
-      <Carousel.Item >
-        <img className="d-flex w-100" alt='#' src="../assets/images/footer7-img.jpg" />   
-      </Carousel.Item>
-      <Carousel.Item >
-        <img className="d-flex w-100" alt='#' src="../assets/images/footer8-img.jpg" />   
       </Carousel.Item>
     </Carousel>
             </div>
