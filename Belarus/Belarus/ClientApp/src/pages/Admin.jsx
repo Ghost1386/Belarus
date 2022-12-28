@@ -14,18 +14,21 @@ class Admin extends React.Component {
         text: '',
         photos: [],
         videoUrl: '',
-        type: '0' 
+        type: '0',
+        link: '',
+        files: [] 
         }
     
         componentDidMount() {
             if (this.props.user) {
-            const { date, title, mainText, text, photos, videoUrl, type } = this.props.user
-                this.setState({ date, title, mainText, text, photos, videoUrl, type });
+            const { date, title, mainText, text, photos, videoUrl, type, link } = this.props.user
+                this.setState({ date, title, mainText, text, photos, videoUrl, type, link });
             }    
     }
 
     onFileChange = e => {
         this.setState({ photos: e.target.files });
+        this.setState({ files: e.target.files });
     }
 
     onChange = e => {
@@ -161,6 +164,53 @@ submitAdv = async () => {
   
 }
 
+submitAbout = async () => {
+    const authorizationHeaders= {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
+    
+  const formData = new FormData();
+
+  formData.append('title', this.state.title);
+  formData.append('link', this.state.link); 
+  
+  for (let i = 0; i < this.state.photos.length; i++) {
+      formData.append('photos', this.state.photos[i]);
+  }
+
+  try {
+      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData, authorizationHeaders);
+      console.log(res);
+  } catch (ex) {
+      console.log(ex);
+  }
+  
+}
+
+submitDocuments = async () => {
+    const authorizationHeaders= {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
+    
+  const formData = new FormData();
+
+  formData.append('title', this.state.title);
+  
+  
+  for (let i = 0; i < this.state.files.length; i++) {
+      formData.append('files', this.state.files[i]);
+      formData.append('path', this.state.files[i].name); 
+  }
+
+  try {
+      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData, authorizationHeaders);
+      console.log(res);
+  } catch (ex) {
+      console.log(ex);
+  }
+  
+}
+
     render() {
     return  <div className={styles.container}>
     
@@ -270,8 +320,41 @@ submitAdv = async () => {
 </form>
       </Accordion.Body>
     </Accordion.Item>
-    <Accordion.Item eventKey="4" >
-      <Accordion.Header>Удалить новость</Accordion.Header>
+    <Accordion.Item eventKey="4">
+      <Accordion.Header>Добавить анонс</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.submitAbout} className={styles.form}>
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+    
+    <label htmlFor="link" className={styles.form__label}>Укажите ссылку </label>
+    <input type="url" name="link" className={styles.form__input} onChange={this.onChange} value={this.state.link === null ? '' : this.state.link} />
+<label htmlFor="file" className={styles.form__label}>Прикрепить фотографии</label>
+<input type="file" multiple name="photos" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="5">
+      <Accordion.Header>Добавить фото</Accordion.Header>
+      <Accordion.Body>
+      <form onSubmit={this.submitDocuments} className={styles.form}>
+
+
+    <label htmlFor="title" className={styles.form__label}>Заголовок</label>
+    <input type="text" name="title" className={styles.form__input} onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
+
+
+    <label htmlFor="file" className={styles.form__label}>Прикрепить файл</label>
+    <input type="file" multiple name="files" onChange={this.onFileChange} className={styles.form__inputfile}/>
+
+    <input type="submit" />
+</form>
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="6" >
+      <Accordion.Header>Удалить</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.delete} className={styles.form}>
     

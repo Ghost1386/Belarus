@@ -66,6 +66,14 @@ const Header = () => {
                         </Button>
                        </Nav.Link>
                     </Dropdown.Item>
+                    <Dropdown.Item href="/council">
+                    <Nav.Link className={styles.nav__item} as={Link} to="/about">
+                        {" "}
+                        <Button variant="none" className={styles.btn}>
+                        О нас в СМИ
+                        </Button>
+                       </Nav.Link>
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Link>

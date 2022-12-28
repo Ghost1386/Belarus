@@ -4,7 +4,7 @@ import styles from './NewsDetails.module.scss';
 const NEWS_API_URL = 'http://localhost:7001/api/news/newsGet';
 
 
-function Check (){
+function GetNewsId (){
   let queryString = document.location.pathname;
   return queryString.slice(13);
 }
@@ -17,7 +17,7 @@ class NewsDetails extends React.Component {
       };
     }
     componentDidMount = async () => {
-      const f = Check();
+      const f = GetNewsId();
       await fetch(`${NEWS_API_URL}`, {
         method: 'post',
         headers: {

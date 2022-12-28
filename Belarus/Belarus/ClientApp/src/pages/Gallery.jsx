@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Gallery.module.scss';
-import { Link } from 'react-router-dom';
+
 
 const ALL_GALLERY_API_URL = 'http://localhost:7001/api/gallery/galleryGetAll';
 
@@ -45,18 +45,18 @@ class Gallery extends React.Component {
             <div className={styles.wrapper}>
             {items.map(item => ( 
                   <div className={styles.item}>
-                    <div className={styles.item__content}>
-                    <h2 className={styles.item__title}>{item.Title}</h2>
-                    <p className={styles.item__date}>{new Date(item.Date).toLocaleDateString()}</p>
+                      <div className={styles.item__content}>
+                      <h2 className={styles.item__title}>{item.Title}</h2>
+                      <p className={styles.item__date}>{new Date(item.Date).toLocaleDateString()}</p>
                     </div>
                     
                       <div className={styles.item__img}>
                       {item.Photos.map(item => ( 
                   
-                  <img src={`data:image/png;base64,${item}`} alt='#' />
+                      <img src={`data:image/png;base64,${item}`} alt='#' />
              
-                    ))} 
-                      </div>
+                      ))} 
+                    </div>
                     
                                                         
                   </div>               
