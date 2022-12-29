@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
+using Belarus.Common.DTOs.AboutUsDto;
+using Belarus.Common.DTOs.DocumentDto;
 using Belarus.Common.DTOs.GalleryDto;
 using Belarus.Common.DTOs.NewsDto;
 using Belarus.Common.DTOs.PreviewDto;
@@ -20,15 +22,19 @@ public class AdminController : ControllerBase
     private readonly IGalleryService _galleryService;
     private readonly IСontestService _сontestService;
     private readonly IPreviewService _previewService;
+    private readonly IAboutUsService _aboutUsService;
+    private readonly IDocumentService _documentService;
     private readonly ILogger<AdminController> _logger;
     
     public AdminController(INewsService newsService, IGalleryService galleryService, IСontestService сontestService, 
-        ILogger<AdminController> logger, IPreviewService previewService)
+        ILogger<AdminController> logger, IPreviewService previewService, IAboutUsService aboutUsService, IDocumentService documentService)
     {
         _newsService = newsService;
         _galleryService = galleryService;
         _сontestService = сontestService;
         _previewService = previewService;
+        _aboutUsService = aboutUsService;
+        _documentService = documentService;
         _logger = logger;
     }
     
@@ -68,7 +74,7 @@ public class AdminController : ControllerBase
 
             var jsonResponse = JsonSerializer.Serialize(response);
             
-            return Ok(jsonResponse);
+            return Ok();
         }
         catch (Exception e)
         {
@@ -91,7 +97,7 @@ public class AdminController : ControllerBase
 
             var jsonResponse = JsonSerializer.Serialize(response);
             
-            return Ok(jsonResponse);
+            return Ok();
         }
         catch (Exception e)
         {
@@ -114,7 +120,53 @@ public class AdminController : ControllerBase
 
             var jsonResponse = JsonSerializer.Serialize(response);
             
-            return Ok(jsonResponse);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError($"{DateTime.Now}: {e}");
+
+            return BadRequest();
+        }
+    }
+    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Route("createAboutUs")]
+    [HttpPost]
+    public IActionResult AboutUsCreate([FromForm] CreateAboutUsDto aboutUsDto)
+    {
+        try
+        {
+            var response = _aboutUsService.Create(aboutUsDto);
+        
+            _logger.LogInformation($"{DateTime.Now}: Created new preview");
+
+            var jsonResponse = JsonSerializer.Serialize(response);
+            
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError($"{DateTime.Now}: {e}");
+
+            return BadRequest();
+        }
+    }
+    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Route("createDocument")]
+    [HttpPost]
+    public IActionResult DocumentCreate([FromForm] CreateDocumentDto documentDto)
+    {
+        try
+        {
+            var response = _documentService.Create(documentDto);
+        
+            _logger.LogInformation($"{DateTime.Now}: Created new preview");
+
+            var jsonResponse = JsonSerializer.Serialize(response);
+            
+            return Ok();
         }
         catch (Exception e)
         {
@@ -149,11 +201,17 @@ public class AdminController : ControllerBase
             {
                 response = _previewService.Delete(searchDto);
             }
+            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.AboutUs)
+            {
+                response = _aboutUsService.Delete(searchDto.Title);
+            }
+            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Document)
+            {
+                response = _documentService.Delete(searchDto.Title);
+            }
             
-            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");
-            
-            var jsonResponse = JsonSerializer.Serialize(response);
-            
+            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");  
+
             return Ok();
         }
         catch (Exception e)

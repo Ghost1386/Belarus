@@ -14,7 +14,7 @@ class AboutUs extends React.Component {
     componentDidMount = async () => {
 
       await fetch(`${ABOUT_API_URL}`, {
-        method: 'post',
+        method: 'get',
         headers: {
             'Content-Type': 'application/json'
         },

@@ -26,28 +26,30 @@ public class AuthController : ControllerBase
         {
             var token = _authService.CheckAuthorization(authDto);
             
+            string jsonToken;
+            
             if (!string.IsNullOrEmpty(token))
             {
                 _logger.LogInformation($"{DateTime.Now}: Admin logged in");
 
-                var jsonToken = JsonSerializer.Serialize(token);
+                jsonToken = JsonSerializer.Serialize(token);
                 
                 return Ok(jsonToken);
             }
         
             _logger.LogWarning($"{DateTime.Now}: Failed login attempt");
 
-            var jsonToken1 = JsonSerializer.Serialize(string.Empty);
+            jsonToken = JsonSerializer.Serialize(string.Empty);
 
-            return Unauthorized(jsonToken1);
+            return Unauthorized(jsonToken);
         }
         catch (Exception e)
         {
             _logger.LogError($"{DateTime.Now}: {e}");
 
-            var jsonToken2 = JsonSerializer.Serialize(string.Empty);
+            var jsonToken = JsonSerializer.Serialize(string.Empty);
 
-            return BadRequest(jsonToken2);
+            return BadRequest(jsonToken);
         }
     }
 }

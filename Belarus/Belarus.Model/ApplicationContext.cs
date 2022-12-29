@@ -14,5 +14,7 @@ public class ApplicationContext : DbContext
     public DbSet<Gallery> Galleries { get; set; }
     public DbSet<Сontest> Сontests { get; set; }
     public DbSet<Preview> Previews { get; set; }
+    public DbSet<AboutUs> AboutUs { get; set; }
+    public DbSet<Document> Documents { get; set; }
     public DbSet<Photo> Photos { get; set; }
 }

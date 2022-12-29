@@ -14,7 +14,7 @@ class Docs extends React.Component {
     componentDidMount = async () => {
 
       await fetch(`${DOCUMENTS_API_URL}`, {
-        method: 'post',
+        method: 'get',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -43,7 +43,7 @@ class Docs extends React.Component {
        </h2>
        <div className={styles.item}>
        <h3 className={styles.wrapper__title}>{item.Title}</h3>
-        <button className={styles.item__button}><a href={item.FilePath}>Скачать</a></button> 
+        <button className={styles.item__button}><a href={`../assets/files/${item.FilePath}`}>Скачать</a></button> 
        </div>
                     </div>   
             )

@@ -45,7 +45,7 @@ var mappingConfig = new MapperConfiguration(mc =>
     mc.AddProfile(new MapperProfile());
 });
 
-IMapper mapper = mappingConfig.CreateMapper();
+var mapper = mappingConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 
 builder.Services.Configure<FormOptions>(options =>

@@ -1,5 +1,6 @@
 ﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.BusinessLogic.Services;
+using Belarus.Model.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Belarus.Extensions;
@@ -15,6 +16,8 @@ public static class Dependencies
         services.AddTransient<IСontestService, СontestService>();
         services.AddTransient<IPreviewService, PreviewService>();
         services.AddTransient<IPhotoService, PhotoService>();
+        services.AddTransient<IDocumentService, DocumentService>();
+        services.AddTransient<IAboutUsService, AboutUsService>();
         services.AddTransient<IEmailService, EmailService>();
     }
 }

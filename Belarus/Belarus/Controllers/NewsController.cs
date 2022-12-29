@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using Belarus.BusinessLogic.Interfaces;
-using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.NewsDto;
 using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;

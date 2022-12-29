@@ -179,7 +179,7 @@ submitAbout = async () => {
   }
 
   try {
-      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData, authorizationHeaders);
+      const res = await axios.post(ADMIN_API_URL + 'createAboutUs', formData, authorizationHeaders);
       console.log(res);
   } catch (ex) {
       console.log(ex);
@@ -195,15 +195,11 @@ submitDocuments = async () => {
   const formData = new FormData();
 
   formData.append('title', this.state.title);
-  
-  
-  for (let i = 0; i < this.state.files.length; i++) {
-      formData.append('files', this.state.files[i]);
-      formData.append('path', this.state.files[i].name); 
-  }
+  formData.append('file', this.state.files[0]);
+  formData.append('path', this.state.files[0].name);
 
-  try {
-      const res = await axios.post(ADMIN_API_URL + 'previewCreate', formData, authorizationHeaders);
+    try {
+      const res = await axios.post(ADMIN_API_URL + 'createDocument', formData, authorizationHeaders);
       console.log(res);
   } catch (ex) {
       console.log(ex);
