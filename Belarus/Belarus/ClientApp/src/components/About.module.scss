@@ -29,6 +29,8 @@
         width: 100%;
         border-radius: 1rem;
         margin-bottom: 1rem;
+                width: 25rem;
+                height: 15rem;
     }
 
    
@@ -53,12 +55,21 @@
     color: #000;
 }
 
-@media (max-width:800px){
+@media (max-width:1420px){
  
-	.card {
-        margin: 0 auto;
-    }
+	.wrapper {
+    
+        display: block;
+              
+              margin-bottom: 1rem;
+            
+        }
 
+        .card {
+            display: block;
+            margin: 0 auto;
+        }
+        
 }
 
 

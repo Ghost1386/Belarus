@@ -74,10 +74,14 @@ class Admin extends React.Component {
         
       const formData = new FormData();
 
-      formData.append('date', this.state.date);
       formData.append('title', this.state.title);
       formData.append('type', this.state.type);
      
+        if (this.state.type === '4' || this.state.type === '5') {
+            formData.append('date', new Date("11.11.2022").toLocaleDateString());
+            } else {
+                formData.append('date', this.state.date);
+            }
 
       try {
           const res = await axios.post(ADMIN_API_URL + 'delete', formData, authorizationHeaders);
@@ -212,7 +216,7 @@ submitDocuments = async () => {
     
     
     
-    <Accordion defaultActiveKey={['4']} >
+    <Accordion >
     <Accordion.Item eventKey="0">
       <Accordion.Header>Добавить новость</Accordion.Header>
       <Accordion.Body>
@@ -317,7 +321,7 @@ submitDocuments = async () => {
       </Accordion.Body>
     </Accordion.Item>
     <Accordion.Item eventKey="4">
-      <Accordion.Header>Добавить анонс</Accordion.Header>
+      <Accordion.Header>Добавить о нас в СМИ</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitAbout} className={styles.form}>
     <label htmlFor="title" className={styles.form__label}>Заголовок</label>
@@ -333,7 +337,7 @@ submitDocuments = async () => {
       </Accordion.Body>
     </Accordion.Item>
     <Accordion.Item eventKey="5">
-      <Accordion.Header>Добавить фото</Accordion.Header>
+      <Accordion.Header>Добавить документ</Accordion.Header>
       <Accordion.Body>
       <form onSubmit={this.submitDocuments} className={styles.form}>
 
@@ -366,6 +370,8 @@ submitDocuments = async () => {
                     <option value="1" >Галлерея</option>
                     <option value="2" >Конкурсы</option>
                     <option value="3" >Анонсы</option>
+                    <option value="4" >О нас в СМИ</option>
+                    <option value="5" >Документ</option>
                 </select>
 
     <input type="submit" />

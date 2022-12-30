@@ -60,27 +60,26 @@ flex-wrap: wrap;
               margin: 0 auto;
               margin-bottom: 1rem;
         
-                img {
-                    width: 100%;
-                }
+                
         
                
             }
         }
 }
 
-@media (max-width:800px){
+
+@media (max-width:440px){
  
-	.wrapper {
+    .wrapper {
     
         
             &__item {
                
-              
+              img {
+                width: 100%;
+              }
         
-                img {
-                    width: 100%;
-                }
+                
         
                
             }

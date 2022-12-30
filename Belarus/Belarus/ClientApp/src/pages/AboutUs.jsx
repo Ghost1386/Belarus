@@ -33,20 +33,23 @@ class AboutUs extends React.Component {
       const { items } = this.state;
         return(
           <div className={styles.container}>
+            <div className={styles.wrapper}>
             {items.map(item => {  
               
                 return (
-                <div className={styles.wrapper}>
-                                               
-              <a className={styles.card} href={item.Link} target="_blank">
+                
+                                 <div className={styles.wrapper__item}>             
+              <a  href={item.Link} target="_blank">
               <img src={`data:image/png;base64,${item.Photos[0]}`} alt='#' />
-              <h2 className={styles.wrapper__title}>{item.Title}</h2>  
+              <h2 >{item.Title}</h2>  
      </a>
-                    </div>   
+     </div> 
+                      
             )
              
                 
     })}
+    </div> 
           </div>
         );
       }
