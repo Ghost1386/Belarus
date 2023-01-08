@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using Belarus.BusinessLogic.Interfaces;
+﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
 using Belarus.Common.DTOs.AboutUsDto;
 using Belarus.Common.DTOs.DocumentDto;
@@ -11,6 +10,7 @@ using Belarus.Model.Enums;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Belarus.Controllers;
 
@@ -25,8 +25,8 @@ public class AdminController : ControllerBase
     private readonly IAboutUsService _aboutUsService;
     private readonly IDocumentService _documentService;
     private readonly ILogger<AdminController> _logger;
-    
-    public AdminController(INewsService newsService, IGalleryService galleryService, IСontestService сontestService, 
+
+    public AdminController(INewsService newsService, IGalleryService galleryService, IСontestService сontestService,
         ILogger<AdminController> logger, IPreviewService previewService, IAboutUsService aboutUsService, IDocumentService documentService)
     {
         _newsService = newsService;
@@ -37,20 +37,20 @@ public class AdminController : ControllerBase
         _documentService = documentService;
         _logger = logger;
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Route("newsCreate")]
+    [Route("createNews")]
     [HttpPost]
-    public IActionResult NewsCreate([FromForm] CreateNewsDto newsDto )
+    public IActionResult NewsCreate([FromForm] CreateNewsDto newsDto)
     {
         try
         {
             var response = _newsService.Create(newsDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new news");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -60,20 +60,20 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Route("contestCreate")]
+    [Route("createContest")]
     [HttpPost]
-    public IActionResult СontestCreate([FromForm] CreateСontestDto contestDto)
+    public IActionResult CreateContest([FromForm] CreateСontestDto contestDto)
     {
         try
         {
             var response = _сontestService.Create(contestDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new contest");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -83,20 +83,20 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Route("galleryCreate")]
+    [Route("createGallery")]
     [HttpPost]
-    public IActionResult GalleryCreate([FromForm] CreateGalleryDto galleryDto)
+    public IActionResult CreateGallery([FromForm] CreateGalleryDto galleryDto)
     {
         try
         {
             var response = _galleryService.Create(galleryDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new gallery");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -106,20 +106,20 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Route("previewCreate")]
+    [Route("createPreview")]
     [HttpPost]
-    public IActionResult PreviewCreate([FromForm] CreatePreviewDto previewDto)
+    public IActionResult CreatePreview([FromForm] CreatePreviewDto previewDto)
     {
         try
         {
             var response = _previewService.Create(previewDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new preview");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -129,7 +129,7 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("createAboutUs")]
     [HttpPost]
@@ -138,11 +138,11 @@ public class AdminController : ControllerBase
         try
         {
             var response = _aboutUsService.Create(aboutUsDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new preview");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -152,7 +152,7 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("createDocument")]
     [HttpPost]
@@ -161,11 +161,11 @@ public class AdminController : ControllerBase
         try
         {
             var response = _documentService.Create(documentDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Created new preview");
 
             var jsonResponse = JsonSerializer.Serialize(response);
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -175,7 +175,7 @@ public class AdminController : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("delete")]
     [HttpPost]
@@ -184,33 +184,33 @@ public class AdminController : ControllerBase
         try
         {
             var response = false;
-            
+
             if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.News)
             {
                 response = _newsService.Delete(searchDto);
             }
-            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Gallery)
+            else if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.Gallery)
             {
                 response = _galleryService.Delete(searchDto);
             }
-            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Сontest)
+            else if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.Сontest)
             {
                 response = _сontestService.Delete(searchDto);
             }
-            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Preview)
+            else if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.Preview)
             {
                 response = _previewService.Delete(searchDto);
             }
-            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.AboutUs)
+            else if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.AboutUs)
             {
                 response = _aboutUsService.Delete(searchDto.Title);
             }
-            else if (Convert.ToInt32(searchDto.Type) == (int) TypesEnum.Document)
+            else if (Convert.ToInt32(searchDto.Type) == (int)TypesEnum.Document)
             {
                 response = _documentService.Delete(searchDto.Title);
             }
-            
-            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");  
+
+            _logger.LogInformation($"{DateTime.Now}: Deleted {searchDto.Title} {searchDto.Type}");
 
             return Ok();
         }

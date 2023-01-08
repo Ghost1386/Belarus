@@ -8,7 +8,7 @@ public interface INewsService
     GetNewsDto Get(int id);
 
     Task<List<GetNewsDto>> GetAll();
-    
+
     bool Create(CreateNewsDto newsDto);
 
     bool Delete(SearchDto searchDto);

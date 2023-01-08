@@ -16,7 +16,7 @@ public class DocumentService : IDocumentService
     {
         _applicationContext = applicationContext;
     }
-    
+
     public async Task<List<GetDocumentDto>> GetAll()
     {
         var documents = await _applicationContext.Documents.ToListAsync();
@@ -26,9 +26,9 @@ public class DocumentService : IDocumentService
             Title = document.Title,
             FilePath = document.FilePath
         }).ToList();
-        
+
         documentsDto.Reverse();
-        
+
         return documentsDto;
     }
 
@@ -43,13 +43,13 @@ public class DocumentService : IDocumentService
             {
                 documentDto.File.CopyTo(stream);
             }
-            
+
             var document = new Document
             {
                 Title = documentDto.Title,
                 FilePath = documentDto.Path
             };
-            
+
             _applicationContext.Documents.Add(document);
             _applicationContext.SaveChanges();
 
@@ -64,9 +64,9 @@ public class DocumentService : IDocumentService
     public bool Delete(string title)
     {
         title = title.ToLower();
-        
+
         var document = _applicationContext.Documents.FirstOrDefault(document => document.Title.ToLower() == title);
-        
+
         if (document != null)
         {
             var fileInfo = new FileInfo(document.FilePath);
@@ -75,13 +75,13 @@ public class DocumentService : IDocumentService
             {
                 fileInfo.Delete();
             }
-            
+
             _applicationContext.Documents.Remove(document);
             _applicationContext.SaveChanges();
 
             return true;
         }
-        
+
         return false;
     }
 }

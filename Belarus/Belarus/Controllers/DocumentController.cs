@@ -1,6 +1,6 @@
-﻿using System.Text.Json;
-using Belarus.BusinessLogic.Interfaces;
+﻿using Belarus.BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Belarus.Controllers;
 
@@ -16,17 +16,17 @@ public class DocumentController : ControllerBase
         _documentService = documentService;
         _logger = logger;
     }
-    
-    [Route("getAlldocuments")]
+
+    [Route("getAll")]
     [HttpGet]
-    public async Task<IActionResult> DocumentGetAll()
+    public async Task<IActionResult> GetAll()
     {
         try
         {
             var documents = await _documentService.GetAll();
 
             var jsonDocuments = JsonSerializer.Serialize(documents);
-            
+
             return Ok(jsonDocuments);
         }
         catch (Exception e)

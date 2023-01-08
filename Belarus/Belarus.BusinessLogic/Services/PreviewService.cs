@@ -1,6 +1,5 @@
 ﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs;
-using Belarus.Common.DTOs.NewsDto;
 using Belarus.Common.DTOs.PreviewDto;
 using Belarus.Model;
 using Belarus.Model.Enums;
@@ -19,7 +18,7 @@ public class PreviewService : IPreviewService
         _applicationContext = applicationContext;
         _photoService = photoService;
     }
-    
+
     public GetPreviewDto Get(int id)
     {
         var preview = _applicationContext.Previews.Where(preview => preview.Id == id).Select(preview => new Preview
@@ -30,7 +29,7 @@ public class PreviewService : IPreviewService
             Title = preview.Title,
             Photos = preview.Photos.Where(photo => photo.Type == TypesEnum.Preview).ToList()
         }).ToList()[0];
-        
+
         var previewDto = new GetPreviewDto
         {
             Date = preview.Date,
@@ -91,19 +90,19 @@ public class PreviewService : IPreviewService
 
     public bool Delete(SearchDto searchDto)
     {
-        var preview = _applicationContext.Previews.FirstOrDefault(preview => preview.Title == searchDto.Title && 
+        var preview = _applicationContext.Previews.FirstOrDefault(preview => preview.Title == searchDto.Title &&
                                                                              preview.Date == searchDto.Date);
 
         if (preview != null)
         {
             _applicationContext.Previews.Remove(preview);
             _applicationContext.SaveChanges();
-            
+
             _photoService.Delete(TypesEnum.Сontest, preview.Id);
 
             return true;
         }
-        
+
         return false;
     }
 }

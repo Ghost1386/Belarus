@@ -18,7 +18,7 @@ public class СontestService : IСontestService
         _applicationContext = applicationContext;
         _photoService = photoService;
     }
-    
+
     public GetСontestDto Get(int id)
     {
         var contest = _applicationContext.Сontests.Where(contest => contest.Id == id).Select(contest => new Сontest
@@ -90,19 +90,19 @@ public class СontestService : IСontestService
 
     public bool Delete(SearchDto searchDto)
     {
-        var contest = _applicationContext.Сontests.FirstOrDefault(contest => contest.Title == searchDto.Title && 
+        var contest = _applicationContext.Сontests.FirstOrDefault(contest => contest.Title == searchDto.Title &&
                                                                          contest.Date == searchDto.Date);
 
         if (contest != null)
         {
             _applicationContext.Сontests.Remove(contest);
             _applicationContext.SaveChanges();
-            
+
             _photoService.Delete(TypesEnum.Сontest, contest.Id);
 
             return true;
         }
-        
+
         return false;
     }
 }

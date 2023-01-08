@@ -30,7 +30,7 @@ public class EmailService : IEmailService
         var bodyBuilder = new BodyBuilder
         {
             TextBody = $"Почта для ответа: {appealDto.Mail}\n" +
-                       $"{appealDto.Name}\n" + 
+                       $"{appealDto.Name}\n" +
                        $"Текст обращения:\n{appealDto.Text}"
         };
 
@@ -50,7 +50,7 @@ public class EmailService : IEmailService
         };
 
         var isSanded = await SendEmail(email);
-        
+
         return isSanded;
     }
 
@@ -59,7 +59,7 @@ public class EmailService : IEmailService
         var bodyBuilder = new BodyBuilder
         {
             TextBody = $"Почта для ответа: {introductionDto.Mail}\n" +
-                       $"{introductionDto.Name}\n " + 
+                       $"{introductionDto.Name}\n " +
                        $"Номер телефона:\n{introductionDto.Phone}"
         };
 
@@ -69,29 +69,29 @@ public class EmailService : IEmailService
             Body = bodyBuilder,
             Subject = string.Empty
         };
-        
+
         var isSanded = await SendEmail(email);
-        
+
         return isSanded;
     }
-    
+
     private async Task<bool> SendEmail(Email email)
     {
         try
         {
             var message = new MimeMessage();
- 
+
             message.From.Add(new MailboxAddress(email.Type, _emailAddress));
             message.To.Add(new MailboxAddress("", _emailAddress));
             message.Subject = email.Subject;
-            
+
             message.Body = email.Body.ToMessageBody();
 
             using var client = new SmtpClient();
             await client.ConnectAsync(Host, 587, false);
             await client.AuthenticateAsync(_emailAddress, _emailPassword);
             await client.SendAsync(message);
- 
+
             await client.DisconnectAsync(true);
 
             return true;

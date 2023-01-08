@@ -18,7 +18,7 @@ public class NewsService : INewsService
         _applicationContext = applicationContext;
         _photoService = photoService;
     }
-    
+
     public GetNewsDto Get(int id)
     {
         var news = _applicationContext.News.Where(news => news.Id == id).Select(news => new News
@@ -65,7 +65,7 @@ public class NewsService : INewsService
         }).ToList();
 
         newsDto.Reverse();
-        
+
         return newsDto;
     }
 
@@ -91,20 +91,20 @@ public class NewsService : INewsService
     public bool Delete(SearchDto searchDto)
     {
         searchDto.Title = searchDto.Title.ToLower();
-        
-        var news = _applicationContext.News.FirstOrDefault(news => news.Title.ToLower() == searchDto.Title && 
+
+        var news = _applicationContext.News.FirstOrDefault(news => news.Title.ToLower() == searchDto.Title &&
                                                                    news.Date == searchDto.Date);
 
         if (news != null)
         {
             _applicationContext.News.Remove(news);
             _applicationContext.SaveChanges();
-            
+
             _photoService.Delete(TypesEnum.News, news.Id);
 
             return true;
         }
-        
+
         return false;
     }
 }

@@ -17,7 +17,7 @@ public class AboutUsService : IAboutUsService
         _applicationContext = applicationContext;
         _photoService = photoService;
     }
-    
+
     public async Task<List<GetAboutUsDto>> GetAll()
     {
         var aboutUs = await _applicationContext.AboutUs.Select(aboutUs => new AboutUs
@@ -36,7 +36,7 @@ public class AboutUsService : IAboutUsService
         }).ToList();
 
         aboutUsDto.Reverse();
-        
+
         return aboutUsDto;
     }
 
@@ -67,12 +67,12 @@ public class AboutUsService : IAboutUsService
         {
             _applicationContext.AboutUs.Remove(aboutUs);
             _applicationContext.SaveChanges();
-            
+
             _photoService.Delete(TypesEnum.AboutUs, aboutUs.Id);
 
             return true;
         }
-        
+
         return false;
     }
 }

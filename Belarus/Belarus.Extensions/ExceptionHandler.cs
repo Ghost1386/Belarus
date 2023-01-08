@@ -1,9 +1,9 @@
-﻿using System.Net;
-using Belarus.Model;
+﻿using Belarus.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Serilog;
+using System.Net;
 
 namespace Belarus.Extensions;
 
@@ -19,9 +19,9 @@ public static class ExceptionHandler
                 context.Response.ContentType = "application/json";
                 context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
                 context.Response.Headers.Add("Access-Control-Allow-Methods", "*");
-                
+
                 var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                
+
                 if (contextFeature != null)
                 {
                     Log.Error($"Something went wrong in {contextFeature.Error}");

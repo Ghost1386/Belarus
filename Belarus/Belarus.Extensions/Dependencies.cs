@@ -1,6 +1,5 @@
 ﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.BusinessLogic.Services;
-using Belarus.Model.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Belarus.Extensions;

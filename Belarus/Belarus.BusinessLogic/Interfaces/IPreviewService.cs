@@ -8,7 +8,7 @@ public interface IPreviewService
     GetPreviewDto Get(int id);
 
     Task<List<GetPreviewDto>> GetAll();
-    
+
     bool Create(CreatePreviewDto previewDto);
 
     bool Delete(SearchDto searchDto);

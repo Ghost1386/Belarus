@@ -1,9 +1,8 @@
-﻿using System.Text.Json;
-using Belarus.BusinessLogic.Interfaces;
-using Belarus.Common.DTOs;
+﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs.СontestDto;
 using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Belarus.Controllers;
 
@@ -13,22 +12,22 @@ public class ContestController : ControllerBase
 {
     private readonly IСontestService _contestService;
     private readonly ILogger<ContestController> _logger;
-    
+
     public ContestController(IСontestService contestService, ILogger<ContestController> logger)
     {
         _contestService = contestService;
         _logger = logger;
     }
-    
-    [Route("contestGet")]
+
+    [Route("get")]
     [HttpPost]
-    public IActionResult СontestGet([FromBody]Identifier identifier)
+    public IActionResult Get([FromBody] Identifier identifier)
     {
         try
         {
             var contest = _contestService.Get(identifier.Id);
 
-            var listContest = new List<GetСontestDto?> {contest};
+            var listContest = new List<GetСontestDto?> { contest };
 
             var jsonContest = JsonSerializer.Serialize(listContest);
 
@@ -41,17 +40,17 @@ public class ContestController : ControllerBase
             return BadRequest();
         }
     }
-    
-    [Route("contestGetAll")]
+
+    [Route("getAll")]
     [HttpGet]
-    public async Task<IActionResult> ContestGetAll()
+    public async Task<IActionResult> GetAll()
     {
         try
         {
             var contest = await _contestService.GetAll();
 
             var jsonContest = JsonSerializer.Serialize(contest);
-            
+
             return Ok(jsonContest);
         }
         catch (Exception e)

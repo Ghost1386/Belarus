@@ -7,7 +7,7 @@ public class AboutUs
 {
     [Key]
     public int Id { get; set; }
-    
+
     public string Title { get; set; }
 
     [ForeignKey("TypeId")]

@@ -81,19 +81,19 @@ public class GalleryService : IGalleryService
 
     public bool Delete(SearchDto searchDto)
     {
-        var gallery = _applicationContext.Galleries.FirstOrDefault(gallery => gallery.Title == searchDto.Title && 
+        var gallery = _applicationContext.Galleries.FirstOrDefault(gallery => gallery.Title == searchDto.Title &&
                                                                               gallery.Date == searchDto.Date);
 
         if (gallery != null)
         {
             _applicationContext.Galleries.Remove(gallery);
             _applicationContext.SaveChanges();
-            
+
             _photoService.Delete(TypesEnum.Gallery, gallery.Id);
 
             return true;
         }
-        
+
         return false;
     }
 }

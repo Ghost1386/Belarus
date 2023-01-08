@@ -17,9 +17,9 @@ public class AboutUsController : ControllerBase
         _logger = logger;
     }
 
-    [Route("getAllAboutUs")]
+    [Route("getAll")]
     [HttpGet]
-    public async Task<IActionResult> AboutUsGetAll()
+    public async Task<IActionResult> GetAll()
     {
         try
         {

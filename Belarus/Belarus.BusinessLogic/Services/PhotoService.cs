@@ -18,7 +18,7 @@ public class PhotoService : IPhotoService
     public List<Photo> AddPhotos(List<IFormFile> files, TypesEnum type)
     {
         var photos = new List<Photo>();
-        
+
         foreach (var file in files)
         {
             photos.Add(new Photo
@@ -33,7 +33,7 @@ public class PhotoService : IPhotoService
 
     public void Delete(TypesEnum type, int typeId)
     {
-        var photos = _applicationContext.Photos.Where(photo => photo.Type == type && 
+        var photos = _applicationContext.Photos.Where(photo => photo.Type == type &&
                                                                 photo.TypeId == typeId).ToList();
 
         _applicationContext.Photos.RemoveRange(photos);
@@ -43,7 +43,7 @@ public class PhotoService : IPhotoService
     private string ConvertFormPhotoToByteString(IFormFile file)
     {
         var photosInByteString = string.Empty;
-        
+
         if (file.Length > 0)
         {
             using var ms = new MemoryStream();
@@ -51,7 +51,7 @@ public class PhotoService : IPhotoService
             var fileBytes = ms.ToArray();
             photosInByteString = Convert.ToBase64String(fileBytes);
         }
-        
+
         return photosInByteString;
     }
 }

@@ -8,7 +8,7 @@ public interface IСontestService
     GetСontestDto Get(int id);
 
     Task<List<GetСontestDto>> GetAll();
-    
+
     bool Create(CreateСontestDto contestDto);
 
     bool Delete(SearchDto searchDto);

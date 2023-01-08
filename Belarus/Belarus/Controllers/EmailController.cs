@@ -6,27 +6,27 @@ namespace Belarus.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class EmailController  : ControllerBase
+public class EmailController : ControllerBase
 {
     private readonly IEmailService _emailService;
     private readonly ILogger<EmailController> _logger;
-    
+
     public EmailController(IEmailService emailService, ILogger<EmailController> logger)
     {
         _emailService = emailService;
         _logger = logger;
     }
-    
+
     [Route("postAppeal")]
     [HttpPost]
-    public IActionResult Post([FromForm] AppealDto appealDto )
+    public IActionResult Post([FromForm] AppealDto appealDto)
     {
         try
         {
             _emailService.AppealBody(appealDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Sended new appeal");
-            
+
             return Ok();
         }
         catch (Exception e)
@@ -36,7 +36,7 @@ public class EmailController  : ControllerBase
             return BadRequest();
         }
     }
-    
+
     [Route("postIntroduction")]
     [HttpPost]
     public IActionResult Post([FromForm] IntroductionDto introductionDto)
@@ -44,9 +44,9 @@ public class EmailController  : ControllerBase
         try
         {
             _emailService.IntroductionBody(introductionDto);
-        
+
             _logger.LogInformation($"{DateTime.Now}: Sended new introduction");
-            
+
             return Ok();
         }
         catch (Exception e)

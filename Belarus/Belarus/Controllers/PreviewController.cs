@@ -1,9 +1,8 @@
-﻿using System.Text.Json;
-using Belarus.BusinessLogic.Interfaces;
-using Belarus.Common.DTOs;
+﻿using Belarus.BusinessLogic.Interfaces;
 using Belarus.Common.DTOs.PreviewDto;
 using Belarus.Model.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Belarus.Controllers;
 
@@ -19,16 +18,16 @@ public class PreviewController : ControllerBase
         _previewService = previewService;
         _logger = logger;
     }
-    
-    [Route("previewGet")]
+
+    [Route("get")]
     [HttpPost]
-    public IActionResult PreviewGet([FromBody]Identifier identifier)
+    public IActionResult Get([FromBody] Identifier identifier)
     {
         try
         {
             var preview = _previewService.Get(identifier.Id);
 
-            var listPreview = new List<GetPreviewDto?> {preview};
+            var listPreview = new List<GetPreviewDto?> { preview };
 
             var jsonPreview = JsonSerializer.Serialize(listPreview);
 
@@ -41,17 +40,17 @@ public class PreviewController : ControllerBase
             return BadRequest();
         }
     }
-    
-    [Route("previewGetAll")]
+
+    [Route("getAll")]
     [HttpGet]
-    public async Task<IActionResult> PreviewGetAll()
+    public async Task<IActionResult> GetAll()
     {
         try
         {
             var preview = await _previewService.GetAll();
 
             var jsonPreview = JsonSerializer.Serialize(preview);
-            
+
             return Ok(jsonPreview);
         }
         catch (Exception e)
