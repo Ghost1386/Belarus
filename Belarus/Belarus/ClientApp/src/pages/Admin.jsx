@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Admin.module.scss";
 import axios from "axios";
 import Accordion from "react-bootstrap/Accordion";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const ADMIN_API_URL = DEFAULT_URL + "admin/";
 

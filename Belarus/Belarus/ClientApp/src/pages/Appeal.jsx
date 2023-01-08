@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Appeal.module.scss";
 import axios from "axios";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const APPEAL_API_URL = DEFAULT_URL + "email/postAppeal";
 

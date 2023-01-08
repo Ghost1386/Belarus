@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Sign.module.scss";
 import { useNavigate } from "react-router-dom";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const AUTH_API_URL = DEFAULT_URL + "auth/post";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Docs.module.scss";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const DOCUMENTS_API_URL = DEFAULT_URL + "document/getAll";
 

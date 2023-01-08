@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Gallery.module.scss";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const ALL_GALLERY_API_URL = DEFAULT_URL + "gallery/getAll";
 

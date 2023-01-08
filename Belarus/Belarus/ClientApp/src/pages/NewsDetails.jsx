@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./NewsDetails.module.scss";
-import { DEFAULT_URL } from "./Main";
+import { DEFAULT_URL } from "../components/Header";
 
 const NEWS_API_URL = DEFAULT_URL + "news/get";
 
